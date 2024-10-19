@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Components
 {
-    public class MoveComponent : MonoBehaviour
+    public sealed class MoveComponent : MonoBehaviour
     {
         [SerializeField]
         private Rigidbody2D _rigidbody;
