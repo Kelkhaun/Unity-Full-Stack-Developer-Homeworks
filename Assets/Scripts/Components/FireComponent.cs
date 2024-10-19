@@ -1,8 +1,7 @@
 using Bullets;
-using Components;
 using UnityEngine;
 
-namespace Character
+namespace Components
 {
     public sealed class FireComponent : MonoBehaviour
     {
