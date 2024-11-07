@@ -7,7 +7,7 @@ namespace Enemy
     public sealed class EnemyFactory : MonoBehaviour
     {
         [SerializeField]
-        private Player _player;
+        private GameObject _player;
 
         [SerializeField]
         private BulletManager _bulletManager;

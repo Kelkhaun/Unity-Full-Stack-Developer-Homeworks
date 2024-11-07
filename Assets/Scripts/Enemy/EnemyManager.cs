@@ -26,11 +26,13 @@ namespace Enemy
             _cacheOfEnemies.Add(enemy);
             enemy.GetComponent<HealthComponent>().OnHealthEmpty += OnEnemyDied;
 
-            Transform spawnPosition = _spawnPositions.RandomPoint();
+            int index = Random.Range(0, _spawnPositions.Length);
+            Transform spawnPosition = _spawnPositions[index];
             enemy.transform.position = spawnPosition.position;
 
-            Transform attackPosition = _attackPositions.RandomPoint();
-            enemy.SetDestination(attackPosition.position);
+            index = Random.Range(0, _attackPositions.Length);
+            Transform attackPosition = _attackPositions[index];
+            enemy.GetComponent<EnemyMoveAgent>().SetDestination(attackPosition.position);
         }
 
         private void OnEnemyDied(GameObject healthComponent)

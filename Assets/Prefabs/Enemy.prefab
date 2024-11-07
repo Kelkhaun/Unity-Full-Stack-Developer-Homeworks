@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 3294499015696720065}
   - component: {fileID: 5798946893587766654}
   - component: {fileID: 3996225037713140426}
+  - component: {fileID: 7484699599212545628}
+  - component: {fileID: 853820835215389107}
   m_Layer: 11
   m_Name: Enemy
   m_TagString: Untagged
@@ -166,11 +168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e09a324f54d94d6e84681731f36566c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _countdown: 1
-  _config: {fileID: 11400000, guid: 852f98bbd105cb24eabf0b58cf5a60bb, type: 2}
-  _teamComponent: {fileID: 4951542372911717445}
-  _moveComponent: {fileID: 5798946893587766654}
   _fireComponent: {fileID: 3996225037713140426}
+  _enemyAttackAgent: {fileID: 7484699599212545628}
 --- !u!114 &4951542372911717445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,9 +222,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c36dd54d8145124184875c74e1f090b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bulletManager: {fileID: 0}
   _firePoint: {fileID: 3195880656587174614}
   _teamComponent: {fileID: 4951542372911717445}
   _config: {fileID: 11400000, guid: 852f98bbd105cb24eabf0b58cf5a60bb, type: 2}
+--- !u!114 &7484699599212545628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559606060570185700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3935f0bff014817b1a46628a982e3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _countdown: 5
+  _fireComponent: {fileID: 3996225037713140426}
+  _moveAgent: {fileID: 853820835215389107}
+--- !u!114 &853820835215389107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559606060570185700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a9f68c83a87bb549b8925b19fedac6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveComponent: {fileID: 5798946893587766654}
 --- !u!1 &2239154907127902911
 GameObject:
   m_ObjectHideFlags: 0

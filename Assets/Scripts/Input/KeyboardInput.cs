@@ -5,25 +5,28 @@ namespace Input
 {
     public sealed class KeyboardInput : MonoBehaviour
     {
-        public event Action<float> OnMove;
+        public event Action<Vector2> OnMove;
         public event Action OnFire;
 
         [SerializeField]
         private KeyboardMap _keyboardMap;
 
-        private float _moveDirection;
+        private Vector2 _moveDirection;
 
         private void Update()
         {
             if (UnityEngine.Input.GetKeyDown(_keyboardMap.Shoot))
                 OnFire?.Invoke();
+        }
 
+        private void FixedUpdate()
+        {
             if (UnityEngine.Input.GetKey(_keyboardMap.Left))
-                _moveDirection = -1;
+                _moveDirection.x = -1 * Time.fixedDeltaTime;
             else if (UnityEngine.Input.GetKey(_keyboardMap.Right))
-                _moveDirection = 1;
+                _moveDirection.x = 1 * Time.fixedDeltaTime;
             else
-                _moveDirection = 0;
+                _moveDirection.x = 0;
 
             OnMove?.Invoke(_moveDirection);
         }
