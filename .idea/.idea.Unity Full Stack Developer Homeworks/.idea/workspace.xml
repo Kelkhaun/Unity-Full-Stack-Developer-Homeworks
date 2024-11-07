@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d78b2348-9f58-4666-bd3d-b5c2017bb02d" name="Changes" comment="" />
+    <list default="true" id="d78b2348-9f58-4666-bd3d-b5c2017bb02d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Unity Full Stack Developer Homeworks/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Unity Full Stack Developer Homeworks/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests/ConverterTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests/ConverterTests.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -93,6 +96,7 @@
       <updated>1730984953240</updated>
       <workItem from="1730984954315" duration="3308000" />
       <workItem from="1730988379738" duration="1000" />
+      <workItem from="1730988496382" duration="155000" />
     </task>
     <servers />
   </component>
