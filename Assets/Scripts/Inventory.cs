@@ -20,7 +20,7 @@ namespace Inventories
         private int _height;
         private int _count;
 
-        private readonly HashSet<Item> _items = new HashSet<Item>();
+        private Dictionary<Item, Vector2Int> _items = new();
         private Item[,] _grid;
 
         public Inventory(in int width, in int height)
@@ -101,6 +101,7 @@ namespace Inventories
         public bool CanAddItem(in Item item, in int posX, in int posY)
         {
             if (item == null) return false;
+
             if (Contains(item)) return false;
 
             if (!IsFreeSpace(item.Size.x, item.Size.y, posX, posY)) return false;
@@ -150,7 +151,7 @@ namespace Inventories
             }
 
             _count++;
-            _items.Add(item);
+            _items[item] = new Vector2Int(posX, posY);
             OnAdded?.Invoke(item, new Vector2Int(posX, posY));
             return true;
         }
@@ -220,13 +221,7 @@ namespace Inventories
         /// </summary>
         public bool Contains(in Item item)
         {
-            for (int x = 0; x < _width; x++)
-            for (int y = 0; y < _height; y++)
-                if (_grid[x, y] != null)
-                    if (_grid[x, y].Equals(item))
-                        return true;
-
-            return false;
+            return item != null && _items.ContainsKey(item);
         }
 
         /// <summary>
@@ -267,43 +262,26 @@ namespace Inventories
         {
             position = default;
             if (item == null) return false;
-            if (!Contains(item)) return false;
 
-            bool isFinded = false;
-
-            for (int y = 0; y < _height; y++)
+            if (Contains(item))
             {
-                for (int x = 0; x < _width; x++)
+                position = _items[item];
+
+                for (int x = position.x; x < position.x + item.Size.x; x++)
                 {
-                    if (_grid[x, y] != null)
+                    for (int y = position.y; y < position.y + item.Size.y; y++)
                     {
-                        if (_grid[x, y].Equals(item))
-                        {
-                            _grid[x, y] = null;
-
-                            if (!isFinded)
-                            {
-                                position.x = x;
-                                position.y = y;
-                                isFinded = true;
-                            }
-                        }
+                        _grid[x, y] = null;
                     }
-
                 }
-            }
 
-            if (isFinded)
-            {
                 _count--;
                 _items.Remove(item);
                 OnRemoved?.Invoke(item, position);
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
 
         /// <summary>
@@ -340,10 +318,7 @@ namespace Inventories
 
             item = _grid[x, y];
 
-            if (item == null)
-                return false;
-            else
-                return true;
+            return item != null;
         }
 
         /// <summary>
@@ -379,17 +354,16 @@ namespace Inventories
             Vector2Int[] position = new Vector2Int[item.Size.x * item.Size.y];
             int _currentIndex = 0;
 
-            for (int x = 0; x < _width; x++)
+            Vector2Int itemPosition = _items[item];
+
+            for (int x = itemPosition.x; x < itemPosition.x + item.Size.x; x++)
             {
-                for (int y = 0; y < _height; y++)
+                for (int y = itemPosition.y; y < itemPosition.y + item.Size.y; y++)
                 {
-                    if (_grid[x, y] != null)
+                    if (_grid[x, y].Equals(item))
                     {
-                        if (_grid[x, y].Equals(item))
-                        {
-                            position[_currentIndex] = new Vector2Int(x, y);
-                            _currentIndex++;
-                        }
+                        position[_currentIndex] = new Vector2Int(x, y);
+                        _currentIndex++;
                     }
                 }
             }
@@ -421,7 +395,7 @@ namespace Inventories
         {
             int count = 0;
 
-            foreach (var item in _items)
+            foreach (var item in _items.Keys)
                 if (item.Name == name)
                     count++;
 
@@ -433,35 +407,21 @@ namespace Inventories
         /// </summary>
         public bool MoveItem(in Item item, in Vector2Int position)
         {
-            Vector2Int prevPosition = default;
-            if (item == null)
-                throw new ArgumentNullException();
+            if (item == null) throw new ArgumentNullException();
 
             if (!Contains(item)) return false;
 
-            bool isFinded = false;
+            Vector2Int prevPosition = _items[item];
 
-            for (int y = 0; y < _height; y++)
+            for (int x = prevPosition.x; x < prevPosition.x + item.Size.x; x++)
             {
-                for (int x = 0; x < _width; x++)
+                for (int y = prevPosition.y; y < prevPosition.y + item.Size.y; y++)
                 {
-                    if (_grid[x, y] != null)
-                    {
-                        if (_grid[x, y].Equals(item))
-                        {
-                            _grid[x, y] = null;
-
-                            if (!isFinded)
-                            {
-                                prevPosition.x = x;
-                                prevPosition.y = y;
-                                isFinded = true;
-                            }
-                        }
-                    }
-
+                    _grid[x, y] = null;
                 }
             }
+
+            _items.Remove(item);
 
             if (CanAddItem(item, position))
             {
@@ -473,6 +433,7 @@ namespace Inventories
                     }
                 }
 
+                _items[item] = position;
                 OnMoved?.Invoke(item, position);
                 return true;
             }
@@ -486,6 +447,7 @@ namespace Inventories
                     }
                 }
 
+                _items[item] = prevPosition;
                 return false;
             }
         }
@@ -498,13 +460,13 @@ namespace Inventories
             _grid = new Item[_width, _height];
             _count = 0;
 
-            List<Item> sortedItems = new List<Item>(_items);
+            List<Item> sortedItems = new List<Item>(_items.Keys);
             sortedItems.Sort((a, b) => (b.Size.x * b.Size.y).CompareTo(a.Size.x * a.Size.y));
-                                                         
+
+            _items.Clear();
+
             foreach (var item in sortedItems)
-            {               
-                bool placed = false;
-        
+            {
                 for (int y = 0; y <= _height - item.Size.y; y++)
                 {
                     for (int x = 0; x <= _width - item.Size.x; x++)
@@ -512,14 +474,12 @@ namespace Inventories
                         if (CanPlaceItemAt(item, x, y))
                         {
                             PlaceItemAt(item, x, y);
-                            placed = true;
-                            break;
+                            goto Next;
                         }
                     }
-
-                    if (placed) 
-                        break;
                 }
+
+                Next: ;
             }
         }
 
@@ -548,9 +508,9 @@ namespace Inventories
                     _grid[x, y] = item;
                 }
             }
-    
+
             _count++;
-            _items.Add(item);
+            _items.Add(item, new Vector2Int {x = startX, y = startY});
             OnAdded?.Invoke(item, new Vector2Int(startX, startY));
         }
 
@@ -570,7 +530,7 @@ namespace Inventories
 
         public IEnumerator<Item> GetEnumerator()
         {
-            foreach (var item in _items)
+            foreach (var item in _items.Keys)
                 yield return item;
         }
 
