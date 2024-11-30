@@ -1,0 +1,36 @@
+using Input;
+using Modules;
+using UnityEngine;
+using Zenject;
+
+namespace Snake
+{
+    public sealed class SnakeInstaller : MonoInstaller
+    {
+        [SerializeField] private Modules.Snake _snakePrefab;
+        [SerializeField] private Transform _worldTransform;
+        [Space]
+        [SerializeField] private KeybordInput.KeybordMap _firstMap;
+        [SerializeField] private KeybordInput.KeybordMap _secondMap;
+
+        public override void InstallBindings()
+        {
+            Container.Bind<ISnake>()
+                .FromComponentInNewPrefab(_snakePrefab)
+                .UnderTransform(_worldTransform)
+                .AsSingle()
+                .NonLazy();
+
+            Container.BindInterfacesAndSelfTo<KeybordInput>()
+                .AsSingle()
+                .WithArguments(_firstMap, _secondMap);
+
+            Container.BindInterfacesTo<MoveController>()
+                .AsCached()
+                .NonLazy();
+
+            Container.BindInterfacesAndSelfTo<SnakeCoinEater>()
+                .AsSingle();
+        }
+    }
+}
