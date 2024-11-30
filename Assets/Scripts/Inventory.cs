@@ -385,10 +385,6 @@ namespace Inventories
             if (Count == 0)
                 return;
 
-            for (int x = 0; x < _width; x++)
-            for (int y = 0; y < _height; y++)
-                _grid[x, y] = null;
-
             Array.Clear(_grid, 0, _grid.Length);
 
             _items.Clear();
