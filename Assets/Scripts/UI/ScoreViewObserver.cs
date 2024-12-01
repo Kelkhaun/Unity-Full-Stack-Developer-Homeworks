@@ -6,14 +6,14 @@ using Zenject;
 
 namespace UI
 {
-    public sealed class ScoreViewAdapter : IInitializable, IDisposable
+    public sealed class ScoreViewObserver : IInitializable, IDisposable
     {
         private readonly SnakeCoinEater _snakeCoinEater;
         private readonly IGameUI _gameUI;
 
         private ScoreCounter _scoreCounter;
 
-        public ScoreViewAdapter(ScoreCounter scoreCounter, IGameUI gameUI)
+        public ScoreViewObserver(ScoreCounter scoreCounter, IGameUI gameUI)
         {
             _scoreCounter = scoreCounter;
             _gameUI = gameUI;

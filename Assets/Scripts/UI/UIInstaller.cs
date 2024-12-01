@@ -14,11 +14,11 @@ namespace UI
                 .FromInstance(_gameUI)
                 .AsSingle();
 
-            Container.BindInterfacesAndSelfTo<DifficiltyViewAdapter>()
+            Container.BindInterfacesAndSelfTo<DifficiltyViewObserver>()
                 .AsSingle()
                 .NonLazy();
 
-            Container.BindInterfacesAndSelfTo<ScoreViewAdapter>()
+            Container.BindInterfacesAndSelfTo<ScoreViewObserver>()
                 .AsSingle()
                 .NonLazy();
         }

@@ -5,12 +5,12 @@ using Zenject;
 
 namespace UI
 {
-    public sealed class DifficiltyViewAdapter : IInitializable, IDisposable
+    public sealed class DifficiltyViewObserver : IInitializable, IDisposable
     {
         private readonly IDifficulty _difficulty;
         private readonly IGameUI _gameUI;
 
-        public DifficiltyViewAdapter(IDifficulty difficulty, IGameUI gameUI)
+        public DifficiltyViewObserver(IDifficulty difficulty, IGameUI gameUI)
         {
             _gameUI = gameUI;
             _difficulty = difficulty;
