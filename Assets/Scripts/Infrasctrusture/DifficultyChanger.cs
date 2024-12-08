@@ -3,12 +3,10 @@ using Coin;
 using Modules;
 using Zenject;
 
-namespace Difficulty
+namespace Infrasctrusture
 {
     public sealed class DifficultyChanger : IInitializable, IDisposable
     {
-        public event Action OnGameComplete;
-
         private readonly CoinManager _coinManager;
         private readonly IDifficulty _difficulty;
     
@@ -31,12 +29,7 @@ namespace Difficulty
 
         private void OnAllCoinsEated()
         {
-            if (_difficulty.Next(out int difficulty))
-            {
-                return;
-            }
-
-            OnGameComplete?.Invoke();
+            _difficulty.Next(out int _);
         }
-    }
+    }                                
 }

@@ -1,8 +1,6 @@
 using System;
 using Coin;
 using Modules;
-using Score;
-using UI;
 using UnityEngine;
 using Zenject;
 
@@ -11,13 +9,13 @@ namespace Snake
     public sealed class SnakeCoinEater : IInitializable, IDisposable
     {
         private readonly ISnake _snake;
-        private readonly CoinManager _manager;
-        private readonly ScoreCounter _scoreCounter;
+        private readonly CoinManager _coinManager;
+        private readonly IScore _score;
 
-        public SnakeCoinEater(ISnake snake, CoinManager manager, ScoreCounter scoreCounter)
+        public SnakeCoinEater(ISnake snake, CoinManager coinManager, IScore score)
         {
-            _scoreCounter = scoreCounter;
-            _manager = manager;
+            _score = score;
+            _coinManager = coinManager;
             _snake = snake;
         }
 
@@ -33,17 +31,10 @@ namespace Snake
 
         private void OnSnakeMoveChanged(Vector2Int position)
         {
-            var coins = _manager.Coins;
-
-            for (int i = 0; i < coins.Count; i++)
+            if (_coinManager.TryTakeCoin(_snake.HeadPosition, out int score, out int bones))
             {
-                if (coins[i].Position == _snake.HeadPosition)
-                {
-                    _scoreCounter.AdScore(coins[i].Score);
-                    _snake.Expand(coins[i].Bones);
-                    _manager.Despawn(coins[i]);
-                    break;
-                }
+                _score.Add(score);
+                _snake.Expand(bones);
             }
         }
     }

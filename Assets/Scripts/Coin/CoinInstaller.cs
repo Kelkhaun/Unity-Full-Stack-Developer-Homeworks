@@ -19,6 +19,10 @@ namespace Coin
 
             Container.BindInterfacesAndSelfTo<CoinManager>()
                 .AsSingle();
+
+            Container.BindInterfacesTo<CoinSpawnObserver>()
+                .AsCached()
+                .NonLazy();
         }
     }
 }

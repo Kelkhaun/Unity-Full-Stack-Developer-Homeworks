@@ -3,7 +3,7 @@ using Modules;
 using UnityEngine;
 using Zenject;
 
-namespace Input
+namespace Snake
 {
     public sealed class KeybordInput : ITickable
     {
@@ -20,13 +20,13 @@ namespace Input
 
         public void Tick()
         {
-            if (UnityEngine.Input.GetKeyDown(_firstMap.Up) || UnityEngine.Input.GetKeyDown(_secondMap.Up))
+            if (Input.GetKeyDown(_firstMap.Up) || Input.GetKeyDown(_secondMap.Up))
                 DirectionChanged?.Invoke(SnakeDirection.UP);
-            else if (UnityEngine.Input.GetKeyDown(_firstMap.Down) || UnityEngine.Input.GetKeyDown(_secondMap.Down))
+            else if (Input.GetKeyDown(_firstMap.Down) || Input.GetKeyDown(_secondMap.Down))
                 DirectionChanged?.Invoke(SnakeDirection.DOWN);
-            else if (UnityEngine.Input.GetKeyDown(_firstMap.Left) || UnityEngine.Input.GetKeyDown(_secondMap.Left))
+            else if (Input.GetKeyDown(_firstMap.Left) || Input.GetKeyDown(_secondMap.Left))
                 DirectionChanged?.Invoke(SnakeDirection.LEFT);
-            else if (UnityEngine.Input.GetKeyDown(_firstMap.Right) || UnityEngine.Input.GetKeyDown(_secondMap.Right))
+            else if (Input.GetKeyDown(_firstMap.Right) || Input.GetKeyDown(_secondMap.Right))
                 DirectionChanged?.Invoke(SnakeDirection.RIGHT);
         }
 

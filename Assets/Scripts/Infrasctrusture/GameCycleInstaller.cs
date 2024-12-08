@@ -1,13 +1,10 @@
-using Difficulty;
-using Score;
+using Modules;
 using Zenject;
 
 namespace Infrasctrusture
 {
     public sealed class GameCycleInstaller : MonoInstaller
     {
-        private int _maxLevels = 9;
-
         public override void InstallBindings()
         {
             Container.Bind<GameManager>()
@@ -17,14 +14,9 @@ namespace Infrasctrusture
                 .AsCached()
                 .NonLazy();
 
-            Container.BindInterfacesAndSelfTo<Modules.Difficulty>()
-                .AsSingle()
-                .WithArguments(_maxLevels);
+            DifficultyInstaller.Install(Container);
 
-            Container.BindInterfacesAndSelfTo<DifficultyChanger>()
-                .AsSingle();
-
-            Container.Bind<ScoreCounter>()
+            Container.BindInterfacesAndSelfTo<Score>()
                 .AsSingle();
         }
     }

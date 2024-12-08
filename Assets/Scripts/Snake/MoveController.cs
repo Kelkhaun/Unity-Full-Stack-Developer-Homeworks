@@ -2,7 +2,7 @@ using System;
 using Modules;
 using Zenject;
 
-namespace Input
+namespace Snake
 {
     public sealed class MoveController : IInitializable, IDisposable
     {

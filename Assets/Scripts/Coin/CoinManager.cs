@@ -1,45 +1,26 @@
 using System;
 using System.Collections.Generic;
-using Modules;
 using SnakeGame;
-using Zenject;
+using UnityEngine;
 
 namespace Coin
 {
-    public sealed class CoinManager : IInitializable, IDisposable
+    public sealed class CoinManager
     {
         public event Action AllCoinsEated;
 
-        private readonly IDifficulty _difficulty;
         private readonly CoinPool _pool;
         private readonly IWorldBounds _worldBounds;
-        private List<Modules.Coin> _cashedCoins = new();
+        private readonly List<Modules.Coin> _cashedCoins = new();
+        private readonly CoinSpawnObserver _coinSpawnObserver;
 
-        public IReadOnlyList<Modules.Coin> Coins => _cashedCoins;
-
-        public CoinManager(IDifficulty difficulty, CoinPool pool, IWorldBounds worldBounds)
+        public CoinManager(CoinPool pool, IWorldBounds worldBounds)
         {
             _worldBounds = worldBounds;
             _pool = pool;
-            _difficulty = difficulty;
         }
 
-        public void Initialize()
-        {
-            _difficulty.OnStateChanged += OnDifficultyChanged;
-        }
-
-        public void Dispose()
-        {
-            _difficulty.OnStateChanged -= OnDifficultyChanged;
-        }
-
-        private void OnDifficultyChanged()
-        {
-            Spawn(_difficulty.Current);
-        }
-
-        private void Spawn(int coinCount)
+        public void Spawn(int coinCount)
         {
             for (int i = 0; i < coinCount; i++)
             {
@@ -49,13 +30,31 @@ namespace Coin
             }
         }
 
-        public void Despawn(Modules.Coin coin)
+        private void Despawn(Modules.Coin coin)
         {
             _cashedCoins.Remove(coin);
             _pool.Despawn(coin);
 
-            if(_cashedCoins.Count == 0)
+            if (_cashedCoins.Count == 0)
                 AllCoinsEated?.Invoke();
+        }
+
+        public bool TryTakeCoin(Vector2Int snakeHeadPosition, out int score, out int bones)
+        {
+            for (int i = 0; i < _cashedCoins.Count; i++)
+            {
+                if (_cashedCoins[i].Position == snakeHeadPosition)
+                {
+                    score = _cashedCoins[i].Score;
+                    bones = _cashedCoins[i].Bones;
+                    Despawn(_cashedCoins[i]);
+                    return true;
+                }
+            }
+
+            score = default;
+            bones = default;
+            return false;
         }
     }
 }

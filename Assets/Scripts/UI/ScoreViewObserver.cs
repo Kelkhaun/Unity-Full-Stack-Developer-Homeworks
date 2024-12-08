@@ -1,5 +1,5 @@
 using System;
-using Score;
+using Modules;
 using Snake;
 using SnakeGame;
 using Zenject;
@@ -11,28 +11,28 @@ namespace UI
         private readonly SnakeCoinEater _snakeCoinEater;
         private readonly IGameUI _gameUI;
 
-        private ScoreCounter _scoreCounter;
+        private IScore _score;
 
-        public ScoreViewObserver(ScoreCounter scoreCounter, IGameUI gameUI)
+        public ScoreViewObserver(IScore score, IGameUI gameUI)
         {
-            _scoreCounter = scoreCounter;
+            _score = score;
             _gameUI = gameUI;
         }
 
         public void Initialize()
         {
-            _scoreCounter.OnScoreChanged += OnScoreChanged;
-            OnScoreChanged();
+            _score.OnStateChanged += OnStateChanged;
+            OnStateChanged(_score.Current);
         }
 
         public void Dispose()
         {
-            _scoreCounter.OnScoreChanged -= OnScoreChanged;
+            _score.OnStateChanged -= OnStateChanged;
         }
 
-        private void OnScoreChanged()
+        private void OnStateChanged(int score)
         {
-            _gameUI.SetScore(_scoreCounter.Score.ToString());
+            _gameUI.SetScore(score.ToString());
         }
     }
 }
