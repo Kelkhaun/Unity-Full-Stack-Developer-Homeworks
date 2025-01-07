@@ -1,0 +1,17 @@
+{
+    "name": "Gameplay.Components",
+    "rootNamespace": "",
+    "references": [
+        "GUID:8e7de3fcd3b84099a3a4b78a1846443b",
+        "GUID:457398c9098ba2b42b9d610590cf4265"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

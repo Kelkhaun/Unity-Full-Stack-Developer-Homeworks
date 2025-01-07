@@ -1,0 +1,34 @@
+using Cysharp.Threading.Tasks;
+using UnityEngine.Networking;
+
+namespace Game.Scripts.SaveSystem.SaveLoader
+{
+    public sealed class RemoteSaveLoader : ISaveLoader
+    {
+        private readonly string _uri;
+
+        public RemoteSaveLoader(string uri)
+        {
+            _uri = uri;
+        }
+
+        public async UniTask<bool> Save(string json, int version)
+        {
+            UnityWebRequest request = UnityWebRequest.Put($"{_uri}/save?version={version}", json);
+            await request.SendWebRequest();
+            return request.result == UnityWebRequest.Result.Success;
+        }
+
+        public async UniTask<(bool, string)> Load(int version)
+        {
+            UnityWebRequest request = UnityWebRequest.Get($"{_uri}/load?version={version}");
+            await request.SendWebRequest();
+
+            if (request.result != UnityWebRequest.Result.Success)
+                return (false, null);
+
+            string json = request.downloadHandler.text;
+            return json == null ? (false, null) : (true, json);
+        }
+    }
+}
