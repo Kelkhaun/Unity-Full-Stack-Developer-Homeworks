@@ -35,8 +35,7 @@ namespace Game.Scripts.SaveSystem.Repostiory
 
         public async UniTask<OperationResult> GetState(int loadVersion)
         {
-            if (loadVersion > PlayerPrefs.GetInt(SAVE_VERSION, 0)
-                || loadVersion < 0)
+            if (loadVersion > PlayerPrefs.GetInt(SAVE_VERSION, 0) || loadVersion < 0)
                 return new OperationResult { Success = false, SaveVersion = loadVersion, SaveData = null };
 
             Dictionary<string, string>[] _loadedStates = new Dictionary<string, string>[_saveLoaders.Length];
