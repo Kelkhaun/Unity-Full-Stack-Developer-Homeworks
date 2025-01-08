@@ -1,6 +1,4 @@
-using Modules.Ecryption;
-
-namespace Game.Scripts.SaveSystem.Repostiory
+namespace Modules.Encryption.Scripts
 {
     public sealed class StringEncryptor
     {

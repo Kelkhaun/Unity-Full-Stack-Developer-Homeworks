@@ -3,7 +3,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Modules.Ecryption
+namespace Modules.Encryption.Scripts
 {
     public static class AesEncryptor
     {
