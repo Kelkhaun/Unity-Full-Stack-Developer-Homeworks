@@ -3,7 +3,7 @@ using Modules.Entities;
 using SampleGame.Common;
 using SampleGame.Gameplay;
 
-namespace Game.Scripts.SaveSystem.Serializers
+namespace Game.Scripts.Save.Serializers
 {
     public sealed class EntityDestinationSerializer : GameSerializer<EntityWorld, DestinationBook>
     {

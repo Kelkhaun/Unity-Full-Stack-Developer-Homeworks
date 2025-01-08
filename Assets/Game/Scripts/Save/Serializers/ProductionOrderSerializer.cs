@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Modules.Entities;
 using SampleGame.Gameplay;
 
-namespace Game.Scripts.SaveSystem.Serializers
+namespace Game.Scripts.Save.Serializers
 {
     public sealed class ProductionOrderSerializer : GameSerializer<EntityWorld, EntityCatalog, ProductionOrderBook>
     {

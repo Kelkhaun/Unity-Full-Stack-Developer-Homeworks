@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using Game.Scripts.Save.Serializers;
+using Game.Scripts.SaveSystem;
 using Game.Scripts.SaveSystem.Repostiory;
-using Game.Scripts.SaveSystem.Serializers;
 
-namespace Game.Scripts.SaveSystem.SaveLoader
+namespace Game.Scripts.Save
 {
     public sealed class GameSaveLoader
     {

@@ -1,7 +1,7 @@
-using Game.Scripts.SaveSystem.Serializers;
+using Game.Scripts.Save.Serializers;
 using Zenject;
 
-namespace Game.Scripts.SaveSystem.SaveLoader
+namespace Game.Scripts.Save
 {
     public sealed class SaveLoadInstaller : MonoInstaller
     {
