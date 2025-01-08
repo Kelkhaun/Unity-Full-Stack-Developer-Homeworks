@@ -1,8 +1,8 @@
 using System.Collections.Generic;
+using Game.Scripts.Common;
+using Game.Scripts.Gameplay.Components;
 using Game.Scripts.SaveSystem.Serializer;
 using Modules.Entities;
-using SampleGame.Common;
-using SampleGame.Gameplay;
 
 namespace Game.Scripts.Save.Serializers
 {

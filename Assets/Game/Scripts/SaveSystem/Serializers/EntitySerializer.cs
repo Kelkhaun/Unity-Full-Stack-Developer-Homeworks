@@ -1,7 +1,7 @@
 using System.Collections.Generic;
+using Game.Scripts.Common;
 using Game.Scripts.SaveSystem.Serializer;
 using Modules.Entities;
-using SampleGame.Common;
 
 namespace Game.Scripts.Save.Serializers
 {

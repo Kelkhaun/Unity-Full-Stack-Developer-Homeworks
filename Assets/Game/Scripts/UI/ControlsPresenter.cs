@@ -1,12 +1,9 @@
 using System;
 using Cysharp.Threading.Tasks;
-using Game.Scripts.Save;
-using Game.Scripts.SaveSystem;
 using Game.Scripts.SaveSystem.SaveLoader;
 using ModestTree;
-using UnityEngine;
 
-namespace Game.Gameplay
+namespace Game.Scripts.UI
 {
     public sealed class ControlsPresenter : IControlsPresenter
     {

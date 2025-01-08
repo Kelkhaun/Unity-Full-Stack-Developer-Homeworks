@@ -1,4 +1,6 @@
-namespace Modules.Encryption.Scripts
+using Modules.Encryption.Scripts;
+
+namespace Game.Scripts.Encryptor
 {
     public sealed class StringEncryptor
     {

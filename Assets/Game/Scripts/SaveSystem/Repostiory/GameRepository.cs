@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using Game.Scripts.Encryptor;
 using Game.Scripts.SaveSystem.SaveLoader;
-using Modules.Encryption.Scripts;
 using Newtonsoft.Json;
 using UnityEngine;
 

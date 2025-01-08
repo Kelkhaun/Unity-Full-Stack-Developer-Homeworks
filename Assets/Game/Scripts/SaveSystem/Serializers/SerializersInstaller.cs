@@ -4,7 +4,7 @@ using Zenject;
 
 namespace Game.Scripts.Save
 {
-    public sealed class SaveLoadInstaller : MonoInstaller
+    public sealed class SerializersInstaller : MonoInstaller
     {
         public override void InstallBindings()
         {

@@ -1,10 +1,10 @@
 {
-    "name": "SaveSystem",
+    "name": "Game.SaveSystem",
     "rootNamespace": "",
     "references": [
         "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
         "GUID:8e7de3fcd3b84099a3a4b78a1846443b",
-        "GUID:6b4185adf0897284d97924ddba4964f2",
+        "GUID:2c5aa7fe2251b6944b41ee96fa4b4c58",
         "GUID:457398c9098ba2b42b9d610590cf4265",
         "GUID:f51ebe6a0ceec4240a699833d6309b23",
         "GUID:9afddbf514c2b834f85340da1d776de7"
