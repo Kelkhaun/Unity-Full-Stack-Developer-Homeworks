@@ -1,9 +1,8 @@
 using System.Collections.Generic;
 using Game.Scripts.Common;
-using Game.Scripts.SaveSystem.Serializer;
 using Modules.Entities;
 
-namespace Game.Scripts.Save.Serializers
+namespace Game.Scripts.SaveSystem.Serializer.Serializers
 {
     public sealed class EntitySerializer : GameSerializer<EntityWorld, EntitiesBook>
     {

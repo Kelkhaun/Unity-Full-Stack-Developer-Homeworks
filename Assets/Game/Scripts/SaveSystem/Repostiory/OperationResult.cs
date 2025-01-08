@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Game.Scripts.SaveSystem
+namespace Game.Scripts.SaveSystem.Repostiory
 {
     public struct OperationResult
     {
