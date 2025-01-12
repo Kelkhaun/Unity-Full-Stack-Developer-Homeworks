@@ -1,7 +1,8 @@
+using Game.Scripts.Views;
 using UnityEngine;
 using Zenject;
 
-namespace Game.Scripts.Gameplay.PlanetPopup
+namespace Game.Scripts.Presenters
 {
     public sealed class PopupInstaller : MonoInstaller
     {

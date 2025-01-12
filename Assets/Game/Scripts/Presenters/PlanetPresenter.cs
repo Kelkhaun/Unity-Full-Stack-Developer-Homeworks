@@ -1,5 +1,3 @@
-using System;
-using Game.Scripts.Gameplay.PlanetPopup;
 using Game.Scripts.Views;
 using Modules.Planets;
 using UnityEngine;
@@ -8,19 +6,17 @@ namespace Game.Scripts.Presenters
 {
     public sealed class PlanetPresenter
     {
-        private PlanetView _view;
-        private IPlanet _planet;
-        private IMoneyAdapter _moneyAdapter;
-        private PlanetPopupShower _planetPopupShower;
+        private readonly PlanetView _view;
+        private readonly IPlanet _planet;
+        private readonly PlanetPopupShower _planetPopupShower;
+        private readonly MoneyViewPresenter _moneyViewPresenter;
 
-        public event Action<Vector3> OnPlanetGathered;
-    
-        public PlanetPresenter(PlanetView view, IPlanet planet, IMoneyAdapter moneyAdapter,
-            PlanetPopupShower planetPopupShower)
+        public PlanetPresenter(PlanetView view, IPlanet planet, PlanetPopupShower planetPopupShower,
+            MoneyViewPresenter moneyViewPresenter)
         {
+            _moneyViewPresenter = moneyViewPresenter;
             _view = view;
             _planet = planet;
-            _moneyAdapter = moneyAdapter;
             _planetPopupShower = planetPopupShower;
         }
 
@@ -33,6 +29,7 @@ namespace Game.Scripts.Presenters
             _planet.OnIncomeTimeChanged += OnIncomeTimeChanged;
             _planet.OnIncomeReady += OnIncomeReady;
             _planet.OnGathered += OnGathered;
+            _planet.OnUnlocked += OnUnlocked;
         }
 
         public void Disable()
@@ -42,19 +39,21 @@ namespace Game.Scripts.Presenters
             _planet.OnIncomeTimeChanged -= OnIncomeTimeChanged;
             _planet.OnIncomeReady -= OnIncomeReady;
             _planet.OnGathered -= OnGathered;
+            _planet.OnUnlocked-= OnUnlocked;
         }
 
-        private void OnClicked(PlanetView view)
+        private void OnUnlocked()
+        {
+            _view.Unlock(_planet.GetIcon(true));
+        }
+
+        private void OnClicked()
         {
             if (!_planet.IsUnlocked)
             {
-                if (_planet.CanUnlock)
+                if (_planet.CanUnlockOrUpgrade)
                 {
-                    if (_moneyAdapter.IsEnough(_planet.Price))
-                    {
-                        _planet.Unlock();
-                        view.Unlock(_planet.GetIcon(true));
-                    }
+                    _planet.Unlock();
                 }
             }
             else
@@ -64,7 +63,7 @@ namespace Game.Scripts.Presenters
             }
         }
 
-        private void OnHolded(PlanetView view)
+        private void OnHolded()
         {
             if (_planet.IsUnlocked)
                 _planetPopupShower.Show(_planet);
@@ -72,7 +71,7 @@ namespace Game.Scripts.Presenters
 
         private void OnGathered(int _)
         {
-            OnPlanetGathered?.Invoke(_view.CoinPosition);
+            _moneyViewPresenter.AnimateIncome(_view.GetCoinPosition());
         }
 
         private void OnIncomeReady(bool isIncomeReady)
@@ -85,7 +84,7 @@ namespace Game.Scripts.Presenters
             int minutes = Mathf.FloorToInt(remainingTime / 60);
             int seconds = Mathf.FloorToInt(remainingTime % 60);
 
-            _view.OnIncomeTimeChanged($"{minutes}m:{seconds}s", _planet.IncomeProgress);
+            _view.SetTime($"{minutes}m:{seconds}s", _planet.IncomeProgress);
         }
     }
 }

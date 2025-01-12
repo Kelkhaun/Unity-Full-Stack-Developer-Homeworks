@@ -1,12 +1,11 @@
-using System;
-using Game.Scripts.Window;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
-namespace Game.Scripts.Gameplay.PlanetPopup
+namespace Game.Scripts.Views
 {
-    public class PlanetPopupView : MonoWindow<IPlanetPopupPresenter>
+    public class PlanetPopupView : MonoBehaviour
     {
         [SerializeField] private TMP_Text _planetName;
         [SerializeField] private Button _closeButton;
@@ -15,20 +14,22 @@ namespace Game.Scripts.Gameplay.PlanetPopup
         [SerializeField] private TMP_Text _incomeText;
         [SerializeField] private Button _upgradeButton;
         [SerializeField] private TMP_Text _costText;
-        
 
         private IPlanetPopupPresenter _presenter;
 
-        protected override void OnShow(IPlanetPopupPresenter presenter)
+        [Inject]
+        public void Construct(IPlanetPopupPresenter planetPopupPresenter)
         {
-            if (presenter is not IPlanetPopupPresenter popupPresenter)
-                throw new Exception("Expected IPlanetPopupPresenter Presenter");
-            
-            _presenter = popupPresenter;
-            
+            _presenter = planetPopupPresenter;
+        }
+
+        private void OnEnable()
+        {
+            _presenter.Enable();
             _presenter.OnPlanetUpgrade += UpdateView;
-            _presenter.OnPopulationChanged += OnOnPopulationChanged;
-            
+            _presenter.OnMoneyChanged += UpdateView;
+            _presenter.OnPopulationChanged += OnPopulationChanged;
+
             UpdateView();
 
             gameObject.SetActive(true);
@@ -36,7 +37,17 @@ namespace Game.Scripts.Gameplay.PlanetPopup
             _upgradeButton.onClick.AddListener(OnUpgradeButtonClicked);
         }
 
-        private void OnOnPopulationChanged(int _)
+        private void OnDisable()
+        {
+            _presenter.Disable();
+            _presenter.OnPlanetUpgrade -= UpdateView;
+            _presenter.OnMoneyChanged -= UpdateView;
+            _closeButton.onClick.RemoveListener(OnCloseButtonClicked);
+            _upgradeButton.onClick.RemoveListener(OnUpgradeButtonClicked);
+            gameObject.SetActive(false);
+        }
+
+        private void OnPopulationChanged(int _)
         {
             _population.SetText(_presenter.PlanetPopulation);
         }
@@ -53,14 +64,6 @@ namespace Game.Scripts.Gameplay.PlanetPopup
 
         private void OnCloseButtonClicked()
         {
-            Hide();
-        }
-
-        protected override void OnHide()
-        {
-            _presenter.OnPlanetUpgrade -= UpdateView;
-            _closeButton.onClick.RemoveListener(OnCloseButtonClicked);
-            _upgradeButton.onClick.RemoveListener(OnUpgradeButtonClicked);
             gameObject.SetActive(false);
         }
 

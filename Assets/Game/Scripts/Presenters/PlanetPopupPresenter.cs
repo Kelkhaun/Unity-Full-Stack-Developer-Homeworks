@@ -1,12 +1,15 @@
 using System;
+using Game.Scripts.Views;
+using Modules.Money;
 using Modules.Planets;
 
-namespace Game.Scripts.Gameplay.PlanetPopup
+namespace Game.Scripts.Presenters
 {
     public class PlanetPopupPresenter : IPlanetPopupPresenter
     {
         public event Action OnPlanetUpgrade;
-
+        public event Action OnMoneyChanged;
+        
         public event Action<int> OnPopulationChanged
         {
             add => _planet.OnPopulationChanged += value;
@@ -14,8 +17,7 @@ namespace Game.Scripts.Gameplay.PlanetPopup
         }
 
         private IPlanet _planet;
-
-        private IMoneyAdapter _moneyAdapter;
+        private IMoneyStorage _moneyStorage;
 
         public string PlanetName => _planet.Name;
         public string PlanetPopulation => "Population: " + _planet.Population;
@@ -26,12 +28,31 @@ namespace Game.Scripts.Gameplay.PlanetPopup
             : "Max Level";
 
         public bool IsButtonActive =>
-            _moneyAdapter.IsEnough(_planet.Price) && _planet.MaxLevel > _planet.Level;
+            _moneyStorage.IsEnough(_planet.Price) && _planet.MaxLevel > _planet.Level;
 
-        public PlanetPopupPresenter(IPlanet planet, IMoneyAdapter moneyAdapter)
+        public PlanetPopupPresenter(IMoneyStorage moneyStorage)
+        {
+            _moneyStorage = moneyStorage;
+        }
+
+        public void SetPlanet(IPlanet planet)
         {
             _planet = planet;
-            _moneyAdapter = moneyAdapter;
+        }
+
+        public void Enable()
+        {
+          _moneyStorage.OnMoneyChanged += UpdateState;
+        }
+
+        public void Disable()
+        {
+            _moneyStorage.OnMoneyChanged -= UpdateState;
+        }
+
+        private void UpdateState(int newvalue, int prevvalue)
+        {
+            OnMoneyChanged?.Invoke();
         }
 
         public void OnUpgradeButtonClick()

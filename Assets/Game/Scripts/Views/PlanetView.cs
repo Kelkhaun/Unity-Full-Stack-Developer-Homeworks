@@ -3,14 +3,22 @@ using Modules.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
 
 namespace Game.Scripts.Views
 {
-    public sealed class PlanetView : MonoBehaviour, IInitializable, IDisposable
+    public sealed class PlanetView : MonoBehaviour
     {
-        public event Action<PlanetView> OnClicked;
-        public event Action<PlanetView> OnHolded;
+        public event Action OnClicked
+        {
+            add { _smartButton.OnClick += value; }
+            remove { _smartButton.OnClick -= value;  }
+        }
+
+        public event Action OnHolded
+        {
+            add { _smartButton.OnHold += value; }
+            remove { _smartButton.OnHold -= value; }
+        }
 
         [SerializeField]
         private Image _icon;
@@ -39,30 +47,6 @@ namespace Game.Scripts.Views
         [SerializeField]
         private SmartButton _smartButton;
 
-        public Vector3 CoinPosition => _coin.transform.position;
-
-        public void Initialize()
-        {
-            _smartButton.OnClick += OnClick;
-            _smartButton.OnHold += OnHold;
-        }
-
-        public void Dispose()
-        {
-            _smartButton.OnClick -= OnClick;
-            _smartButton.OnHold -= OnHold;
-        }
-
-        private void OnClick()
-        {
-            OnClicked?.Invoke(this);
-        }
-
-        private void OnHold()
-        {
-            OnHolded?.Invoke(this);
-        }
-
         public void Lock(Sprite sprite, string price)
         {
             _icon.sprite = sprite;
@@ -82,7 +66,12 @@ namespace Game.Scripts.Views
             _sliderText.SetText("");
         }
 
-        public void OnIncomeTimeChanged(string remainigTime, float progress)
+        public Vector3 GetCoinPosition()
+        {
+            return _coin.transform.position;
+        }
+
+        public void SetTime(string remainigTime, float progress)
         {
             _sliderText.SetText(remainigTime);
             _sliderProgress.fillAmount = progress;

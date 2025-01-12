@@ -1,6 +1,6 @@
 using System;
 
-namespace Game.Scripts.Gameplay.PlanetPopup
+namespace Game.Scripts.Views
 {
     public interface IPlanetPopupPresenter
     {
@@ -13,5 +13,10 @@ namespace Game.Scripts.Gameplay.PlanetPopup
        public void OnUpgradeButtonClick();
        event Action OnPlanetUpgrade;
        event Action<int> OnPopulationChanged;
+
+       event Action OnMoneyChanged;
+
+       void Enable();
+       void Disable();
     }
 }

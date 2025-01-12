@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using Game.Scripts.Views;
+using Modules.Planets;
 using UnityEngine;
 using Zenject;
 
@@ -18,6 +21,13 @@ namespace Game.Scripts.Presenters
             Container.BindInterfacesAndSelfTo<PlanetGroupPresenter>()
                 .AsSingle()
                 .NonLazy();
+
+            Container.BindInterfacesAndSelfTo<PlanetPopupPresenter>()
+                .AsSingle()
+                .NonLazy();
+
+            Container.BindFactory<PlanetView, IPlanet, PlanetPresenter, PlanetPresenterFactory>()
+                .AsSingle();
         }
     }
 }
