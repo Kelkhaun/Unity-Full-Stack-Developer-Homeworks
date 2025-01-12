@@ -5,9 +5,9 @@ using Modules.SaveSystem.SaveLoader.Serializator;
 
 namespace Game.Scripts.App.SaveSerializers
 {
-    public sealed class EntitySerializer : GameSerializer<EntityWorld, EntitiesDataSet>
+    public sealed class EntitySerializer : GameSerializer<EntityWorld, EntityDataSet>
     {
-        protected override EntitiesDataSet Serialize(EntityWorld entityWorld)
+        protected override EntityDataSet Serialize(EntityWorld entityWorld)
         {
             var entities = entityWorld.GetAll();
             List<EntityData> entityDatas = new();
@@ -23,12 +23,12 @@ namespace Game.Scripts.App.SaveSerializers
                 });
             }
         
-            EntitiesDataSet dataSet = new EntitiesDataSet{ Entities = entityDatas };
+            EntityDataSet dataSet = new EntityDataSet{ Entities = entityDatas };
 
             return dataSet;
         }
 
-        protected override void Deserialize(EntityWorld entityWorld, EntitiesDataSet data)
+        protected override void Deserialize(EntityWorld entityWorld, EntityDataSet data)
         {
             entityWorld.DestroyAll();
 
@@ -47,7 +47,7 @@ namespace Game.Scripts.App.SaveSerializers
         public SerializedVector3 Rotation;
     }
 
-    public struct EntitiesDataSet
+    public struct EntityDataSet
     {
         public  List<EntityData> Entities;
     }

@@ -8,19 +8,19 @@ namespace Modules.SaveSystem.SaveLoader
     public sealed class GameSaveLoader
     {
         private readonly IGameRepository _repository;
-        private readonly IGameSerializer[] _serializers;
+        private readonly IGameSerializer[] _orderSerializers;
 
-        public GameSaveLoader(IGameRepository repository, IGameSerializer[] serializers)
+        public GameSaveLoader(IGameRepository repository, IGameSerializer[] orderSerializers)
         {
             _repository = repository;
-            _serializers = serializers;
+            _orderSerializers = orderSerializers;
         }
 
         public async UniTask<OperationResult> Save()
         {
             var gameState = new Dictionary<string, string>();
 
-            foreach (IGameSerializer serializer in _serializers)
+            foreach (IGameSerializer serializer in _orderSerializers)
                 serializer.Serialize(gameState);
 
             return await _repository.SetState(gameState);
@@ -31,7 +31,7 @@ namespace Modules.SaveSystem.SaveLoader
             var operationResult = await _repository.GetState(loadVersion);
 
             if (operationResult.SaveData != null)
-                foreach (IGameSerializer serializer in _serializers)
+                foreach (IGameSerializer serializer in _orderSerializers)
                     serializer.Deserialize(operationResult.SaveData);
 
             return operationResult;

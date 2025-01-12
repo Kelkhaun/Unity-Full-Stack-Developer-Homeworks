@@ -10,11 +10,11 @@ namespace Modules.SaveSystem.Repository
     {
         private const string SAVE_VERSION = "saveVersion";
         private readonly StringEncryptor _stringEncryptor;
-        private readonly IStorage[] _storages;
+        private readonly IStorage[] _orderStorages;
 
-        public GameRepository(IStorage[] storages, StringEncryptor stringEncryptor)
+        public GameRepository(IStorage[] orderStorages, StringEncryptor stringEncryptor)
         {
-            _storages = storages;
+            _orderStorages = orderStorages;
             _stringEncryptor = stringEncryptor;
         }
 
@@ -29,7 +29,7 @@ namespace Modules.SaveSystem.Repository
 
             var tasks = new List<UniTask>();
 
-            foreach (var saveLoader in _storages)
+            foreach (var saveLoader in _orderStorages)
                 tasks.Add( saveLoader.Save(encryptedJson, saveVersion));
 
             await UniTask.WhenAll(tasks);
@@ -45,7 +45,7 @@ namespace Modules.SaveSystem.Repository
             }
 
             var tasks = new List<UniTask<(bool success, string json)>>();
-            foreach (var storage in _storages)
+            foreach (var storage in _orderStorages)
             {
                 tasks.Add(storage.Load(loadVersion));
             }
