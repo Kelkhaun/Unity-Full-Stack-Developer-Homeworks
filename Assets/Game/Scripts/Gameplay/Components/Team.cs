@@ -1,4 +1,4 @@
-using Game.Scripts.Common;
+using Game.Scripts.App.Common;
 using UnityEngine;
 
 namespace Game.Scripts.Gameplay.Components

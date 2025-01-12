@@ -1,13 +1,13 @@
 using System;
 using Cysharp.Threading.Tasks;
-using Game.Scripts.SaveSystem.SaveLoader;
 using ModestTree;
+using Modules.SaveSystem.SaveLoader;
 
 namespace Game.Scripts.UI
 {
     public sealed class ControlsPresenter : IControlsPresenter
     {
-        private GameSaveLoader _saveLoader;
+        private readonly GameSaveLoader _saveLoader;
 
         public ControlsPresenter(GameSaveLoader saveLoader)
         {
@@ -16,12 +16,12 @@ namespace Game.Scripts.UI
 
         public void Save(Action<bool, int> callback)
         {
-            SaveAsync(callback);
+            SaveAsync(callback).Forget();
         }
 
         public void Load(string versionText, Action<bool, int> callback)
         {
-            LoadAsync(versionText, callback);
+            LoadAsync(versionText, callback).Forget();
         }
 
         private async UniTaskVoid SaveAsync(Action<bool, int> callback)
