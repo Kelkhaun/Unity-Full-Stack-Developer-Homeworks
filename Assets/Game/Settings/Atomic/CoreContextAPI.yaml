@@ -1,0 +1,18 @@
+header: ContextAPI
+contextType: IContext
+aggressiveInlining: true
+
+namespace: SampleGame
+className: SampleContextAPI
+directory: Assets/Scripts/Codegen
+ 
+imports:
+- UnityEngine
+- Atomic.Entities
+- Atomic.Contexts
+- Modules.Common
+
+values:
+- MoveJoystick: Joystick
+- AimJoystick: Joystick
+- Character : SceneEntity
