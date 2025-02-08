@@ -16,5 +16,6 @@ public class InputInstaller : SceneContextInstaller
         context.AddAimJoystick(_aimJoystick);
         context.AddCharacter(_character);
         context.AddController<MoveController>();
+        context.AddController<AimController>();
     }
 }

@@ -14,7 +14,7 @@ public class MovementBehaviour : IEntityInit, IEntityFixedUpdate
     {
         _rigidbody = entity.GetRigidbody();
         _speed = entity.GetMoveSpeed();
-        _direction = entity.GetDirection();
+        _direction = entity.GetMoveDirection();
     }
 
     public void OnFixedUpdate(in IEntity entity, in float deltaTime)

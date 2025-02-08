@@ -23,7 +23,8 @@ namespace SampleGame
 		public const int MoveSpeed = 526065662; // ReactiveFloat
 		public const int RotationSpeed = 1771316350; // ReactiveFloat
 		public const int Transform = -180157682; // Transform
-		public const int Direction = -1128574192; // ReactiveVector3
+		public const int MoveDirection = -721923052; // ReactiveVector3
+		public const int RotateDirection = -1044844011; // ReactiveVector3
 		public const int Rigidbody = -2101481708; // Rigidbody
 
 
@@ -132,22 +133,40 @@ namespace SampleGame
 		public static void SetTransform(this IEntity obj, Transform value) => obj.SetValue(Transform, value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static ReactiveVector3 GetDirection(this IEntity obj) => obj.GetValue<ReactiveVector3>(Direction);
+		public static ReactiveVector3 GetMoveDirection(this IEntity obj) => obj.GetValue<ReactiveVector3>(MoveDirection);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool TryGetDirection(this IEntity obj, out ReactiveVector3 value) => obj.TryGetValue(Direction, out value);
+		public static bool TryGetMoveDirection(this IEntity obj, out ReactiveVector3 value) => obj.TryGetValue(MoveDirection, out value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool AddDirection(this IEntity obj, ReactiveVector3 value) => obj.AddValue(Direction, value);
+		public static bool AddMoveDirection(this IEntity obj, ReactiveVector3 value) => obj.AddValue(MoveDirection, value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool HasDirection(this IEntity obj) => obj.HasValue(Direction);
+		public static bool HasMoveDirection(this IEntity obj) => obj.HasValue(MoveDirection);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool DelDirection(this IEntity obj) => obj.DelValue(Direction);
+		public static bool DelMoveDirection(this IEntity obj) => obj.DelValue(MoveDirection);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static void SetDirection(this IEntity obj, ReactiveVector3 value) => obj.SetValue(Direction, value);
+		public static void SetMoveDirection(this IEntity obj, ReactiveVector3 value) => obj.SetValue(MoveDirection, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static ReactiveVector3 GetRotateDirection(this IEntity obj) => obj.GetValue<ReactiveVector3>(RotateDirection);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool TryGetRotateDirection(this IEntity obj, out ReactiveVector3 value) => obj.TryGetValue(RotateDirection, out value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool AddRotateDirection(this IEntity obj, ReactiveVector3 value) => obj.AddValue(RotateDirection, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool HasRotateDirection(this IEntity obj) => obj.HasValue(RotateDirection);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool DelRotateDirection(this IEntity obj) => obj.DelValue(RotateDirection);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void SetRotateDirection(this IEntity obj, ReactiveVector3 value) => obj.SetValue(RotateDirection, value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static Rigidbody GetRigidbody(this IEntity obj) => obj.GetValue<Rigidbody>(Rigidbody);

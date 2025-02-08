@@ -21,5 +21,6 @@ values:
 - MoveSpeed: ReactiveFloat
 - RotationSpeed: ReactiveFloat
 - Transform: Transform
-- Direction : ReactiveVector3
+- MoveDirection : ReactiveVector3
+- RotateDirection : ReactiveVector3
 - Rigidbody : Rigidbody
