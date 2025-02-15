@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 790263129781726672}
   - component: {fileID: 8255752769676833144}
   - component: {fileID: 8807684224348490779}
+  - component: {fileID: 3218194209134351265}
   - component: {fileID: 4524415302348453948}
   - component: {fileID: 4106845039857782861}
-  - component: {fileID: 5038182778805828585}
+  - component: {fileID: 4476009981665230501}
   m_Layer: 6
   m_Name: Lava
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1941354820746825385}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.5, y: -4, z: 0}
   m_LocalScale: {x: 3, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
@@ -79,7 +80,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1417fc278c8e048e09eac2c464cd52e8, type: 3}
-  m_Color: {r: 0.8627451, g: 0.40799582, b: 0.34117645, a: 1}
+  m_Color: {r: 0.7294118, g: 0.28235292, b: 0.30400506, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -230,6 +231,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3218194209134351265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941354820746825385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 218bf774cd1f40ad9119c27f56b94338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _destroyerComponent: {fileID: 4524415302348453948}
+  _soundEffectComponent: {fileID: 0}
+  triggerComponent: {fileID: 4106845039857782861}
 --- !u!114 &4524415302348453948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,22 +258,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91710431c2b743729c7525f277dd9111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnDestroy:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5038182778805828585}
-        m_TargetAssemblyTypeName: SoundEffectComponent, Assembly-CSharp
-        m_MethodName: PlaySound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _colliderProxy: {fileID: 4106845039857782861}
 --- !u!114 &4106845039857782861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5670a5e06c8467a9115ddbbef828262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5038182778805828585
+--- !u!114 &4476009981665230501
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -279,8 +279,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1941354820746825385}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79c280100e914648a5a116a0d1b7a413, type: 3}
+  m_Script: {fileID: 11500000, guid: 44019541601c4b839f762170b0fd7389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 8807684224348490779}
   _clip: {fileID: 8300000, guid: cd6cde2e439ce0b4984c66ae86955c23, type: 3}
+  _destroyerComponent: {fileID: 4524415302348453948}

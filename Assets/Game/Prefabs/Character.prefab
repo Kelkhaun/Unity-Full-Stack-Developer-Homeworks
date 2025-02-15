@@ -279,27 +279,19 @@ GameObject:
   - component: {fileID: 7533625333521889301}
   - component: {fileID: 8919488144159006593}
   - component: {fileID: 2903695066465869602}
-  - component: {fileID: 8370375609899437719}
-  - component: {fileID: 1684385859682533442}
   - component: {fileID: 7449653383199343813}
   - component: {fileID: 2572749830266071538}
   - component: {fileID: 324271921235698593}
   - component: {fileID: 2425169731067144698}
-  - component: {fileID: 8111387687859366840}
-  - component: {fileID: 6094700912866824161}
-  - component: {fileID: 1172733348937274143}
   - component: {fileID: 440617055009155013}
-  - component: {fileID: 2756103990557113289}
   - component: {fileID: 8382905819221746605}
-  - component: {fileID: 5732823574766600609}
-  - component: {fileID: 6332556258056186841}
   - component: {fileID: 1137749234826940597}
-  - component: {fileID: 7141684849390280629}
-  - component: {fileID: 8455303731862678831}
-  - component: {fileID: 3228038653772095958}
-  - component: {fileID: 3487830222621592813}
-  - component: {fileID: 4820011087812455939}
-  - component: {fileID: 2808092160154096999}
+  - component: {fileID: 3844323713093678279}
+  - component: {fileID: 7449871775419498989}
+  - component: {fileID: 6865044377831176674}
+  - component: {fileID: 5648087284656103613}
+  - component: {fileID: 204038760784725330}
+  - component: {fileID: 2671849307022606417}
   m_Layer: 9
   m_Name: Character
   m_TagString: Character
@@ -438,12 +430,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthComponent: {fileID: 2903695066465869602}
   _jumpComponent: {fileID: 2425169731067144698}
-  _jumpTimerComponent: {fileID: 6094700912866824161}
   _groundedComponent: {fileID: 324271921235698593}
   _pushComponent: {fileID: 440617055009155013}
-  _pushTimerComponent: {fileID: 2756103990557113289}
   _tossComponent: {fileID: 8382905819221746605}
-  _tossTimerComponent: {fileID: 5732823574766600609}
 --- !u!114 &2903695066465869602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,64 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c08bc24835f49b43bbb9a461e8c862b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnHealthChanged:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1137749234826940597}
-        m_TargetAssemblyTypeName: ColorAnimateComponent, Assembly-CSharp
-        m_MethodName: PlayAnimation
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 7141684849390280629}
-        m_TargetAssemblyTypeName: SoundEffectComponent, Assembly-CSharp
-        m_MethodName: PlaySound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnHealthLost:
-    m_PersistentCalls:
-      m_Calls: []
-  _maxHealth: 5
---- !u!114 &8370375609899437719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7490323295220271620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad8f7bcd1c0c420ab52b67b9c9d59dc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _healthComponent: {fileID: 2903695066465869602}
---- !u!114 &1684385859682533442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7490323295220271620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb8341af86d542ee9b54b1a8a3de3c13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _moveComponent: {fileID: 7449653383199343813}
-  _rotateComponent: {fileID: 2572749830266071538}
+  _maxHealth: 999
 --- !u!114 &7449653383199343813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -527,7 +459,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 8342082945872629457}
-  _speed: 15
+  _speed: 16
+  _maxSpeed: 0
+  _isNeedClampVelocity: 0
 --- !u!114 &2572749830266071538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -571,73 +505,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 8342082945872629457}
   _jumpForce: 15
-  OnJump:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6094700912866824161}
-        m_TargetAssemblyTypeName: TimerComponent, Assembly-CSharp
-        m_MethodName: StartWork
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 8455303731862678831}
-        m_TargetAssemblyTypeName: SoundEffectComponent, Assembly-CSharp
-        m_MethodName: PlaySound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &8111387687859366840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7490323295220271620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 572e13169f584ce78fe29bfbdeb3255e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _jumpComponent: {fileID: 2425169731067144698}
---- !u!114 &6094700912866824161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7490323295220271620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d71523603b6a4a8497c45d1b7d9f99a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cooldownTime: 2
---- !u!114 &1172733348937274143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7490323295220271620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28591d09b88b4114859c7f852a9f0963, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _pushComponent: {fileID: 440617055009155013}
-  _tossComponent: {fileID: 8382905819221746605}
+  _timerComponent:
+    _cooldownTime: 2
 --- !u!114 &440617055009155013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -650,62 +519,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1e3416358774254aa5ce6e5eaaca242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnPush:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2756103990557113289}
-        m_TargetAssemblyTypeName: TimerComponent, Assembly-CSharp
-        m_MethodName: StartWork
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 3228038653772095958}
-        m_TargetAssemblyTypeName: SoundEffectComponent, Assembly-CSharp
-        m_MethodName: PlaySound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 4820011087812455939}
-        m_TargetAssemblyTypeName: ParticledEffectComponent, Assembly-CSharp
-        m_MethodName: PlayEffect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _findTargetComponent: {fileID: 6332556258056186841}
   _pushPoint: {fileID: 7060901894015801087}
   _type: 0
   _power: 10
---- !u!114 &2756103990557113289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7490323295220271620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d71523603b6a4a8497c45d1b7d9f99a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cooldownTime: 3
+  _timerComponent:
+    _cooldownTime: 1
+  _checkboxSize: {x: 15, y: 15}
+  _interactableLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  _overlapPoint: {fileID: 7060901894015801087}
 --- !u!114 &8382905819221746605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -718,76 +541,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1e3416358774254aa5ce6e5eaaca242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnPush:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5732823574766600609}
-        m_TargetAssemblyTypeName: TimerComponent, Assembly-CSharp
-        m_MethodName: StartWork
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 3487830222621592813}
-        m_TargetAssemblyTypeName: SoundEffectComponent, Assembly-CSharp
-        m_MethodName: PlaySound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2808092160154096999}
-        m_TargetAssemblyTypeName: ParticledEffectComponent, Assembly-CSharp
-        m_MethodName: PlayEffect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _findTargetComponent: {fileID: 6332556258056186841}
   _pushPoint: {fileID: 7060901894015801087}
   _type: 1
   _power: 15
---- !u!114 &5732823574766600609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7490323295220271620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d71523603b6a4a8497c45d1b7d9f99a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cooldownTime: 3
---- !u!114 &6332556258056186841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7490323295220271620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aca58aa7774144d597d051e60607ce27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targets: []
-  _checkboxSize: {x: 0.82, y: 1.18}
+  _timerComponent:
+    _cooldownTime: 1
+  _checkboxSize: {x: 15, y: 15}
   _interactableLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -858,7 +617,8 @@ MonoBehaviour:
     m_RotationOrder: 4
   _time: 1
   _target: {fileID: 5973739499012079652}
---- !u!114 &7141684849390280629
+  _healthComponent: {fileID: 2903695066465869602}
+--- !u!114 &3844323713093678279
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -867,12 +627,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7490323295220271620}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79c280100e914648a5a116a0d1b7a413, type: 3}
+  m_Script: {fileID: 11500000, guid: d9d8576fe58b47a5b7d908ec2853aea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 3053905989913550054}
   _clip: {fileID: 8300000, guid: 32f565ba94f200f49adb407cce64e873, type: 3}
---- !u!114 &8455303731862678831
+  _healthComponent: {fileID: 2903695066465869602}
+--- !u!114 &7449871775419498989
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -881,12 +642,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7490323295220271620}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79c280100e914648a5a116a0d1b7a413, type: 3}
+  m_Script: {fileID: 11500000, guid: 26bfa246c3e34856b04f1dc8f1b3a76e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 3053905989913550054}
   _clip: {fileID: 8300000, guid: 4a3d24c7a7d02497a9aa7b0018822e35, type: 3}
---- !u!114 &3228038653772095958
+  _jumpComponent: {fileID: 2425169731067144698}
+--- !u!114 &6865044377831176674
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -895,26 +657,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7490323295220271620}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79c280100e914648a5a116a0d1b7a413, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioSource: {fileID: 3053905989913550054}
-  _clip: {fileID: 8300000, guid: 3dbd84c2bfae847229cd1013f68c0da7, type: 3}
---- !u!114 &3487830222621592813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7490323295220271620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79c280100e914648a5a116a0d1b7a413, type: 3}
+  m_Script: {fileID: 11500000, guid: eece1aaa55514cefbddc604a430e7a12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 3053905989913550054}
   _clip: {fileID: 8300000, guid: a2fb8d4706a16468592a6e50aa24de65, type: 3}
---- !u!114 &4820011087812455939
+  _pushComponent: {fileID: 8382905819221746605}
+--- !u!114 &5648087284656103613
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -923,11 +672,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 7490323295220271620}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f754cc475b4b40ecb1b6038fee94b422, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a8203d633b84f79b567881a67bd17f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _audioSource: {fileID: 3053905989913550054}
+  _clip: {fileID: 8300000, guid: 3dbd84c2bfae847229cd1013f68c0da7, type: 3}
+  _pushComponent: {fileID: 440617055009155013}
+--- !u!114 &204038760784725330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7490323295220271620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c395026212e14921ae3d8463c21fb904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pushComponent: {fileID: 440617055009155013}
   _particleSystem: {fileID: 1887646881918723304}
---- !u!114 &2808092160154096999
+--- !u!114 &2671849307022606417
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -936,9 +701,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7490323295220271620}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f754cc475b4b40ecb1b6038fee94b422, type: 3}
+  m_Script: {fileID: 11500000, guid: 42a436878c5047188a0d66459937e4a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pushComponent: {fileID: 8382905819221746605}
   _particleSystem: {fileID: 7586124585203602957}
 --- !u!1 &7801279227858408424
 GameObject:

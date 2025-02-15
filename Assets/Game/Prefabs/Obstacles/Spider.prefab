@@ -478,17 +478,15 @@ GameObject:
   - component: {fileID: 4015829716640782646}
   - component: {fileID: 6148175087779460028}
   - component: {fileID: 7422560000825944449}
-  - component: {fileID: 7211028702425341575}
   - component: {fileID: 4424849351328406784}
   - component: {fileID: 3317286121199473982}
   - component: {fileID: 3760863377467849419}
   - component: {fileID: 4189393650297536843}
   - component: {fileID: 2370824243180520355}
-  - component: {fileID: 2149636380103174255}
-  - component: {fileID: 1065810506475754370}
   - component: {fileID: 4174549234462907994}
-  - component: {fileID: 6776722858933928917}
   - component: {fileID: 4799541404465837781}
+  - component: {fileID: 2992974510440464583}
+  - component: {fileID: 901080882572856242}
   m_Layer: 8
   m_Name: <Spider>
   m_TagString: Untagged
@@ -630,28 +628,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.75}
   m_EdgeRadius: 0
---- !u!114 &7211028702425341575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8665529919726988981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50db69228fac47ff91fa1bbfec2bba18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targets: []
-  _filter:
-    serializedVersion: 2
-    m_Bits: 768
-  OnTargetAdd:
-    m_PersistentCalls:
-      m_Calls: []
-  OnTargetRemove:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &4424849351328406784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -664,26 +640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c08bc24835f49b43bbb9a461e8c862b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnHealthChanged:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3317286121199473982}
-        m_TargetAssemblyTypeName: ColorAnimateComponent, Assembly-CSharp
-        m_MethodName: PlayAnimation
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnHealthLost:
-    m_PersistentCalls:
-      m_Calls: []
   _maxHealth: 3
-  _currentHealth: 0
 --- !u!114 &3317286121199473982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -750,6 +707,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   _time: 1
   _target: {fileID: 3123733364965956949}
+  _healthComponent: {fileID: 4424849351328406784}
 --- !u!114 &3760863377467849419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -762,11 +720,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2d3c2e89c3873247a3b0a8e0a635d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _moveComponent: {fileID: 2992974510440464583}
   _waypoints:
   - {fileID: 3929516699554365295}
   - {fileID: 4629981065635871775}
   _target: {fileID: 3105770917179402914}
-  _speed: 5
 --- !u!114 &4189393650297536843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -779,10 +737,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77662ad04b77a0841b4fbb813bcf0129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnAttack:
-    m_PersistentCalls:
-      m_Calls: []
-  _health: {fileID: 4424849351328406784}
   _damage: 1
 --- !u!114 &2370824243180520355
 MonoBehaviour:
@@ -796,54 +750,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1e3416358774254aa5ce6e5eaaca242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnPush:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6776722858933928917}
-        m_TargetAssemblyTypeName: TimerComponent, Assembly-CSharp
-        m_MethodName: StartWork
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _findTargetComponent: {fileID: 7211028702425341575}
   _pushPoint: {fileID: 6000882550411504535}
   _type: 0
   _power: 10
---- !u!114 &2149636380103174255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8665529919726988981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1daf7aa077dc4517abc9f1eea1c1b2b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _colliderFinder: {fileID: 7211028702425341575}
-  _damageComponent: {fileID: 4189393650297536843}
-  _pushComponent: {fileID: 2370824243180520355}
---- !u!114 &1065810506475754370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8665529919726988981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a331723f06b48a3a92134d8144be8f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _patrolComponent: {fileID: 3760863377467849419}
-  _rotateComponent: {fileID: 4174549234462907994}
+  _timerComponent:
+    _cooldownTime: 1.5
+  _checkboxSize: {x: 0, y: 0}
+  _interactableLayer:
+    serializedVersion: 2
+    m_Bits: 768
+  _overlapPoint: {fileID: 3105770917179402914}
 --- !u!114 &4174549234462907994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -857,19 +773,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 8665529919726988981}
---- !u!114 &6776722858933928917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8665529919726988981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d71523603b6a4a8497c45d1b7d9f99a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cooldownTime: 0.5
 --- !u!114 &4799541404465837781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -882,5 +785,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e22efc074460408ca6d7e88b4a4e33ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pushTimerComponent: {fileID: 6776722858933928917}
+  _pushTimerComponent:
+    _cooldownTime: 0
   _pushComponent: {fileID: 2370824243180520355}
+  _healthComponent: {fileID: 4424849351328406784}
+  _damageComponent: {fileID: 4189393650297536843}
+  _rotateComponent: {fileID: 4174549234462907994}
+  _moveComponent: {fileID: 2992974510440464583}
+  _triggerComponent: {fileID: 901080882572856242}
+--- !u!114 &2992974510440464583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8665529919726988981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f443294447fe4fedacb027651a49b2f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rigidbody: {fileID: 4015829716640782646}
+  _speed: 15
+  _maxSpeed: 3
+  _isNeedClampVelocity: 1
+--- !u!114 &901080882572856242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8665529919726988981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5670a5e06c8467a9115ddbbef828262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
