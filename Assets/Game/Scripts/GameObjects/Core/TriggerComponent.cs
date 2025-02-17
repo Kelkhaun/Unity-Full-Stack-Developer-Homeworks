@@ -12,5 +12,4 @@ namespace Game.Scripts.GameObjects.Core
             OnEnter?.Invoke(collider.gameObject);
         }
     }
-
 }

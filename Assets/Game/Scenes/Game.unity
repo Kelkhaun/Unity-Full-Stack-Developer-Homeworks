@@ -2343,7 +2343,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1599025579162667576, guid: 72f49d2e77eaa4d26818f3f35aef8a5f, type: 3}
       propertyPath: m_Constraints
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1736318179580503177, guid: 72f49d2e77eaa4d26818f3f35aef8a5f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3088,7 +3088,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1599025579162667576, guid: 72f49d2e77eaa4d26818f3f35aef8a5f, type: 3}
       propertyPath: m_Constraints
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1736318179580503177, guid: 72f49d2e77eaa4d26818f3f35aef8a5f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4204,9 +4204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 1856897333}
-  _speed: 15
-  _maxSpeed: 3
-  _isNeedClampVelocity: 1
+  _speed: 3
 --- !u!50 &1856897333
 Rigidbody2D:
   serializedVersion: 4

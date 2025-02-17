@@ -13,20 +13,23 @@ namespace Game.Scripts.GameObjects.Core
         [SerializeField]
         private float _speed;
 
-        [SerializeField]
-        private float _maxSpeed = 5;
-
-        [SerializeField]
-        private bool _isNeedClampVelocity = true;
-
         public void Move(Vector2 direction)
         {
             _rigidbody.velocity += direction * (_speed * Time.deltaTime);
-
-            if (_isNeedClampVelocity)
-                _rigidbody.velocity = Vector2.ClampMagnitude(_rigidbody.velocity, _maxSpeed);
-
             OnMove?.Invoke(_rigidbody.velocity);
+        }
+
+        public void MoveTowards(Transform targetPosition)
+        {
+            var direction = targetPosition.position - transform.position;
+
+            transform.position = Vector2.MoveTowards(
+                transform.position,
+                targetPosition.position,
+                _speed * Time.deltaTime
+            );
+
+            OnMove?.Invoke(direction);
         }
     }
 }

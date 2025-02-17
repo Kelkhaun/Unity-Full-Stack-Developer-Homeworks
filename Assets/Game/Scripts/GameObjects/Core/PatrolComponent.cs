@@ -17,9 +17,7 @@ namespace Game.Scripts.GameObjects.Core
 
         private void Update()
         {
-            Vector3 direction = (_waypoints[_waypointIndex].position - _target.position).normalized;
-
-            _moveComponent.Move(direction);
+            _moveComponent.MoveTowards(_waypoints[_waypointIndex]); 
 
             if (Vector3.Distance(_target.position, _waypoints[_waypointIndex].position) < 0.1f)
             {

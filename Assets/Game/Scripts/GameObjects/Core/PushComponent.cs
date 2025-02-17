@@ -30,7 +30,6 @@ namespace Game.Scripts.GameObjects.Core
         [SerializeField]
         private Transform _overlapPoint;
 
-
         private void Awake()
         {
             AddCondition(() => !_timerComponent.IsOnCooldown);

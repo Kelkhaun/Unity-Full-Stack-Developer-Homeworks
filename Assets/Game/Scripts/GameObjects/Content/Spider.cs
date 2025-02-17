@@ -58,7 +58,6 @@ namespace Game.Scripts.GameObjects.Content
                 : RotateComponent.RotateDirection.Right);
         }
 
-
         private void Death()
         {
             _healthComponent.gameObject.SetActive(false);

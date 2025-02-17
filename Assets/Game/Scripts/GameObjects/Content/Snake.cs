@@ -26,6 +26,11 @@ namespace Game.Scripts.GameObjects.Content
         [SerializeField]
         private TriggerComponent _triggerComponent;
 
+        private void Awake()
+        {
+            _pushComponent.AddCondition(() => !_pushTimerComponent.IsOnCooldown);
+        }
+
         private void OnEnable()
         {
             _healthComponent.OnHealthLost += Death;
@@ -56,11 +61,6 @@ namespace Game.Scripts.GameObjects.Content
         private void Death()
         {
             _healthComponent.gameObject.SetActive(false);
-        }
-
-        private void Awake()
-        {
-            _pushComponent.AddCondition(() => !_pushTimerComponent.IsOnCooldown);
         }
     }
 }

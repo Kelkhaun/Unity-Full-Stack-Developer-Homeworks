@@ -53,6 +53,5 @@ namespace Game.Scripts.GameObjects.Content
             _tossComponent.AddCondition(() => _groundedComponent.IsGrounded);
             _tossComponent.AddCondition(() => _healthComponent.IsAlive);
         }
-
     }
 }

@@ -28,11 +28,10 @@ namespace Game.Scripts.GameObjects.Content
 
         private void OnEnter(GameObject triggedGameObject)
         {
-            if (triggedGameObject.gameObject.TryGetComponent(out HealthComponent healthComponent))
-            {
-                _damageComponent.Attack(triggedGameObject);
+            _damageComponent.Attack(triggedGameObject);
+
+            if (triggedGameObject.TryGetComponent(out Character character))
                 _healthComponent.Die();
-            }
         }
 
         private void Death()

@@ -806,9 +806,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 4015829716640782646}
-  _speed: 15
-  _maxSpeed: 3
-  _isNeedClampVelocity: 1
+  _speed: 3
 --- !u!114 &901080882572856242
 MonoBehaviour:
   m_ObjectHideFlags: 0

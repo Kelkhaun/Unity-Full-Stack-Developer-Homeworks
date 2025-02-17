@@ -5,7 +5,7 @@ namespace Game.Scripts.GameObjects.Core
     public sealed class RotateComponent : MonoBehaviour
     {
         [SerializeField]
-        private UnityEngine.GameObject _target;
+        private GameObject _target;
 
         private RotateDirection _currentRotateDirection = RotateDirection.Right;
 
