@@ -1,10 +1,10 @@
 using System;
 using UnityEngine;
 
-namespace Game.Scripts.GameObjects.Core
+namespace Game.Scripts.Common
 {
     [Serializable]
-    public sealed class TimerComponent
+    public sealed class Timer
     {
         [SerializeField]
         private float _cooldownTime;

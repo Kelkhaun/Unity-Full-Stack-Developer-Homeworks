@@ -20,12 +20,13 @@ namespace Game.Scripts.GameContext
 
         private void Push()
         {
-            _character.GetComponent<Character>().Push();
+            _character.GetComponent<IPushComponent>().Push();
         }
 
         private void Toss()
         {
-            _character.GetComponent<Character>().Toss();
+            _character.GetComponent<ITossComponent>().Toss();
         }
     }
+
 }

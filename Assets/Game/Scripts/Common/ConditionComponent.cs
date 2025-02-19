@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Game.Scripts.GameObjects.Core.Conditions
+namespace Game.Scripts.Common
 {
     public class ConditionComponent : MonoBehaviour
     {

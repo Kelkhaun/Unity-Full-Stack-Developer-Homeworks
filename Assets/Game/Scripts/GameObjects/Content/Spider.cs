@@ -1,3 +1,4 @@
+using Game.Scripts.Common;
 using Game.Scripts.GameObjects.Core;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ namespace Game.Scripts.GameObjects.Content
     public sealed class Spider : MonoBehaviour
     {
         [SerializeField]
-        private TimerComponent _pushTimerComponent;
+        private Timer pushTimer;
 
         [SerializeField]
         private PushComponent _pushComponent;
@@ -28,7 +29,7 @@ namespace Game.Scripts.GameObjects.Content
 
         private void Awake()
         {
-            _pushComponent.AddCondition(() => !_pushTimerComponent.IsOnCooldown);
+            _pushComponent.AddCondition(() => !pushTimer.IsOnCooldown);
         }
 
         private void OnEnable()

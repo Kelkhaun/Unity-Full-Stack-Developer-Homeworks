@@ -1,12 +1,19 @@
+using Game.Scripts.GameContext;
 using Game.Scripts.GameObjects.Core;
 using UnityEngine;
 
 namespace Game.Scripts.GameObjects.Content
 {
-    public sealed class Character : MonoBehaviour
+    public sealed class Character : MonoBehaviour, IPushComponent, ITossComponent
     {
         [SerializeField]
         private HealthComponent _healthComponent;
+
+        [SerializeField]
+        private MoveComponent _moveComponent;
+
+        [SerializeField]
+        private RotateComponent _rotateComponent;
 
         [SerializeField]
         private JumpComponent _jumpComponent;
@@ -23,11 +30,22 @@ namespace Game.Scripts.GameObjects.Content
         private void OnEnable()
         {
             _healthComponent.OnHealthLost += Death;
+            _moveComponent.OnMove += OnMove;
         }
 
         private void OnDisable()
         {
             _healthComponent.OnHealthLost -= Death;
+            _moveComponent.OnMove -= OnMove;
+        }
+
+        private void OnMove(Vector3 direction)
+        {
+            if (Mathf.Abs(direction.x - 1) < float.Epsilon)
+                _rotateComponent.Rotate(RotateComponent.RotateDirection.Right);
+
+            if (Mathf.Abs(direction.x + 1) < float.Epsilon)
+                _rotateComponent.Rotate(RotateComponent.RotateDirection.Left);
         }
 
         public void Push()

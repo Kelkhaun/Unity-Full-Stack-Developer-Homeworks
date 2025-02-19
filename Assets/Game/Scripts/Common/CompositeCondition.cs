@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Game.Scripts.GameObjects.Core.Conditions
+namespace Game.Scripts.Common
 {
     public sealed class CompositeCondition
     {

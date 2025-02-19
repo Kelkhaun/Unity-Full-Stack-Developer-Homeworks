@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Game.Scripts.GameObjects.Core.Conditions;
+using Game.Scripts.Common;
 using UnityEngine;
 
 namespace Game.Scripts.GameObjects.Core
@@ -19,7 +19,7 @@ namespace Game.Scripts.GameObjects.Core
         private float _power;
 
         [SerializeField]
-        private TimerComponent _timerComponent;
+        private Timer timer;
 
         [SerializeField]
         private Vector2 _checkboxSize;
@@ -32,12 +32,12 @@ namespace Game.Scripts.GameObjects.Core
 
         private void Awake()
         {
-            AddCondition(() => !_timerComponent.IsOnCooldown);
+            AddCondition(() => !timer.IsOnCooldown);
         }
 
         private void Update()
         {
-            _timerComponent.Tick();
+            timer.Tick();
         }
 
         public void Push(GameObject target)
@@ -58,7 +58,7 @@ namespace Game.Scripts.GameObjects.Core
             if (!CompositeCondition.IsTrue())
                 return;
 
-            _timerComponent.StartWork();
+            timer.StartWork();
 
             List<GameObject> targets = GetTargets();
 

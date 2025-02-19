@@ -1,3 +1,4 @@
+using Game.Scripts.GameObjects.Content;
 using Game.Scripts.GameObjects.Core;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ namespace Game.Scripts.GameContext
     public sealed class CharacterJumpController : MonoBehaviour
     {
         [SerializeField]
-        private JumpComponent _jumpComponent;
+        private Character _character;
 
         private void Update()
         {
@@ -16,7 +17,7 @@ namespace Game.Scripts.GameContext
 
         private void Jump()
         {
-            _jumpComponent.Jump();
+            _character.GetComponent<JumpComponent>().Jump();
         }
     }
 }

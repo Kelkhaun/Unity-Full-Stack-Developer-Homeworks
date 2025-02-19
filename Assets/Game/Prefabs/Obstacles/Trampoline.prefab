@@ -242,8 +242,8 @@ GameObject:
   - component: {fileID: 2682617834291874480}
   - component: {fileID: 3923564173533055732}
   - component: {fileID: 462220850466681025}
-  - component: {fileID: 8255035090964132479}
   - component: {fileID: 5410032023621887133}
+  - component: {fileID: 2779682199883830845}
   m_Layer: 6
   m_Name: Trampoline
   m_TagString: Untagged
@@ -328,7 +328,7 @@ MonoBehaviour:
   _pushPoint: {fileID: 4979841302588641904}
   _type: 1
   _power: 30
-  _timerComponent:
+  timer:
     _cooldownTime: 0
   _checkboxSize: {x: 0, y: 0}
   _interactableLayer:
@@ -349,21 +349,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pushComponent: {fileID: 3923564173533055732}
   _triggerComponent: {fileID: 5410032023621887133}
---- !u!114 &8255035090964132479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8595837930061912479}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e41626f7f0d495a9ac36bf7f883fdf7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioSource: {fileID: 1617741907949594362}
-  _clip: {fileID: 8300000, guid: 08ef3735b9527d54ab97d0e9fc9d505d, type: 3}
-  _pushComponent: {fileID: 3923564173533055732}
 --- !u!114 &5410032023621887133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -376,3 +361,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5670a5e06c8467a9115ddbbef828262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2779682199883830845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8595837930061912479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a8203d633b84f79b567881a67bd17f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSource: {fileID: 1617741907949594362}
+  _clip: {fileID: 8300000, guid: 08ef3735b9527d54ab97d0e9fc9d505d, type: 3}
+  _pushComponent: {fileID: 3923564173533055732}
