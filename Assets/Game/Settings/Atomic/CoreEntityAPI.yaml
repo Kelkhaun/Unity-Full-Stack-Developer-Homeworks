@@ -5,22 +5,30 @@ aggressiveInlining: true
 namespace: SampleGame
 className: SampleEntityAPI
 directory: Assets/Scripts/Codegen
- 
+
 imports:
-- UnityEngine
-- Atomic.Entities
-- Atomic.Elements
+  - UnityEngine
+  - Atomic.Entities
+  - Atomic.Elements
 
 tags:
-- Player
-- Enemy
-- Resource
+  - Player
+  - Enemy
+  - Resource
 
 values:
-- Health: int
-- MoveSpeed: ReactiveFloat
-- RotationSpeed: ReactiveFloat
-- Transform: Transform
-- MoveDirection : ReactiveVector3
-- RotateDirection : ReactiveVector3
-- Rigidbody : Rigidbody
+  - Health: int
+  - Transform: Transform
+  - Rigidbody: Rigidbody
+  - MoveDirection: ReactiveVector3
+  - MoveSpeed: ReactiveFloat
+  - RotateDirection: ReactiveVector3
+  - RotationSpeed: ReactiveFloat
+  - ShootEvent: IEvent
+  - ShootingRequest: IEvent  
+  - ShootingOverRequest: IEvent  
+  - BulletPrefab: GameObject
+  - ShootPoint: Transform
+  - ShootingCondition: AndExpression
+  - CanShoot: ReactiveBool
+  - ShootTimer : Countdown

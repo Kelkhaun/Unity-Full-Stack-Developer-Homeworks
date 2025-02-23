@@ -10288,6 +10288,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.509991, y: 3.0119958, z: 1}
   m_Center: {x: -1.2500002, y: 1.5, z: 0}
+--- !u!4 &724025325 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7272988223813815378, guid: 25ded69825984498db7dacfedbed37a1, type: 3}
+  m_PrefabInstance: {fileID: 9048405937420967252}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &725479703
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23037,9 +23042,34 @@ MonoBehaviour:
     value: 25
   _rotationSpeed:
     value: 25
-  _direction:
+  _moveDirection:
+    value: {x: 0, y: 0, z: 0}
+  _rotateDirection:
     value: {x: 0, y: 0, z: 0}
   _rigidbody: {fileID: 1850154601}
+  _shootPoint: {fileID: 724025325}
+  _bulletPrefab: {fileID: 8829669804357326195, guid: fc383e20fc5b342059ed5ab71e30da44, type: 3}
+  _shootConditions:
+  - rid: 120528996204019712
+  _shootRequestActions:
+  - rid: 120528996204019716
+  _shootOverActions:
+  - rid: 120528996204019715
+  _shootTimer:
+    duration: 1
+    loop: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 120528996204019712
+      type: {class: CanShootTrueConditionAsset, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 120528996204019715
+      type: {class: CanShootFalseActionAsset, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 120528996204019716
+      type: {class: StartShootTimerActionAsset, ns: , asm: Assembly-CSharp}
+      data: 
 --- !u!114 &1850154598
 MonoBehaviour:
   m_ObjectHideFlags: 0

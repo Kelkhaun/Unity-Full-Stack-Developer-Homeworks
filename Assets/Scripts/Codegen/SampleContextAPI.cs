@@ -19,6 +19,7 @@ namespace SampleGame
 		public const int MoveJoystick = -1686028204; // Joystick
 		public const int AimJoystick = -1668784795; // Joystick
 		public const int Character = 294335127; // SceneEntity
+		public const int BulletPool = 1915726678; // EntityPool
 
 
 		///Value Extensions
@@ -76,5 +77,23 @@ namespace SampleGame
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static void SetCharacter(this IContext obj, SceneEntity value) => obj.SetValue(Character, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static EntityPool GetBulletPool(this IContext obj) => obj.GetValue<EntityPool>(BulletPool);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool TryGetBulletPool(this IContext obj, out EntityPool value) => obj.TryGetValue(BulletPool, out value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool AddBulletPool(this IContext obj, EntityPool value) => obj.AddValue(BulletPool, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool HasBulletPool(this IContext obj) => obj.HasValue(BulletPool);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool DelBulletPool(this IContext obj) => obj.DelValue(BulletPool);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void SetBulletPool(this IContext obj, EntityPool value) => obj.SetValue(BulletPool, value);
     }
 }

@@ -17,5 +17,6 @@ public class InputInstaller : SceneContextInstaller
         context.AddCharacter(_character);
         context.AddController<MoveController>();
         context.AddController<AimController>();
+        context.AddController<ShootController>();
     }
 }

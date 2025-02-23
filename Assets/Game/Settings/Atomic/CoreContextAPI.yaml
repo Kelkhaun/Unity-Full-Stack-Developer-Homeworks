@@ -16,3 +16,4 @@ values:
 - MoveJoystick: Joystick
 - AimJoystick: Joystick
 - Character : SceneEntity
+- BulletPool : EntityPool
