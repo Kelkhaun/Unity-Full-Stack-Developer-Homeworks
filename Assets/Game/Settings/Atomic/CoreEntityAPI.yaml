@@ -10,6 +10,7 @@ imports:
   - UnityEngine
   - Atomic.Entities
   - Atomic.Elements
+  - Modules.Gameplay
 
 tags:
   - Player
@@ -17,7 +18,8 @@ tags:
   - Resource
 
 values:
-  - Health: int
+  - Health: ReactiveInt
+  - DeathEvent : IEvent
   - Transform: Transform
   - Rigidbody: Rigidbody
   - MoveDirection: ReactiveVector3
@@ -32,3 +34,7 @@ values:
   - ShootingCondition: AndExpression
   - CanShoot: ReactiveBool
   - ShootTimer : Countdown
+  - LifeTimeCountdown : Timer
+  - GameObject : GameObject
+  - CollisionEventReceiver : CollisionEventReceiver
+  - Damage : ReactiveInt

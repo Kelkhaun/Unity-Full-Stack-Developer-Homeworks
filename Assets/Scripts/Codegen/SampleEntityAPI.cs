@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using Atomic.Entities;
 using Atomic.Elements;
+using Modules.Gameplay;
 
 namespace SampleGame
 {
@@ -19,7 +20,8 @@ namespace SampleGame
 
 
 		///Values
-		public const int Health = -915003867; // int
+		public const int Health = -915003867; // ReactiveInt
+		public const int DeathEvent = -1096613677; // IEvent
 		public const int Transform = -180157682; // Transform
 		public const int Rigidbody = -2101481708; // Rigidbody
 		public const int MoveDirection = -721923052; // ReactiveVector3
@@ -34,6 +36,10 @@ namespace SampleGame
 		public const int ShootingCondition = 1909327147; // AndExpression
 		public const int CanShoot = -1431824453; // ReactiveBool
 		public const int ShootTimer = -542658226; // Countdown
+		public const int LifeTimeCountdown = 249824570; // Timer
+		public const int GameObject = 1482111001; // GameObject
+		public const int CollisionEventReceiver = 396602988; // CollisionEventReceiver
+		public const int Damage = 375673178; // ReactiveInt
 
 
 		///Tag Extensions
@@ -69,13 +75,13 @@ namespace SampleGame
 		///Value Extensions
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static int GetHealth(this IEntity obj) => obj.GetValue<int>(Health);
+		public static ReactiveInt GetHealth(this IEntity obj) => obj.GetValue<ReactiveInt>(Health);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool TryGetHealth(this IEntity obj, out int value) => obj.TryGetValue(Health, out value);
+		public static bool TryGetHealth(this IEntity obj, out ReactiveInt value) => obj.TryGetValue(Health, out value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool AddHealth(this IEntity obj, int value) => obj.AddValue(Health, value);
+		public static bool AddHealth(this IEntity obj, ReactiveInt value) => obj.AddValue(Health, value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static bool HasHealth(this IEntity obj) => obj.HasValue(Health);
@@ -84,7 +90,25 @@ namespace SampleGame
 		public static bool DelHealth(this IEntity obj) => obj.DelValue(Health);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static void SetHealth(this IEntity obj, int value) => obj.SetValue(Health, value);
+		public static void SetHealth(this IEntity obj, ReactiveInt value) => obj.SetValue(Health, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static IEvent GetDeathEvent(this IEntity obj) => obj.GetValue<IEvent>(DeathEvent);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool TryGetDeathEvent(this IEntity obj, out IEvent value) => obj.TryGetValue(DeathEvent, out value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool AddDeathEvent(this IEntity obj, IEvent value) => obj.AddValue(DeathEvent, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool HasDeathEvent(this IEntity obj) => obj.HasValue(DeathEvent);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool DelDeathEvent(this IEntity obj) => obj.DelValue(DeathEvent);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void SetDeathEvent(this IEntity obj, IEvent value) => obj.SetValue(DeathEvent, value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static Transform GetTransform(this IEntity obj) => obj.GetValue<Transform>(Transform);
@@ -337,5 +361,77 @@ namespace SampleGame
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static void SetShootTimer(this IEntity obj, Countdown value) => obj.SetValue(ShootTimer, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static Timer GetLifeTimeCountdown(this IEntity obj) => obj.GetValue<Timer>(LifeTimeCountdown);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool TryGetLifeTimeCountdown(this IEntity obj, out Timer value) => obj.TryGetValue(LifeTimeCountdown, out value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool AddLifeTimeCountdown(this IEntity obj, Timer value) => obj.AddValue(LifeTimeCountdown, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool HasLifeTimeCountdown(this IEntity obj) => obj.HasValue(LifeTimeCountdown);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool DelLifeTimeCountdown(this IEntity obj) => obj.DelValue(LifeTimeCountdown);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void SetLifeTimeCountdown(this IEntity obj, Timer value) => obj.SetValue(LifeTimeCountdown, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static GameObject GetGameObject(this IEntity obj) => obj.GetValue<GameObject>(GameObject);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool TryGetGameObject(this IEntity obj, out GameObject value) => obj.TryGetValue(GameObject, out value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool AddGameObject(this IEntity obj, GameObject value) => obj.AddValue(GameObject, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool HasGameObject(this IEntity obj) => obj.HasValue(GameObject);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool DelGameObject(this IEntity obj) => obj.DelValue(GameObject);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void SetGameObject(this IEntity obj, GameObject value) => obj.SetValue(GameObject, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static CollisionEventReceiver GetCollisionEventReceiver(this IEntity obj) => obj.GetValue<CollisionEventReceiver>(CollisionEventReceiver);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool TryGetCollisionEventReceiver(this IEntity obj, out CollisionEventReceiver value) => obj.TryGetValue(CollisionEventReceiver, out value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool AddCollisionEventReceiver(this IEntity obj, CollisionEventReceiver value) => obj.AddValue(CollisionEventReceiver, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool HasCollisionEventReceiver(this IEntity obj) => obj.HasValue(CollisionEventReceiver);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool DelCollisionEventReceiver(this IEntity obj) => obj.DelValue(CollisionEventReceiver);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void SetCollisionEventReceiver(this IEntity obj, CollisionEventReceiver value) => obj.SetValue(CollisionEventReceiver, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static ReactiveInt GetDamage(this IEntity obj) => obj.GetValue<ReactiveInt>(Damage);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool TryGetDamage(this IEntity obj, out ReactiveInt value) => obj.TryGetValue(Damage, out value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool AddDamage(this IEntity obj, ReactiveInt value) => obj.AddValue(Damage, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool HasDamage(this IEntity obj) => obj.HasValue(Damage);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool DelDamage(this IEntity obj) => obj.DelValue(Damage);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void SetDamage(this IEntity obj, ReactiveInt value) => obj.SetValue(Damage, value);
     }
 }

@@ -75,6 +75,9 @@ GameObject:
   - component: {fileID: 2293162354956507346}
   - component: {fileID: 2852948263122311593}
   - component: {fileID: 7006393198650432515}
+  - component: {fileID: 3942062625019650135}
+  - component: {fileID: 1350981529242617676}
+  - component: {fileID: 1881888197448643860}
   m_Layer: 12
   m_Name: Bullet
   m_TagString: Bullet
@@ -158,6 +161,75 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05ba46b9e4c74f868c7bb76a6bbf8de5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3942062625019650135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8829669804357326195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3142498ee69840069f3a93c11b1e1f75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  installOnAwake: 1
+  installInEditMode: 0
+  disposeValues: 1
+  installers:
+  - {fileID: 1881888197448643860}
+  _onlySelectedGizmos: 0
+  _onlyEditModeGizmos: 0
+--- !u!114 &1350981529242617676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8829669804357326195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 603a745f80e14d1d8cd57cf70a50187f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entities:
+  - {fileID: 3942062625019650135}
+--- !u!114 &1881888197448643860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8829669804357326195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45c88a17cfda49079736c665cb4f0afb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lifeTimer:
+    duration: 3
+    loop: 0
+  _finishActions:
+  - rid: 120528996204019722
+  _moveSpeed:
+    value: 3
+  _moveDirection:
+    value: {x: 0, y: 0, z: 0}
+  _damage:
+    value: 1
+  _collisionReciver: {fileID: 7006393198650432515}
+  _rigidbody: {fileID: 2293162354956507346}
+  _deathActions:
+  - rid: 120528996204019723
+  references:
+    version: 2
+    RefIds:
+    - rid: 120528996204019722
+      type: {class: GameObjectDestroyActionAsset, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 120528996204019723
+      type: {class: GameObjectDestroyActionAsset, ns: , asm: Assembly-CSharp}
+      data: 
 --- !u!1001 &2426699191576222108
 PrefabInstance:
   m_ObjectHideFlags: 0
