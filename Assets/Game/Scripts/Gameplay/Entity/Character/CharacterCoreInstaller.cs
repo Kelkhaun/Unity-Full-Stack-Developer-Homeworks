@@ -33,16 +33,16 @@ namespace Game.Gameplay
             entity.AddBehaviour<RotationBehavior>();
             //Shooting
             entity.AddWeapon(_currentWeapon);
-            entity.AddCanShoot(new ReactiveBool());
             entity.AddShootTimer(_shootTimer);
-            entity.AddBehaviour<CharacterShootingBehaviour>();
-            entity.AddBehaviour<ShootingBehaviour>();
+            entity.AddCanShoot(new ReactiveBool());
             entity.AddBehaviour<CanShootDelayBehaviour>();
-            //ShootingEvent
+            entity.AddBehaviour<ShootingBehaviour>();
+            entity.AddBehaviour<CharacterShootingBehaviour>();
+            //Event
             BaseEvent shootRequestEvent = new BaseEvent();
             shootRequestEvent.SubscribeAllBy(_shootRequestActions, entity);
             entity.AddShootingRequest(shootRequestEvent);
-            
+          
             AndExpression condition = new AndExpression();
             condition.AppendBy(_shootConditions, entity);
             entity.AddShootingCondition(condition);
