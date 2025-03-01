@@ -1,6 +1,7 @@
 using Atomic.Elements;
 using Atomic.Entities;
 using Atomic.Extensions;
+using Modules.Gameplay;
 using SampleGame;
 using UnityEngine;
 
@@ -18,7 +19,8 @@ namespace Game.Gameplay
         [SerializeReference] private IEntityActionAsset[] _shootOverActions;
         [SerializeField] private Countdown _shootTimer;
         [SerializeField] private WeaponEntity _currentWeapon;
-        
+        [SerializeField] private TriggerEventReceiver _triggerEventReceiver;
+
         public override void Install(IEntity entity)
         {
             //Body
@@ -52,6 +54,10 @@ namespace Game.Gameplay
             BaseEvent shootOverEvent = new BaseEvent();
             shootOverEvent.SubscribeAllBy(_shootOverActions, entity);
             entity.AddShootingOverRequest(shootOverEvent);
+
+            // Interact 
+            entity.AddTriggerEventReceiver(_triggerEventReceiver);
+            entity.AddBehaviour<InteractBehaviour>();
         }
     }
 }

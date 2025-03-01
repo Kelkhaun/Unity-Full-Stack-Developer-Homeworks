@@ -1527,6 +1527,7 @@ MonoBehaviour:
     duration: 1
     loop: 0
   _currentWeapon: {fileID: 6883243919796163204}
+  _triggerEventReceiver: {fileID: 7921063292541329948}
   references:
     version: 2
     RefIds:

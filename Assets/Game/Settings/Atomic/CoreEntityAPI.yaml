@@ -16,6 +16,7 @@ tags:
   - Player
   - Enemy
   - Resource
+  - Interactable
 
 values:
   - Health: ReactiveInt
@@ -35,5 +36,7 @@ values:
   - LifeTimeCountdown : Timer
   - GameObject : GameObject
   - CollisionEventReceiver : CollisionEventReceiver
+  - TriggerEventReceiver : TriggerEventReceiver
   - Damage : ReactiveInt
   - Weapon : WeaponEntity  
+  - InteractAction : BaseAction<IEntity>  

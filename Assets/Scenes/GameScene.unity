@@ -28005,6 +28005,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1152974347791882949, guid: 25ded69825984498db7dacfedbed37a1, type: 3}
+      propertyPath: installInEditMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3578180279390331970, guid: 25ded69825984498db7dacfedbed37a1, type: 3}
       propertyPath: m_Name
       value: '[Character]'

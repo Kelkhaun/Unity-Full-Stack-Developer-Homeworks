@@ -17,6 +17,7 @@ namespace SampleGame
 		public const int Player = -1615495341;
 		public const int Enemy = 979269037;
 		public const int Resource = 1172805184;
+		public const int Interactable = 1077199658;
 
 
 		///Values
@@ -37,8 +38,10 @@ namespace SampleGame
 		public const int LifeTimeCountdown = 249824570; // Timer
 		public const int GameObject = 1482111001; // GameObject
 		public const int CollisionEventReceiver = 396602988; // CollisionEventReceiver
+		public const int TriggerEventReceiver = -484936241; // TriggerEventReceiver
 		public const int Damage = 375673178; // ReactiveInt
 		public const int Weapon = 1855955664; // WeaponEntity
+		public const int InteractAction = -1026843572; // BaseAction<IEntity>
 
 
 		///Tag Extensions
@@ -69,6 +72,15 @@ namespace SampleGame
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static bool DelResourceTag(this IEntity obj) => obj.DelTag(Resource);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool HasInteractableTag(this IEntity obj) => obj.HasTag(Interactable);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool AddInteractableTag(this IEntity obj) => obj.AddTag(Interactable);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool DelInteractableTag(this IEntity obj) => obj.DelTag(Interactable);
 
 
 		///Value Extensions
@@ -380,6 +392,24 @@ namespace SampleGame
 		public static void SetCollisionEventReceiver(this IEntity obj, CollisionEventReceiver value) => obj.SetValue(CollisionEventReceiver, value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static TriggerEventReceiver GetTriggerEventReceiver(this IEntity obj) => obj.GetValue<TriggerEventReceiver>(TriggerEventReceiver);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool TryGetTriggerEventReceiver(this IEntity obj, out TriggerEventReceiver value) => obj.TryGetValue(TriggerEventReceiver, out value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool AddTriggerEventReceiver(this IEntity obj, TriggerEventReceiver value) => obj.AddValue(TriggerEventReceiver, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool HasTriggerEventReceiver(this IEntity obj) => obj.HasValue(TriggerEventReceiver);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool DelTriggerEventReceiver(this IEntity obj) => obj.DelValue(TriggerEventReceiver);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void SetTriggerEventReceiver(this IEntity obj, TriggerEventReceiver value) => obj.SetValue(TriggerEventReceiver, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static ReactiveInt GetDamage(this IEntity obj) => obj.GetValue<ReactiveInt>(Damage);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -414,5 +444,23 @@ namespace SampleGame
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static void SetWeapon(this IEntity obj, WeaponEntity value) => obj.SetValue(Weapon, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static BaseAction<IEntity> GetInteractAction(this IEntity obj) => obj.GetValue<BaseAction<IEntity>>(InteractAction);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool TryGetInteractAction(this IEntity obj, out BaseAction<IEntity> value) => obj.TryGetValue(InteractAction, out value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool AddInteractAction(this IEntity obj, BaseAction<IEntity> value) => obj.AddValue(InteractAction, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool HasInteractAction(this IEntity obj) => obj.HasValue(InteractAction);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool DelInteractAction(this IEntity obj) => obj.DelValue(InteractAction);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void SetInteractAction(this IEntity obj, BaseAction<IEntity> value) => obj.SetValue(InteractAction, value);
     }
 }
