@@ -13,12 +13,11 @@ namespace Game.Gameplay
         [SerializeField] private ReactiveVector3 _moveDirection;
         [SerializeField] private ReactiveVector3 _rotateDirection;
         [SerializeField] private Rigidbody _rigidbody;
-        [SerializeField] private Transform _shootPoint;
-        [SerializeField] private GameObject _bulletPrefab;
         [SerializeReference] private IEntityPredicateAsset[] _shootConditions;
         [SerializeReference] private IEntityActionAsset[] _shootRequestActions;
         [SerializeReference] private IEntityActionAsset[] _shootOverActions;
         [SerializeField] private Countdown _shootTimer;
+        [SerializeField] private WeaponEntity _currentWeapon;
         
         public override void Install(IEntity entity)
         {
@@ -33,21 +32,23 @@ namespace Game.Gameplay
             entity.AddBehaviour<MovementBehaviour>();
             entity.AddBehaviour<RotationBehavior>();
             //Shooting
+            entity.AddWeapon(_currentWeapon);
             entity.AddCanShoot(new ReactiveBool());
             entity.AddShootTimer(_shootTimer);
-            entity.AddBulletPrefab(_bulletPrefab);
-            entity.AddShootPoint(_shootPoint);
-            entity.AddBehaviour<ShootingBulletBehaviour>();
+            entity.AddBehaviour<CharacterShootingBehaviour>();
             entity.AddBehaviour<ShootingBehaviour>();
-            entity.AddBehaviour<StartShootDelayBehaviour>();
+            entity.AddBehaviour<CanShootDelayBehaviour>();
             //ShootingEvent
             BaseEvent shootRequestEvent = new BaseEvent();
             shootRequestEvent.SubscribeAllBy(_shootRequestActions, entity);
             entity.AddShootingRequest(shootRequestEvent);
+            
             AndExpression condition = new AndExpression();
-            entity.AddShootingCondition(condition);
             condition.AppendBy(_shootConditions, entity);
+            entity.AddShootingCondition(condition);
+            
             entity.AddShootEvent(new BaseEvent());
+            
             BaseEvent shootOverEvent = new BaseEvent();
             shootOverEvent.SubscribeAllBy(_shootOverActions, entity);
             entity.AddShootingOverRequest(shootOverEvent);

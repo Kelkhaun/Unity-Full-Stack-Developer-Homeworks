@@ -2,7 +2,7 @@ using Atomic.Elements;
 using Atomic.Entities;
 using SampleGame;
 
-public class StartShootDelayBehaviour : IEntityInit, IEntityDispose, IEntityUpdate
+public class CanShootDelayBehaviour : IEntityInit, IEntityDispose, IEntityUpdate
 {
     private ReactiveBool _canShoot;
     private Countdown _shootTimer;

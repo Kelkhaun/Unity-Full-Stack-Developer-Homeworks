@@ -1,6 +1,6 @@
 namespace Atomic.Entities
 {
-    public partial interface IEntity
+    public partial interface IEntity 
     {
         int Id { get; set; }
         

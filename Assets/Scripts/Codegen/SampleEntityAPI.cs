@@ -31,8 +31,6 @@ namespace SampleGame
 		public const int ShootEvent = -1898355213; // IEvent
 		public const int ShootingRequest = -1070173053; // IEvent
 		public const int ShootingOverRequest = -65613924; // IEvent
-		public const int BulletPrefab = -918778767; // GameObject
-		public const int ShootPoint = 47357040; // Transform
 		public const int ShootingCondition = 1909327147; // AndExpression
 		public const int CanShoot = -1431824453; // ReactiveBool
 		public const int ShootTimer = -542658226; // Countdown
@@ -40,6 +38,7 @@ namespace SampleGame
 		public const int GameObject = 1482111001; // GameObject
 		public const int CollisionEventReceiver = 396602988; // CollisionEventReceiver
 		public const int Damage = 375673178; // ReactiveInt
+		public const int Weapon = 1855955664; // WeaponEntity
 
 
 		///Tag Extensions
@@ -273,42 +272,6 @@ namespace SampleGame
 		public static void SetShootingOverRequest(this IEntity obj, IEvent value) => obj.SetValue(ShootingOverRequest, value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static GameObject GetBulletPrefab(this IEntity obj) => obj.GetValue<GameObject>(BulletPrefab);
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool TryGetBulletPrefab(this IEntity obj, out GameObject value) => obj.TryGetValue(BulletPrefab, out value);
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool AddBulletPrefab(this IEntity obj, GameObject value) => obj.AddValue(BulletPrefab, value);
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool HasBulletPrefab(this IEntity obj) => obj.HasValue(BulletPrefab);
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool DelBulletPrefab(this IEntity obj) => obj.DelValue(BulletPrefab);
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static void SetBulletPrefab(this IEntity obj, GameObject value) => obj.SetValue(BulletPrefab, value);
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Transform GetShootPoint(this IEntity obj) => obj.GetValue<Transform>(ShootPoint);
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool TryGetShootPoint(this IEntity obj, out Transform value) => obj.TryGetValue(ShootPoint, out value);
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool AddShootPoint(this IEntity obj, Transform value) => obj.AddValue(ShootPoint, value);
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool HasShootPoint(this IEntity obj) => obj.HasValue(ShootPoint);
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool DelShootPoint(this IEntity obj) => obj.DelValue(ShootPoint);
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static void SetShootPoint(this IEntity obj, Transform value) => obj.SetValue(ShootPoint, value);
-
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static AndExpression GetShootingCondition(this IEntity obj) => obj.GetValue<AndExpression>(ShootingCondition);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -433,5 +396,23 @@ namespace SampleGame
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static void SetDamage(this IEntity obj, ReactiveInt value) => obj.SetValue(Damage, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static WeaponEntity GetWeapon(this IEntity obj) => obj.GetValue<WeaponEntity>(Weapon);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool TryGetWeapon(this IEntity obj, out WeaponEntity value) => obj.TryGetValue(Weapon, out value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool AddWeapon(this IEntity obj, WeaponEntity value) => obj.AddValue(Weapon, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool HasWeapon(this IEntity obj) => obj.HasValue(Weapon);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool DelWeapon(this IEntity obj) => obj.DelValue(Weapon);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void SetWeapon(this IEntity obj, WeaponEntity value) => obj.SetValue(Weapon, value);
     }
 }

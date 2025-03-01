@@ -29,7 +29,6 @@ namespace Game.Gameplay
 
         private void OnCollisionEnter(Collision collision)
         {
-            Debug.Log("Bilo DA");
             collision.TakeDamage(_damage.Value);
             _deathEvent?.Invoke();
         }

@@ -2,25 +2,25 @@ using Atomic.Elements;
 using Atomic.Entities;
 using SampleGame;
 
-public class ShootingBulletBehaviour : IEntityInit, IEntityDispose
+public class WeaponFiringBehaviour : IEntityInit<IWeaponEntity>, IEntityDispose<IWeaponEntity>
 {
     private IEvent _shootEvent;
-    private IEntity _entity;
-
-    public void Init(in IEntity entity)
+    private IWeaponEntity _weapon;
+    
+    public void Init(IWeaponEntity entity)
     {
-        _entity = entity;
         _shootEvent = entity.GetShootEvent();
         _shootEvent.Subscribe(Shoot);
+        _weapon = entity.GetWeapon();
     }
 
-    public void Dispose(in IEntity entity)
+    public void Dispose(IWeaponEntity entity)
     {
         _shootEvent.Unsubscribe(Shoot);
     }
 
     private void Shoot()
     {
-        _entity.Shoot();
+        _weapon.Fire();
     }
 }

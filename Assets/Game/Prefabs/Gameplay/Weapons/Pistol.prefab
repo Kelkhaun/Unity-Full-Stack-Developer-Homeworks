@@ -574,6 +574,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3115307619230652578}
+  - component: {fileID: 2181904278700624296}
+  - component: {fileID: 5814607813176723042}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Range
@@ -589,7 +591,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2555051196878869353}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.014590485, y: 0.7464613, z: -0.66526884, w: -0.0003379787}
+  m_LocalRotation: {x: 0.014591438, y: 0.7464613, z: -0.66526884, w: -0.00033728036}
   m_LocalPosition: {x: 0.05, y: 0.046, z: -0.009}
   m_LocalScale: {x: 1.2, y: 1.2000002, z: 1.2000002}
   m_ConstrainProportionsScale: 0
@@ -600,6 +602,77 @@ Transform:
   - {fileID: 8943026575759115152}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -263.307, y: -350.16, z: -169.003}
+--- !u!114 &2181904278700624296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2555051196878869353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f834567d537260b4f8d66afeb8c193b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  installOnAwake: 1
+  installInEditMode: 0
+  disposeValues: 1
+  installers:
+  - {fileID: 5814607813176723042}
+  _onlySelectedGizmos: 0
+  _onlyEditModeGizmos: 0
+--- !u!114 &5814607813176723042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2555051196878869353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1989d48e64faafb4c8d03be01f9b14c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weapon: {fileID: 2181904278700624296}
+  _firePoint: {fileID: 2679439196154746750}
+  _bulletPrefab: {fileID: 8829669804357326195, guid: fc383e20fc5b342059ed5ab71e30da44, type: 3}
+  _fireTimer:
+    duration: 1
+    loop: 0
+  _fireSpread:
+    value: 0.25
+  _initialBulletCount:
+    value: 8
+  _fireConditions:
+  - rid: 5173014224542629901
+  - rid: 5173014224542629897
+  _fireActions:
+  - rid: 5173014224542629899
+  - rid: 5173014224542629900
+  - rid: 5173014224542629902
+  _timeEndActions:
+  - rid: 5173014224542629904
+  references:
+    version: 2
+    RefIds:
+    - rid: 5173014224542629897
+      type: {class: HaveAmmoConditionAsset, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5173014224542629899
+      type: {class: DecreaseAmmoByOneActionAsset, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5173014224542629900
+      type: {class: StatTimerAfterFireActionAsset, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5173014224542629901
+      type: {class: CanShootTrueConditionAsset, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5173014224542629902
+      type: {class: CanShootFalseActionAsset, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5173014224542629904
+      type: {class: CanShootTrueActionAsset, ns: , asm: Assembly-CSharp}
+      data: 
 --- !u!1 &3618244528254723884
 GameObject:
   m_ObjectHideFlags: 0

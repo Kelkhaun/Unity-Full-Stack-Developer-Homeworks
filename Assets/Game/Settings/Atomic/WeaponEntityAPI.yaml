@@ -1,0 +1,23 @@
+header: EntityAPI
+entityType: IWeaponEntity
+aggressiveInlining: true
+
+namespace: SampleGame
+className: WeaponEntityAPI
+directory: Assets/Scripts/Codegen
+
+imports:
+  - UnityEngine
+  - Atomic.Entities
+  - Atomic.Elements
+  - Atomic.Extensions
+
+tags:
+
+
+values:
+- FireSpread: ReactiveFloat
+- BulletCount: ReactiveInt
+- BulletPrefab: GameObject
+- FirePoint: Transform
+    

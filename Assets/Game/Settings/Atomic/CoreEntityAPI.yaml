@@ -29,8 +29,6 @@ values:
   - ShootEvent: IEvent
   - ShootingRequest: IEvent  
   - ShootingOverRequest: IEvent  
-  - BulletPrefab: GameObject
-  - ShootPoint: Transform
   - ShootingCondition: AndExpression
   - CanShoot: ReactiveBool
   - ShootTimer : Countdown
@@ -38,3 +36,4 @@ values:
   - GameObject : GameObject
   - CollisionEventReceiver : CollisionEventReceiver
   - Damage : ReactiveInt
+  - Weapon : WeaponEntity  
