@@ -8,6 +8,7 @@ using UnityEngine;
 using Atomic.Entities;
 using Atomic.Elements;
 using Modules.Gameplay;
+using Game.Scripts.Types;
 
 namespace SampleGame
 {
@@ -21,7 +22,8 @@ namespace SampleGame
 
 
 		///Values
-		public const int Health = -915003867; // ReactiveInt
+		public const int CurrentHealth = 1412363848; // ReactiveInt
+		public const int MaxHealth = 1923500305; // ReactiveInt
 		public const int DeathEvent = -1096613677; // IEvent
 		public const int Transform = -180157682; // Transform
 		public const int Rigidbody = -2101481708; // Rigidbody
@@ -86,22 +88,40 @@ namespace SampleGame
 		///Value Extensions
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static ReactiveInt GetHealth(this IEntity obj) => obj.GetValue<ReactiveInt>(Health);
+		public static ReactiveInt GetCurrentHealth(this IEntity obj) => obj.GetValue<ReactiveInt>(CurrentHealth);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool TryGetHealth(this IEntity obj, out ReactiveInt value) => obj.TryGetValue(Health, out value);
+		public static bool TryGetCurrentHealth(this IEntity obj, out ReactiveInt value) => obj.TryGetValue(CurrentHealth, out value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool AddHealth(this IEntity obj, ReactiveInt value) => obj.AddValue(Health, value);
+		public static bool AddCurrentHealth(this IEntity obj, ReactiveInt value) => obj.AddValue(CurrentHealth, value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool HasHealth(this IEntity obj) => obj.HasValue(Health);
+		public static bool HasCurrentHealth(this IEntity obj) => obj.HasValue(CurrentHealth);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool DelHealth(this IEntity obj) => obj.DelValue(Health);
+		public static bool DelCurrentHealth(this IEntity obj) => obj.DelValue(CurrentHealth);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static void SetHealth(this IEntity obj, ReactiveInt value) => obj.SetValue(Health, value);
+		public static void SetCurrentHealth(this IEntity obj, ReactiveInt value) => obj.SetValue(CurrentHealth, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static ReactiveInt GetMaxHealth(this IEntity obj) => obj.GetValue<ReactiveInt>(MaxHealth);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool TryGetMaxHealth(this IEntity obj, out ReactiveInt value) => obj.TryGetValue(MaxHealth, out value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool AddMaxHealth(this IEntity obj, ReactiveInt value) => obj.AddValue(MaxHealth, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool HasMaxHealth(this IEntity obj) => obj.HasValue(MaxHealth);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool DelMaxHealth(this IEntity obj) => obj.DelValue(MaxHealth);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void SetMaxHealth(this IEntity obj, ReactiveInt value) => obj.SetValue(MaxHealth, value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static IEvent GetDeathEvent(this IEntity obj) => obj.GetValue<IEvent>(DeathEvent);

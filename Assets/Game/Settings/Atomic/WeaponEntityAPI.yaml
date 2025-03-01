@@ -11,6 +11,7 @@ imports:
   - Atomic.Entities
   - Atomic.Elements
   - Atomic.Extensions
+  - Game.Scripts.Types
 
 tags:
 

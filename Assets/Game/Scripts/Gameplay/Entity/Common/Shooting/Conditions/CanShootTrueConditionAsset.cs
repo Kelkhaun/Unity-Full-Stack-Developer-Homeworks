@@ -3,10 +3,13 @@ using Atomic.Entities;
 using Atomic.Extensions;
 using SampleGame;
 
-public class CanShootTrueConditionAsset : IEntityPredicateAsset
+namespace Game.Scripts.Gameplay.Entity.Common.Shooting.Conditions
 {
-    public Func<bool> Create(IEntity entity)
+    public class CanShootTrueConditionAsset : IEntityPredicateAsset
     {
-        return () => entity.GetCanShoot().Value;
+        public Func<bool> Create(IEntity entity)
+        {
+            return () => entity.GetCanShoot().Value;
+        }
     }
 }

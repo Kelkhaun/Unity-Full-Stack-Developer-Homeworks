@@ -3,10 +3,13 @@ using Atomic.Entities;
 using Atomic.Extensions;
 using SampleGame;
 
-public class CanShootFalseActionAsset : IEntityActionAsset
+namespace Game.Scripts.Gameplay.Entity.Common.Shooting.Actions
 {
-    public Action Create(IEntity entity)
+    public class CanShootFalseActionAsset : IEntityActionAsset
     {
-        return () => entity.GetCanShoot().Value = false;
+        public Action Create(IEntity entity)
+        {
+            return () => entity.GetCanShoot().Value = false;
+        }
     }
 }

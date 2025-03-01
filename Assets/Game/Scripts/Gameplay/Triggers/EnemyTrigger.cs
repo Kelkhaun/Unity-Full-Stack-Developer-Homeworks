@@ -1,8 +1,7 @@
-using System;
 using Atomic.Entities;
 using UnityEngine;
 
-namespace Game.Gameplay
+namespace Game.Scripts.Gameplay.Triggers
 {
     [RequireComponent(typeof(Collider))]
     public sealed class EnemyTrigger : MonoBehaviour

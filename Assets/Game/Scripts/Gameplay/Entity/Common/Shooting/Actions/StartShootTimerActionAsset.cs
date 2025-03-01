@@ -3,14 +3,17 @@ using Atomic.Entities;
 using Atomic.Extensions;
 using SampleGame;
 
-public class StartShootTimerActionAsset : IEntityActionAsset
+namespace Game.Scripts.Gameplay.Entity.Common.Shooting.Actions
 {
-    public Action Create(IEntity entity)
+    public class StartShootTimerActionAsset : IEntityActionAsset
     {
-        return () =>
+        public Action Create(IEntity entity)
         {
-            if (entity.GetCanShoot().Value == false)
-                entity.GetShootTimer().Start();
-        };
+            return () =>
+            {
+                if (entity.GetCanShoot().Value == false)
+                    entity.GetShootTimer().Start();
+            };
+        }
     }
 }

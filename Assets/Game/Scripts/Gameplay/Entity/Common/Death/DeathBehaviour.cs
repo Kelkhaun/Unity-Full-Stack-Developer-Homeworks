@@ -2,30 +2,31 @@ using Atomic.Elements;
 using Atomic.Entities;
 using SampleGame;
 
-public class DeathBehaviour : IEntityInit, IEntityDisable, IEntityEnable
+namespace Game.Scripts.Gameplay.Entity.Common.Death
 {
-    private IEvent _deathEvent;
-    private ReactiveInt _health;
-
-    public void Init(in IEntity entity)
+    public sealed class DeathBehaviour : IEntityInit, IEntityDispose
     {
-        _health = entity.GetHealth();
-        _deathEvent = entity.GetDeathEvent();
-    }
+        private ReactiveInt _currentHealth;
+        private IEvent _deathEvent;
 
-    public void Enable(in IEntity entity)
-    {
-        _health.Subscribe(OnHealthChanged);
-    }
+        public void Init(in IEntity entity)
+        {
+            _currentHealth = entity.GetCurrentHealth();
+            _deathEvent = entity.GetDeathEvent();
 
-    public void Disable(in IEntity entity)
-    {
-        _health.Unsubscribe(OnHealthChanged);
-    }
+            _currentHealth.OnValueChanged += OnHealthChanged;
+        }
 
-    private void OnHealthChanged(int healthValue)
-    {
-        if (healthValue <= 0)
-            _deathEvent?.Invoke();
+        public void Dispose(in IEntity entity)
+        {
+            _currentHealth.OnValueChanged -= OnHealthChanged;
+        }
+
+        private void OnHealthChanged(int health)
+        {
+            if(health <= 0)
+                _deathEvent?.Invoke();
+
+        }
     }
 }

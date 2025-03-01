@@ -2,31 +2,34 @@ using Atomic.Elements;
 using Atomic.Entities;
 using SampleGame;
 
-public class CanShootDelayBehaviour : IEntityInit, IEntityDispose, IEntityUpdate
+namespace Game.Scripts.Gameplay.Entity.Common.Shooting.Behaviours
 {
-    private ReactiveBool _canShoot;
-    private Countdown _shootTimer;
-
-
-    public void Init(in IEntity entity)
+    public class CanShootDelayBehaviour : IEntityInit, IEntityDispose, IEntityUpdate
     {
-        _canShoot = entity.GetCanShoot();
-        _shootTimer = entity.GetShootTimer();
-        _shootTimer.OnEnded += OnCountdownEnd;
-    }
+        private ReactiveBool _canShoot;
+        private Countdown _shootTimer;
 
-    public void Dispose(in IEntity entity)
-    {
-        _shootTimer.OnEnded -= OnCountdownEnd;
-    }
 
-    public void OnUpdate(in IEntity entity, in float deltaTime)
-    {
-        _shootTimer.Tick(deltaTime);
-    }
+        public void Init(in IEntity entity)
+        {
+            _canShoot = entity.GetCanShoot();
+            _shootTimer = entity.GetShootTimer();
+            _shootTimer.OnEnded += OnCountdownEnd;
+        }
 
-    private void OnCountdownEnd()
-    {
-        _canShoot.Value = true;
+        public void Dispose(in IEntity entity)
+        {
+            _shootTimer.OnEnded -= OnCountdownEnd;
+        }
+
+        public void OnUpdate(in IEntity entity, in float deltaTime)
+        {
+            _shootTimer.Tick(deltaTime);
+        }
+
+        private void OnCountdownEnd()
+        {
+            _canShoot.Value = true;
+        }
     }
 }

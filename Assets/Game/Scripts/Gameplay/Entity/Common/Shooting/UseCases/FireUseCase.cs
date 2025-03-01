@@ -1,19 +1,22 @@
-using Atomic.Entities;
+using Game.Scripts.Types;
 using SampleGame;
 using UnityEngine;
 
-public static class FireUseCase
+namespace Game.Scripts.Gameplay.Entity.Common.Shooting.UseCases
 {
-    public static void Fire(this IWeaponEntity entity)
-    { 
-        Quaternion spread = Quaternion.Euler(
-            new Vector3(0f,
-                Random.Range(-entity.GetFireSpread().Value, entity.GetFireSpread().Value),
-                0f));
+    public static class FireUseCase
+    {
+        public static void Fire(this IWeaponEntity entity)
+        { 
+            Quaternion spread = Quaternion.Euler(
+                new Vector3(0f,
+                    Random.Range(-entity.GetFireSpread().Value, entity.GetFireSpread().Value),
+                    0f));
         
-        Object.Instantiate(entity.GetBulletPrefab(), 
-            entity.GetFirePoint().transform.position, 
-            entity.GetFirePoint().transform.rotation * spread);
+            Object.Instantiate(entity.GetBulletPrefab(), 
+                entity.GetFirePoint().transform.position, 
+                entity.GetFirePoint().transform.rotation * spread);
+        }
     }
 }
 

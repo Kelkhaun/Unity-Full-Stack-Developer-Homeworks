@@ -1,26 +1,31 @@
 using Atomic.Elements;
 using Atomic.Entities;
+using Game.Scripts.Gameplay.Entity.Common.Shooting.UseCases;
+using Game.Scripts.Types;
 using SampleGame;
 
-public class WeaponFiringBehaviour : IEntityInit<IWeaponEntity>, IEntityDispose<IWeaponEntity>
+namespace Game.Scripts.Gameplay.Entity.Common.Shooting.Behaviours
 {
-    private IEvent _shootEvent;
-    private IWeaponEntity _weapon;
+    public class WeaponFiringBehaviour : IEntityInit<IWeaponEntity>, IEntityDispose<IWeaponEntity>
+    {
+        private IEvent _shootEvent;
+        private IWeaponEntity _weapon;
     
-    public void Init(IWeaponEntity entity)
-    {
-        _shootEvent = entity.GetShootEvent();
-        _shootEvent.Subscribe(Shoot);
-        _weapon = entity.GetWeapon();
-    }
+        public void Init(IWeaponEntity entity)
+        {
+            _shootEvent = entity.GetShootEvent();
+            _shootEvent.Subscribe(Shoot);
+            _weapon = entity.GetWeapon();
+        }
 
-    public void Dispose(IWeaponEntity entity)
-    {
-        _shootEvent.Unsubscribe(Shoot);
-    }
+        public void Dispose(IWeaponEntity entity)
+        {
+            _shootEvent.Unsubscribe(Shoot);
+        }
 
-    private void Shoot()
-    {
-        _weapon.Fire();
+        private void Shoot()
+        {
+            _weapon.Fire();
+        }
     }
 }

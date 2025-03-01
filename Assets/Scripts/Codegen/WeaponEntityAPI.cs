@@ -8,6 +8,7 @@ using UnityEngine;
 using Atomic.Entities;
 using Atomic.Elements;
 using Atomic.Extensions;
+using Game.Scripts.Types;
 
 namespace SampleGame
 {

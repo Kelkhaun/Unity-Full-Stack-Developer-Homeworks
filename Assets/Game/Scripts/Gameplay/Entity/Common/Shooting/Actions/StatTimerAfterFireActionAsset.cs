@@ -1,19 +1,23 @@
 using System;
 using Atomic.Entities;
 using Atomic.Extensions;
+using Game.Scripts.Types;
 using SampleGame;
 
-public class StatTimerAfterFireActionAsset : IEntityActionAsset
+namespace Game.Scripts.Gameplay.Entity.Common.Shooting.Actions
 {
-    public Action Create(IEntity entity)
+    public class StatTimerAfterFireActionAsset : IEntityActionAsset
     {
-        return () =>
+        public Action Create(IEntity entity)
         {
-            if (entity is IWeaponEntity weaponEntity)
+            return () =>
             {
-                weaponEntity.GetShootTimer().ResetTime();
-                weaponEntity.GetShootTimer().Start();
-            }
-        };
+                if (entity is IWeaponEntity weaponEntity)
+                {
+                    weaponEntity.GetShootTimer().ResetTime();
+                    weaponEntity.GetShootTimer().Start();
+                }
+            };
+        }
     }
 }

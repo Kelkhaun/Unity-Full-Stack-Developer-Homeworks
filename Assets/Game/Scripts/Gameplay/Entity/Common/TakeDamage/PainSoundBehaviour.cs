@@ -1,12 +1,10 @@
 //TODO: Uncomment me
+
 using System;
-using Atomic.Elements;
-using Atomic.Entities;
-using Modules.Gameplay;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Game.Gameplay
+namespace Game.Scripts.Gameplay.Entity.Common.TakeDamage
 {
     public sealed class PainSoundBehaviour 
         // : IEntityInit, IEntityDispose

@@ -1,6 +1,9 @@
 using Atomic.Entities;
 
-public class WeaponEntity : SceneEntity, IWeaponEntity
+namespace Game.Scripts.Types
 {
+    public class WeaponEntity : SceneEntity, IWeaponEntity
+    {
 
+    }
 }

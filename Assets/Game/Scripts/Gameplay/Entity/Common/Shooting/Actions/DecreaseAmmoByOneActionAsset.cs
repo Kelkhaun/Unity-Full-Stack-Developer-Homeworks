@@ -1,18 +1,22 @@
 using System;
 using Atomic.Entities;
 using Atomic.Extensions;
+using Game.Scripts.Types;
 using SampleGame;
 
-public class DecreaseAmmoByOneActionAsset : IEntityActionAsset
+namespace Game.Scripts.Gameplay.Entity.Common.Shooting.Actions
 {
-    public Action Create(IEntity entity)
+    public class DecreaseAmmoByOneActionAsset : IEntityActionAsset
     {
-        return () =>
+        public Action Create(IEntity entity)
         {
-            if (entity is IWeaponEntity weaponEntity)
+            return () =>
             {
-                weaponEntity.GetBulletCount().Value -= 1;
-            }
-        };
+                if (entity is IWeaponEntity weaponEntity)
+                {
+                    weaponEntity.GetBulletCount().Value -= 1;
+                }
+            };
+        }
     }
 }

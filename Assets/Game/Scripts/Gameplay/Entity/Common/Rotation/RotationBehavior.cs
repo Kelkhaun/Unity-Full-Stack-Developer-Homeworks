@@ -3,7 +3,7 @@ using Atomic.Entities;
 using SampleGame;
 using UnityEngine;
 
-namespace Game.Gameplay
+namespace Game.Scripts.Gameplay.Entity.Common.Rotation
 {
     public class RotationBehavior : IEntityInit, IEntityFixedUpdate
     {

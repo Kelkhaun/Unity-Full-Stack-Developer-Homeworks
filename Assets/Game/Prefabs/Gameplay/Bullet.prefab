@@ -210,9 +210,9 @@ MonoBehaviour:
     duration: 3
     loop: 0
   _finishActions:
-  - rid: 120528996204019722
+  - rid: 1979868633497600012
   _moveSpeed:
-    value: 3
+    value: 250
   _moveDirection:
     value: {x: 0, y: 0, z: 0}
   _damage:
@@ -220,15 +220,15 @@ MonoBehaviour:
   _collisionReciver: {fileID: 7006393198650432515}
   _rigidbody: {fileID: 2293162354956507346}
   _deathActions:
-  - rid: 120528996204019723
+  - rid: 1979868633497600013
   references:
     version: 2
     RefIds:
-    - rid: 120528996204019722
-      type: {class: GameObjectDestroyActionAsset, ns: , asm: Assembly-CSharp}
+    - rid: 1979868633497600012
+      type: {class: GameObjectDestroyActionAsset, ns: Game.Scripts.Gameplay.Entity.Common.Projectile, asm: Assembly-CSharp}
       data: 
-    - rid: 120528996204019723
-      type: {class: GameObjectDestroyActionAsset, ns: , asm: Assembly-CSharp}
+    - rid: 1979868633497600013
+      type: {class: GameObjectDestroyActionAsset, ns: Game.Scripts.Gameplay.Entity.Common.Projectile, asm: Assembly-CSharp}
       data: 
 --- !u!1001 &2426699191576222108
 PrefabInstance:

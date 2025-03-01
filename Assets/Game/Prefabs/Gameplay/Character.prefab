@@ -1395,6 +1395,9 @@ GameObject:
   - component: {fileID: 1152974347791882949}
   - component: {fileID: 1016400137640701849}
   - component: {fileID: 5776622891564319963}
+  - component: {fileID: 892074460847815475}
+  - component: {fileID: 4413981448538458451}
+  - component: {fileID: 2454701268584343390}
   m_Layer: 9
   m_Name: Character
   m_TagString: Player
@@ -1479,6 +1482,9 @@ MonoBehaviour:
   disposeValues: 1
   installers:
   - {fileID: 5776622891564319963}
+  - {fileID: 892074460847815475}
+  - {fileID: 4413981448538458451}
+  - {fileID: 2454701268584343390}
   _onlySelectedGizmos: 0
   _onlyEditModeGizmos: 0
 --- !u!114 &1016400137640701849
@@ -1509,7 +1515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed:
-    value: 25
+    value: 200
   _rotationSpeed:
     value: 25
   _moveDirection:
@@ -1527,7 +1533,6 @@ MonoBehaviour:
     duration: 1
     loop: 0
   _currentWeapon: {fileID: 6883243919796163204}
-  _triggerEventReceiver: {fileID: 7921063292541329948}
   references:
     version: 2
     RefIds:
@@ -1539,6 +1544,55 @@ MonoBehaviour:
       data: 
     - rid: 5173014224542629903
       type: {class: CanShootFalseActionAsset, ns: , asm: Assembly-CSharp}
+      data: 
+--- !u!114 &892074460847815475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3578180279390331970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0028487ec6de4361ad910878e29e1429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentHealth:
+    value: 7
+  _maxHealth:
+    value: 10
+--- !u!114 &4413981448538458451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3578180279390331970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 750fbdf1a3834dd9a9abb49f88a6e91c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _triggerEventReceiver: {fileID: 7921063292541329948}
+--- !u!114 &2454701268584343390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3578180279390331970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab29751fd77e4da7b8bac6998a64bdd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _deathActionAsset:
+  - rid: 1979868633497600000
+  references:
+    version: 2
+    RefIds:
+    - rid: 1979868633497600000
+      type: {class: GameObjectDestroyActionAsset, ns: , asm: Assembly-CSharp}
       data: 
 --- !u!1 &3818262767236408140
 GameObject:
@@ -1731,7 +1785,7 @@ Transform:
   m_GameObject: {fileID: 4719950750760165892}
   serializedVersion: 2
   m_LocalRotation: {x: -0.99782413, y: 0.004253951, z: -0.065794475, w: 0.00028049678}
-  m_LocalPosition: {x: 0.90359807, y: 1.36493, z: -0.0074473023}
+  m_LocalPosition: {x: 0.90359783, y: 1.36493, z: -0.0074472427}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1748,7 +1802,7 @@ ParentConstraint:
   m_Enabled: 1
   serializedVersion: 2
   m_Weight: 1
-  m_TranslationAtRest: {x: 0.90359807, y: 1.36493, z: -0.0074473023}
+  m_TranslationAtRest: {x: 0.90359783, y: 1.36493, z: -0.0074472427}
   m_RotationAtRest: {x: 0, y: 172.455, z: -179.51149}
   m_TranslationOffsets:
   - {x: 0, y: 0, z: 0}

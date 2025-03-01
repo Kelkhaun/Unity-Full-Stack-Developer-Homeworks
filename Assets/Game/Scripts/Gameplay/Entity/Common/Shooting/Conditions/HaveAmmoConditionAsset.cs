@@ -1,21 +1,24 @@
 using System;
 using Atomic.Entities;
 using Atomic.Extensions;
+using Game.Scripts.Types;
 using SampleGame;
-using UnityEngine.TextCore.Text;
 
-public class HaveAmmoConditionAsset : IEntityPredicateAsset
+namespace Game.Scripts.Gameplay.Entity.Common.Shooting.Conditions
 {
-    public Func<bool> Create(IEntity entity)
+    public class HaveAmmoConditionAsset : IEntityPredicateAsset
     {
-        return () =>
+        public Func<bool> Create(IEntity entity)
         {
-            if (entity is IWeaponEntity weaponEntity)
+            return () =>
             {
-                return weaponEntity.GetBulletCount().Value > 0;
-            }
+                if (entity is IWeaponEntity weaponEntity)
+                {
+                    return weaponEntity.GetBulletCount().Value > 0;
+                }
 
-            return false;
-        };
+                return false;
+            };
+        }
     }
 }
