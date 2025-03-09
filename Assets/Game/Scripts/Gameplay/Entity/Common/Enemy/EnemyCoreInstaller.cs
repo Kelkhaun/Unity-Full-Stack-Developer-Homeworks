@@ -9,6 +9,7 @@ namespace Game.Scripts.Gameplay.Entity.Common.Enemy
         {
             entity.AddEnemyTag();
             entity.AddGameObject(this.gameObject);
+            entity.AddTarget(null);
         }
     }
 }

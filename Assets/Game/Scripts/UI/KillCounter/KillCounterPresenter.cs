@@ -15,7 +15,8 @@ public class KillCounterPresenter : Presenter
 
     protected override void OnDispose()
     {
-        GameContext.Instance.GetEnemyKillCount().Unsubscribe(OnCounterChanged);
+        if (GameContext.Instance != null)
+            GameContext.Instance.GetEnemyKillCount().Unsubscribe(OnCounterChanged);
     }
 
     private void OnCounterChanged(int value)

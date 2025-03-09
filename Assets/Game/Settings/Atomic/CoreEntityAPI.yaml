@@ -43,3 +43,4 @@ values:
   - Weapon : WeaponEntity  
   - InteractAction : BaseAction<IEntity>  
   - DeathAction : BaseAction>  
+  - Target : IEntity
