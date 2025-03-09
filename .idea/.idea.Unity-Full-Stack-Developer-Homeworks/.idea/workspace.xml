@@ -5,55 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a81d61d-942b-4715-844d-db1812e91250" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Rotation.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Shooting.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Shooting/Actions.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Shooting/Behaviours.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Shooting/Conditions.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Shooting/UseCases.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Enemy/EnemyCounterController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Enemy/EnemyCounterController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Enemy/EnemyCounterInstaller.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Enemy/EnemyCounterInstaller.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/UI/KillCounter/KillCounterPresenter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/UI/KillCounter/KillCounterPresenter.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Unity-Full-Stack-Developer-Homeworks/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Unity-Full-Stack-Developer-Homeworks/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/CanShootDelayBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Shooting/Behaviours/CanShootDelayBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/CanShootDelayBehaviour.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Shooting/Behaviours/CanShootDelayBehaviour.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/CanShootFalseActionAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Shooting/Actions/CanShootFalseActionAsset.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/CanShootFalseActionAsset.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Shooting/Actions/CanShootFalseActionAsset.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/CanShootTrueActionAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Shooting/Actions/CanShootTrueActionAsset.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/CanShootTrueActionAsset.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Shooting/Actions/CanShootTrueActionAsset.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/CanShootTrueConditionAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Shooting/Conditions/CanShootTrueConditionAsset.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/CanShootTrueConditionAsset.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Shooting/Conditions/CanShootTrueConditionAsset.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/CharacterCoreInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/CharacterCoreInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/CharacterShootingBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Shooting/Behaviours/CharacterShootingBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/CharacterShootingBehaviour.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Shooting/Behaviours/CharacterShootingBehaviour.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/DeathBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Death/DeathBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/DeathBehaviour.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Death/DeathBehaviour.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/DecreaseAmmoByOneActionAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Shooting/Actions/DecreaseAmmoByOneActionAsset.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/DecreaseAmmoByOneActionAsset.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Shooting/Actions/DecreaseAmmoByOneActionAsset.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/FireUseCase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Shooting/UseCases/FireUseCase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/FireUseCase.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Shooting/UseCases/FireUseCase.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/HaveAmmoConditionAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Shooting/Conditions/HaveAmmoConditionAsset.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/HaveAmmoConditionAsset.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Shooting/Conditions/HaveAmmoConditionAsset.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/Input.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/Input/AimController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Controller/AimController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/Input/AimController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Controller/AimController.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/Input/InputInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Controller/InputInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/Input/InputInstaller.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Controller/InputInstaller.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/Input/MoveController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Controller/MoveController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/Input/MoveController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Controller/MoveController.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/Input/ShootController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Controller/ShootController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/Input/ShootController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Controller/ShootController.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/MovementBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Move/MovementBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/MovementBehaviour.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Move/MovementBehaviour.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/RotationBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Rotation/RotationBehavior.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/RotationBehavior.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Rotation/RotationBehavior.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/ShootingBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Shooting/Behaviours/ShootingBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/ShootingBehaviour.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Shooting/Behaviours/ShootingBehaviour.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/StartShootTimerActionAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Shooting/Actions/StartShootTimerActionAsset.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/StartShootTimerActionAsset.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Shooting/Actions/StartShootTimerActionAsset.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/StatTimerAfterFireActionAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Shooting/Actions/StatTimerAfterFireActionAsset.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/StatTimerAfterFireActionAsset.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Shooting/Actions/StatTimerAfterFireActionAsset.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/WeaponFiringBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Shooting/Behaviours/WeaponFiringBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/WeaponFiringBehaviour.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Shooting/Behaviours/WeaponFiringBehaviour.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Weapon/WeaponInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Weapon/WeaponInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3rdParty/Epic Toon FX/Upgrade/ETFX 2019.2.3f1 LWRP Upgrade.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3rdParty/Epic Toon FX/Upgrade/ETFX 2019.3 URP Fix.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3rdParty/Epic Toon FX/Upgrade/ETFX Standard Materials.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3rdParty/PolygonSciFiWorlds/URP_Extract_Me.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AssetPacks/Epic Toon FX/Upgrade/ETFX 2019.2.3f1 LWRP Upgrade.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AssetPacks/Epic Toon FX/Upgrade/ETFX 2019.3 URP Fix.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AssetPacks/Epic Toon FX/Upgrade/ETFX Standard Materials.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Gameplay/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Gameplay/Enemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/UI/GameInteface/KillsView.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/UI/GameInteface/KillsView.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Content/Zombie.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Enemy/EnemyCoreInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Enemy/EnemyCoreInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Settings/Atomic/CoreContextAPI.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Settings/Atomic/CoreContextAPI.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Demos/Custom Attribute Processors.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Demos/Custom Drawers.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Demos/Editor Windows.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Demos/Sample - RPG Editor.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Codegen/SampleContextAPI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Codegen/SampleContextAPI.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,8 +52,7 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Character/StatTimerAfterFireActionAsset.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Weapon/WeaponInstaller.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Enemy/EnemyCoreInstaller1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/Types/IWeaponEntity.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Game/Scripts/Types/WeaponEntity.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -159,6 +134,7 @@
       <updated>1739022982708</updated>
       <workItem from="1739022984464" duration="7226000" />
       <workItem from="1740304664595" duration="12985000" />
+      <workItem from="1741515510691" duration="3491000" />
     </task>
     <servers />
   </component>
@@ -174,6 +150,25 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Plugins/Atomic/Entities/Scripts/Entity/Plain/Entity_Values.cs</url>
+          <line>44</line>
+          <properties documentPath="H:\Work\Unity-Full-Stack-Developer-Homeworks\Assets\Plugins\Atomic\Entities\Scripts\Entity\Plain\Entity_Values.cs" containingFunctionPresentation="Method 'TryGetValue'">
+            <startOffsets>
+              <option value="1438" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1484" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

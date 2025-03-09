@@ -11,9 +11,12 @@ imports:
 - Atomic.Entities
 - Atomic.Contexts
 - Modules.Common
+- Atomic.Elements
 
 values:
 - MoveJoystick: Joystick
 - AimJoystick: Joystick
 - Character : SceneEntity
 - BulletPool : EntityPool
+- EntityWorld : SceneEntityWorld
+- EnemyKillCount : ReactiveInt

@@ -1,4 +1,5 @@
 using Atomic.Entities;
+using SampleGame;
 
 namespace Game.Scripts.Gameplay.Entity.Common.Enemy
 {
@@ -6,7 +7,8 @@ namespace Game.Scripts.Gameplay.Entity.Common.Enemy
     {
         public override void Install(IEntity entity)
         {
-            //TODO
+            entity.AddEnemyTag();
+            entity.AddGameObject(this.gameObject);
         }
     }
 }

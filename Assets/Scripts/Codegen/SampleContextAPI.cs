@@ -8,6 +8,7 @@ using UnityEngine;
 using Atomic.Entities;
 using Atomic.Contexts;
 using Modules.Common;
+using Atomic.Elements;
 
 namespace SampleGame
 {
@@ -20,6 +21,8 @@ namespace SampleGame
 		public const int AimJoystick = -1668784795; // Joystick
 		public const int Character = 294335127; // SceneEntity
 		public const int BulletPool = 1915726678; // EntityPool
+		public const int EntityWorld = 1757640864; // SceneEntityWorld
+		public const int EnemyKillCount = -484439231; // ReactiveInt
 
 
 		///Value Extensions
@@ -95,5 +98,41 @@ namespace SampleGame
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static void SetBulletPool(this IContext obj, EntityPool value) => obj.SetValue(BulletPool, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static SceneEntityWorld GetEntityWorld(this IContext obj) => obj.GetValue<SceneEntityWorld>(EntityWorld);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool TryGetEntityWorld(this IContext obj, out SceneEntityWorld value) => obj.TryGetValue(EntityWorld, out value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool AddEntityWorld(this IContext obj, SceneEntityWorld value) => obj.AddValue(EntityWorld, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool HasEntityWorld(this IContext obj) => obj.HasValue(EntityWorld);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool DelEntityWorld(this IContext obj) => obj.DelValue(EntityWorld);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void SetEntityWorld(this IContext obj, SceneEntityWorld value) => obj.SetValue(EntityWorld, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static ReactiveInt GetEnemyKillCount(this IContext obj) => obj.GetValue<ReactiveInt>(EnemyKillCount);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool TryGetEnemyKillCount(this IContext obj, out ReactiveInt value) => obj.TryGetValue(EnemyKillCount, out value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool AddEnemyKillCount(this IContext obj, ReactiveInt value) => obj.AddValue(EnemyKillCount, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool HasEnemyKillCount(this IContext obj) => obj.HasValue(EnemyKillCount);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool DelEnemyKillCount(this IContext obj) => obj.DelValue(EnemyKillCount);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void SetEnemyKillCount(this IContext obj, ReactiveInt value) => obj.SetValue(EnemyKillCount, value);
     }
 }
