@@ -4,17 +4,17 @@ using SampleGame;
 
 namespace Game.Scripts.Gameplay.Entity.Common.Shooting.Behaviours
 {
-    public class ShootingBehaviour : IEntityInit, IEntityDispose
+    public class AttackBehaviour : IEntityInit, IEntityDispose
     {
         private IEvent _shootEvent;
         private IEvent _shootingRequest;
-        private ExpressionBase<bool> _shootingCondition;
+        private ExpressionBase<bool> _attackCondition;
 
         public void Init(in IEntity entity)
         {
-            _shootEvent = entity.GetShootEvent();
-            _shootingRequest = entity.GetShootingRequest();
-            _shootingCondition = entity.GetShootingCondition();
+            _shootEvent = entity.GetAttackEvent();
+            _shootingRequest = entity.GetAttackRequest();
+            _attackCondition = entity.GetAttackCondition();
         
             _shootingRequest.Subscribe(OnShootingRequest);
         }
@@ -26,7 +26,7 @@ namespace Game.Scripts.Gameplay.Entity.Common.Shooting.Behaviours
 
         private void OnShootingRequest()
         {
-            if (_shootingCondition.Value)
+            if (_attackCondition.Value)
             {
                 _shootEvent.Invoke();
             }

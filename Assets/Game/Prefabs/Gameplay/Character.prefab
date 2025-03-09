@@ -1538,11 +1538,11 @@ MonoBehaviour:
     value: {x: 0, y: 0, z: 0}
   _rigidbody: {fileID: 956588022611877713}
   _shootConditions:
-  - rid: 120528996204019712
+  - rid: 1979868815326445568
   _shootRequestActions:
-  - rid: 120528996204019716
+  - rid: 1979868815326445569
   _shootOverActions:
-  - rid: 5173014224542629903
+  - rid: 1979868815326445571
   _shootTimer:
     duration: 1
     loop: 0
@@ -1550,14 +1550,15 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 120528996204019712
-      type: {class: CanShootTrueConditionAsset, ns: , asm: Assembly-CSharp}
-    - rid: 120528996204019716
-      type: {class: StartShootTimerActionAsset, ns: , asm: Assembly-CSharp}
-    - rid: 5173014224542629903
-      type: {class: CanShootFalseActionAsset, ns: , asm: Assembly-CSharp}
+    - rid: 1979868815326445568
+      type: {class: CanAttackTrueConditionAsset, ns: Game.Scripts.Gameplay.Entity.Common.Shooting.Conditions, asm: Assembly-CSharp}
+      data: 
+    - rid: 1979868815326445569
+      type: {class: StartAttackTimerActionAsset, ns: Game.Scripts.Gameplay.Entity.Common.Shooting.Actions, asm: Assembly-CSharp}
+      data: 
+    - rid: 1979868815326445571
+      type: {class: CanAttackFalseActionAsset, ns: Game.Scripts.Gameplay.Entity.Common.Shooting.Actions, asm: Assembly-CSharp}
+      data: 
 --- !u!114 &892074460847815475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1600,14 +1601,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deathActionAsset:
-  - rid: 1979868633497600000
+  - rid: 1979868633497600011
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 1979868633497600000
-      type: {class: GameObjectDestroyActionAsset, ns: , asm: Assembly-CSharp}
+    - rid: 1979868633497600011
+      type: {class: GameObjectDestroyActionAsset, ns: Game.Scripts.Gameplay.Entity.Common.Projectile, asm: Assembly-CSharp}
+      data: 
 --- !u!1 &3818262767236408140
 GameObject:
   m_ObjectHideFlags: 0
@@ -2919,6 +2919,50 @@ PrefabInstance:
     - target: {fileID: 3115307619230652578, guid: 8c9bfd0f9949b4ed0b1b7e6c4a039d83, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -169.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814607813176723042, guid: 8c9bfd0f9949b4ed0b1b7e6c4a039d83, type: 3}
+      propertyPath: _weaponType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814607813176723042, guid: 8c9bfd0f9949b4ed0b1b7e6c4a039d83, type: 3}
+      propertyPath: _fireActions.Array.data[0]
+      value: 1979868633497600005
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814607813176723042, guid: 8c9bfd0f9949b4ed0b1b7e6c4a039d83, type: 3}
+      propertyPath: _fireActions.Array.data[1]
+      value: 1979868815326445573
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814607813176723042, guid: 8c9bfd0f9949b4ed0b1b7e6c4a039d83, type: 3}
+      propertyPath: _fireActions.Array.data[2]
+      value: 1979868815326445574
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814607813176723042, guid: 8c9bfd0f9949b4ed0b1b7e6c4a039d83, type: 3}
+      propertyPath: _fireConditions.Array.data[0]
+      value: 1979868633497600003
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814607813176723042, guid: 8c9bfd0f9949b4ed0b1b7e6c4a039d83, type: 3}
+      propertyPath: _fireConditions.Array.data[1]
+      value: 1979868815326445572
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814607813176723042, guid: 8c9bfd0f9949b4ed0b1b7e6c4a039d83, type: 3}
+      propertyPath: managedReferences[1979868633497600003]
+      value: Assembly-CSharp Game.Scripts.Gameplay.Entity.Common.Shooting.Conditions.HaveAmmoConditionAsset
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814607813176723042, guid: 8c9bfd0f9949b4ed0b1b7e6c4a039d83, type: 3}
+      propertyPath: managedReferences[1979868633497600005]
+      value: Assembly-CSharp Game.Scripts.Gameplay.Entity.Common.Shooting.Actions.DecreaseAmmoByOneActionAsset
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814607813176723042, guid: 8c9bfd0f9949b4ed0b1b7e6c4a039d83, type: 3}
+      propertyPath: managedReferences[1979868815326445572]
+      value: Assembly-CSharp Game.Scripts.Gameplay.Entity.Common.Shooting.Conditions.CanAttackTrueConditionAsset
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814607813176723042, guid: 8c9bfd0f9949b4ed0b1b7e6c4a039d83, type: 3}
+      propertyPath: managedReferences[1979868815326445573]
+      value: Assembly-CSharp Game.Scripts.Gameplay.Entity.Common.Shooting.Actions.StatTimerAfterAttackActionAsset
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814607813176723042, guid: 8c9bfd0f9949b4ed0b1b7e6c4a039d83, type: 3}
+      propertyPath: managedReferences[1979868815326445574]
+      value: Assembly-CSharp Game.Scripts.Gameplay.Entity.Common.Shooting.Actions.CanAttackFalseActionAsset
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

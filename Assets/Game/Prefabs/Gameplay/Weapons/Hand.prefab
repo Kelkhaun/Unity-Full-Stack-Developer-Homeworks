@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1098350274544816648
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 980007673893568925}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &980007673893568925
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098350274544816648}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.678, z: 0.155}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1416792984943742102}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7223745350942996134
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,6 +40,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1416792984943742102}
+  - component: {fileID: 3407089382687675286}
+  - component: {fileID: 7929357282122500693}
   m_Layer: 0
   m_Name: Hand
   m_TagString: Melee
@@ -28,6 +61,63 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 980007673893568925}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3407089382687675286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7223745350942996134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f834567d537260b4f8d66afeb8c193b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  installOnAwake: 1
+  installInEditMode: 0
+  disposeValues: 1
+  installers:
+  - {fileID: 7929357282122500693}
+  _onlySelectedGizmos: 0
+  _onlyEditModeGizmos: 0
+--- !u!114 &7929357282122500693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7223745350942996134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d4a6b8edcf841feaf111c381bd320eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weapon: {fileID: 3407089382687675286}
+  _firePoint: {fileID: 980007673893568925}
+  _attackTimer:
+    duration: 1
+    loop: 0
+  _damage:
+    value: 1
+  _weaponType: 0
+  _attackConditions:
+  - rid: 1979868815326445575
+  _attackActions:
+  - rid: 1979868815326445576
+  - rid: 1979868815326445577
+  references:
+    version: 2
+    RefIds:
+    - rid: 1979868815326445575
+      type: {class: CanAttackTrueConditionAsset, ns: Game.Scripts.Gameplay.Entity.Common.Shooting.Conditions, asm: Assembly-CSharp}
+      data: 
+    - rid: 1979868815326445576
+      type: {class: StatTimerAfterAttackActionAsset, ns: Game.Scripts.Gameplay.Entity.Common.Shooting.Actions, asm: Assembly-CSharp}
+      data: 
+    - rid: 1979868815326445577
+      type: {class: CanAttackFalseActionAsset, ns: Game.Scripts.Gameplay.Entity.Common.Shooting.Actions, asm: Assembly-CSharp}
+      data: 

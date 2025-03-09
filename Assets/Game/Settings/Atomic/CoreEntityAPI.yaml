@@ -22,6 +22,7 @@ tags:
 values:
   - CurrentHealth: ReactiveInt
   - MaxHealth: ReactiveInt
+  - MinDistance: ReactiveFloat
   - DeathEvent : IEvent
   - Transform: Transform
   - Rigidbody: Rigidbody
@@ -29,12 +30,13 @@ values:
   - MoveSpeed: ReactiveFloat
   - RotateDirection: ReactiveVector3
   - RotationSpeed: ReactiveFloat
-  - ShootEvent: IEvent
-  - ShootingRequest: IEvent  
-  - ShootingOverRequest: IEvent  
-  - ShootingCondition: AndExpression
-  - CanShoot: ReactiveBool
-  - ShootTimer : Countdown
+  - AttackEvent: IEvent
+  - AttackRequest: IEvent  
+  - AttackOverRequest: IEvent  
+  - AttackCondition: AndExpression
+  - CanAttack: ReactiveBool
+  - CanHit: ReactiveBool
+  - AttackCooldown : Countdown
   - LifeTimeCountdown : Timer
   - GameObject : GameObject
   - CollisionEventReceiver : CollisionEventReceiver
@@ -44,3 +46,4 @@ values:
   - InteractAction : BaseAction<IEntity>  
   - DeathAction : BaseAction>  
   - Target : ReactiveVariable<IEntity>
+  - WeaponType : WeaponType

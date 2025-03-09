@@ -1752,6 +1752,7 @@ MonoBehaviour:
     value: 100
   _rotationSpeed:
     value: 20
+  _currentWeapon: {fileID: 1990367118865286852}
 --- !u!114 &3788695897605723979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2811,6 +2812,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d8166845e4d241e8afd28e8a9249ace, type: 3}
+--- !u!114 &1990367118865286852 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3407089382687675286, guid: 1d8166845e4d241e8afd28e8a9249ace, type: 3}
+  m_PrefabInstance: {fileID: 3807615246241092946}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f834567d537260b4f8d66afeb8c193b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2845756347370805700 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1416792984943742102, guid: 1d8166845e4d241e8afd28e8a9249ace, type: 3}

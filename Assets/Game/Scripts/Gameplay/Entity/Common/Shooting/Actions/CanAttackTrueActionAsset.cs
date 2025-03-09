@@ -5,11 +5,11 @@ using SampleGame;
 
 namespace Game.Scripts.Gameplay.Entity.Common.Shooting.Actions
 {
-    public class CanShootTrueActionAsset : IEntityActionAsset
+    public class CanAttackTrueActionAsset : IEntityActionAsset
     {
         public Action Create(IEntity entity)
         {
-            return () => entity.GetCanShoot().Value = true;
+            return () => entity.GetCanAttack().Value = true;
         }
     }
 }

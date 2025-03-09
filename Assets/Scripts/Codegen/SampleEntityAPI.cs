@@ -24,6 +24,7 @@ namespace SampleGame
 		///Values
 		public const int CurrentHealth = 1412363848; // ReactiveInt
 		public const int MaxHealth = 1923500305; // ReactiveInt
+		public const int MinDistance = 1338947382; // ReactiveFloat
 		public const int DeathEvent = -1096613677; // IEvent
 		public const int Transform = -180157682; // Transform
 		public const int Rigidbody = -2101481708; // Rigidbody
@@ -31,12 +32,13 @@ namespace SampleGame
 		public const int MoveSpeed = 526065662; // ReactiveFloat
 		public const int RotateDirection = -1044844011; // ReactiveVector3
 		public const int RotationSpeed = 1771316350; // ReactiveFloat
-		public const int ShootEvent = -1898355213; // IEvent
-		public const int ShootingRequest = -1070173053; // IEvent
-		public const int ShootingOverRequest = -65613924; // IEvent
-		public const int ShootingCondition = 1909327147; // AndExpression
-		public const int CanShoot = -1431824453; // ReactiveBool
-		public const int ShootTimer = -542658226; // Countdown
+		public const int AttackEvent = -691201150; // IEvent
+		public const int AttackRequest = -1177251095; // IEvent
+		public const int AttackOverRequest = 1081289759; // IEvent
+		public const int AttackCondition = -1481262935; // AndExpression
+		public const int CanAttack = 930100575; // ReactiveBool
+		public const int CanHit = -629424609; // ReactiveBool
+		public const int AttackCooldown = 1736948685; // Countdown
 		public const int LifeTimeCountdown = 249824570; // Timer
 		public const int GameObject = 1482111001; // GameObject
 		public const int CollisionEventReceiver = 396602988; // CollisionEventReceiver
@@ -45,6 +47,7 @@ namespace SampleGame
 		public const int Weapon = 1855955664; // WeaponEntity
 		public const int InteractAction = -1026843572; // BaseAction<IEntity>
 		public const int Target = 1103309514; // ReactiveVariable<IEntity>
+		public const int WeaponType = -1936256502; // WeaponType
 
 
 		///Tag Extensions
@@ -123,6 +126,24 @@ namespace SampleGame
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static void SetMaxHealth(this IEntity obj, ReactiveInt value) => obj.SetValue(MaxHealth, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static ReactiveFloat GetMinDistance(this IEntity obj) => obj.GetValue<ReactiveFloat>(MinDistance);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool TryGetMinDistance(this IEntity obj, out ReactiveFloat value) => obj.TryGetValue(MinDistance, out value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool AddMinDistance(this IEntity obj, ReactiveFloat value) => obj.AddValue(MinDistance, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool HasMinDistance(this IEntity obj) => obj.HasValue(MinDistance);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool DelMinDistance(this IEntity obj) => obj.DelValue(MinDistance);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void SetMinDistance(this IEntity obj, ReactiveFloat value) => obj.SetValue(MinDistance, value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static IEvent GetDeathEvent(this IEntity obj) => obj.GetValue<IEvent>(DeathEvent);
@@ -251,112 +272,130 @@ namespace SampleGame
 		public static void SetRotationSpeed(this IEntity obj, ReactiveFloat value) => obj.SetValue(RotationSpeed, value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static IEvent GetShootEvent(this IEntity obj) => obj.GetValue<IEvent>(ShootEvent);
+		public static IEvent GetAttackEvent(this IEntity obj) => obj.GetValue<IEvent>(AttackEvent);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool TryGetShootEvent(this IEntity obj, out IEvent value) => obj.TryGetValue(ShootEvent, out value);
+		public static bool TryGetAttackEvent(this IEntity obj, out IEvent value) => obj.TryGetValue(AttackEvent, out value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool AddShootEvent(this IEntity obj, IEvent value) => obj.AddValue(ShootEvent, value);
+		public static bool AddAttackEvent(this IEntity obj, IEvent value) => obj.AddValue(AttackEvent, value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool HasShootEvent(this IEntity obj) => obj.HasValue(ShootEvent);
+		public static bool HasAttackEvent(this IEntity obj) => obj.HasValue(AttackEvent);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool DelShootEvent(this IEntity obj) => obj.DelValue(ShootEvent);
+		public static bool DelAttackEvent(this IEntity obj) => obj.DelValue(AttackEvent);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static void SetShootEvent(this IEntity obj, IEvent value) => obj.SetValue(ShootEvent, value);
+		public static void SetAttackEvent(this IEntity obj, IEvent value) => obj.SetValue(AttackEvent, value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static IEvent GetShootingRequest(this IEntity obj) => obj.GetValue<IEvent>(ShootingRequest);
+		public static IEvent GetAttackRequest(this IEntity obj) => obj.GetValue<IEvent>(AttackRequest);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool TryGetShootingRequest(this IEntity obj, out IEvent value) => obj.TryGetValue(ShootingRequest, out value);
+		public static bool TryGetAttackRequest(this IEntity obj, out IEvent value) => obj.TryGetValue(AttackRequest, out value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool AddShootingRequest(this IEntity obj, IEvent value) => obj.AddValue(ShootingRequest, value);
+		public static bool AddAttackRequest(this IEntity obj, IEvent value) => obj.AddValue(AttackRequest, value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool HasShootingRequest(this IEntity obj) => obj.HasValue(ShootingRequest);
+		public static bool HasAttackRequest(this IEntity obj) => obj.HasValue(AttackRequest);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool DelShootingRequest(this IEntity obj) => obj.DelValue(ShootingRequest);
+		public static bool DelAttackRequest(this IEntity obj) => obj.DelValue(AttackRequest);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static void SetShootingRequest(this IEntity obj, IEvent value) => obj.SetValue(ShootingRequest, value);
+		public static void SetAttackRequest(this IEntity obj, IEvent value) => obj.SetValue(AttackRequest, value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static IEvent GetShootingOverRequest(this IEntity obj) => obj.GetValue<IEvent>(ShootingOverRequest);
+		public static IEvent GetAttackOverRequest(this IEntity obj) => obj.GetValue<IEvent>(AttackOverRequest);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool TryGetShootingOverRequest(this IEntity obj, out IEvent value) => obj.TryGetValue(ShootingOverRequest, out value);
+		public static bool TryGetAttackOverRequest(this IEntity obj, out IEvent value) => obj.TryGetValue(AttackOverRequest, out value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool AddShootingOverRequest(this IEntity obj, IEvent value) => obj.AddValue(ShootingOverRequest, value);
+		public static bool AddAttackOverRequest(this IEntity obj, IEvent value) => obj.AddValue(AttackOverRequest, value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool HasShootingOverRequest(this IEntity obj) => obj.HasValue(ShootingOverRequest);
+		public static bool HasAttackOverRequest(this IEntity obj) => obj.HasValue(AttackOverRequest);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool DelShootingOverRequest(this IEntity obj) => obj.DelValue(ShootingOverRequest);
+		public static bool DelAttackOverRequest(this IEntity obj) => obj.DelValue(AttackOverRequest);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static void SetShootingOverRequest(this IEntity obj, IEvent value) => obj.SetValue(ShootingOverRequest, value);
+		public static void SetAttackOverRequest(this IEntity obj, IEvent value) => obj.SetValue(AttackOverRequest, value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static AndExpression GetShootingCondition(this IEntity obj) => obj.GetValue<AndExpression>(ShootingCondition);
+		public static AndExpression GetAttackCondition(this IEntity obj) => obj.GetValue<AndExpression>(AttackCondition);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool TryGetShootingCondition(this IEntity obj, out AndExpression value) => obj.TryGetValue(ShootingCondition, out value);
+		public static bool TryGetAttackCondition(this IEntity obj, out AndExpression value) => obj.TryGetValue(AttackCondition, out value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool AddShootingCondition(this IEntity obj, AndExpression value) => obj.AddValue(ShootingCondition, value);
+		public static bool AddAttackCondition(this IEntity obj, AndExpression value) => obj.AddValue(AttackCondition, value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool HasShootingCondition(this IEntity obj) => obj.HasValue(ShootingCondition);
+		public static bool HasAttackCondition(this IEntity obj) => obj.HasValue(AttackCondition);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool DelShootingCondition(this IEntity obj) => obj.DelValue(ShootingCondition);
+		public static bool DelAttackCondition(this IEntity obj) => obj.DelValue(AttackCondition);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static void SetShootingCondition(this IEntity obj, AndExpression value) => obj.SetValue(ShootingCondition, value);
+		public static void SetAttackCondition(this IEntity obj, AndExpression value) => obj.SetValue(AttackCondition, value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static ReactiveBool GetCanShoot(this IEntity obj) => obj.GetValue<ReactiveBool>(CanShoot);
+		public static ReactiveBool GetCanAttack(this IEntity obj) => obj.GetValue<ReactiveBool>(CanAttack);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool TryGetCanShoot(this IEntity obj, out ReactiveBool value) => obj.TryGetValue(CanShoot, out value);
+		public static bool TryGetCanAttack(this IEntity obj, out ReactiveBool value) => obj.TryGetValue(CanAttack, out value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool AddCanShoot(this IEntity obj, ReactiveBool value) => obj.AddValue(CanShoot, value);
+		public static bool AddCanAttack(this IEntity obj, ReactiveBool value) => obj.AddValue(CanAttack, value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool HasCanShoot(this IEntity obj) => obj.HasValue(CanShoot);
+		public static bool HasCanAttack(this IEntity obj) => obj.HasValue(CanAttack);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool DelCanShoot(this IEntity obj) => obj.DelValue(CanShoot);
+		public static bool DelCanAttack(this IEntity obj) => obj.DelValue(CanAttack);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static void SetCanShoot(this IEntity obj, ReactiveBool value) => obj.SetValue(CanShoot, value);
+		public static void SetCanAttack(this IEntity obj, ReactiveBool value) => obj.SetValue(CanAttack, value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Countdown GetShootTimer(this IEntity obj) => obj.GetValue<Countdown>(ShootTimer);
+		public static ReactiveBool GetCanHit(this IEntity obj) => obj.GetValue<ReactiveBool>(CanHit);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool TryGetShootTimer(this IEntity obj, out Countdown value) => obj.TryGetValue(ShootTimer, out value);
+		public static bool TryGetCanHit(this IEntity obj, out ReactiveBool value) => obj.TryGetValue(CanHit, out value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool AddShootTimer(this IEntity obj, Countdown value) => obj.AddValue(ShootTimer, value);
+		public static bool AddCanHit(this IEntity obj, ReactiveBool value) => obj.AddValue(CanHit, value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool HasShootTimer(this IEntity obj) => obj.HasValue(ShootTimer);
+		public static bool HasCanHit(this IEntity obj) => obj.HasValue(CanHit);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool DelShootTimer(this IEntity obj) => obj.DelValue(ShootTimer);
+		public static bool DelCanHit(this IEntity obj) => obj.DelValue(CanHit);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static void SetShootTimer(this IEntity obj, Countdown value) => obj.SetValue(ShootTimer, value);
+		public static void SetCanHit(this IEntity obj, ReactiveBool value) => obj.SetValue(CanHit, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static Countdown GetAttackCooldown(this IEntity obj) => obj.GetValue<Countdown>(AttackCooldown);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool TryGetAttackCooldown(this IEntity obj, out Countdown value) => obj.TryGetValue(AttackCooldown, out value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool AddAttackCooldown(this IEntity obj, Countdown value) => obj.AddValue(AttackCooldown, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool HasAttackCooldown(this IEntity obj) => obj.HasValue(AttackCooldown);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool DelAttackCooldown(this IEntity obj) => obj.DelValue(AttackCooldown);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void SetAttackCooldown(this IEntity obj, Countdown value) => obj.SetValue(AttackCooldown, value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static Timer GetLifeTimeCountdown(this IEntity obj) => obj.GetValue<Timer>(LifeTimeCountdown);
@@ -501,5 +540,23 @@ namespace SampleGame
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static void SetTarget(this IEntity obj, ReactiveVariable<IEntity> value) => obj.SetValue(Target, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static WeaponType GetWeaponType(this IEntity obj) => obj.GetValue<WeaponType>(WeaponType);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool TryGetWeaponType(this IEntity obj, out WeaponType value) => obj.TryGetValue(WeaponType, out value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool AddWeaponType(this IEntity obj, WeaponType value) => obj.AddValue(WeaponType, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool HasWeaponType(this IEntity obj) => obj.HasValue(WeaponType);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool DelWeaponType(this IEntity obj) => obj.DelValue(WeaponType);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void SetWeaponType(this IEntity obj, WeaponType value) => obj.SetValue(WeaponType, value);
     }
 }

@@ -20,9 +20,9 @@ namespace Game.Scripts.Controllers
         public void OnUpdate(IContext context, float deltaTime)
         {
             if (_aimJoystick.IsPressed && _aimJoystick.Direction != Vector2.zero)
-                _character.GetShootingRequest().Invoke();
+                _character.GetAttackRequest().Invoke();
             else
-                _character.GetShootingOverRequest().Invoke();
+                _character.GetAttackOverRequest().Invoke();
         }
     }
 }

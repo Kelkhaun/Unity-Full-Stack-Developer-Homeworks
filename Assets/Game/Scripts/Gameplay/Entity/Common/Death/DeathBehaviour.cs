@@ -26,7 +26,6 @@ namespace Game.Scripts.Gameplay.Entity.Common.Death
         {
             if(health <= 0)
                 _deathEvent?.Invoke();
-
         }
     }
 }

@@ -5,11 +5,11 @@ using SampleGame;
 
 namespace Game.Scripts.Gameplay.Entity.Common.Shooting.Conditions
 {
-    public class CanShootTrueConditionAsset : IEntityPredicateAsset
+    public class CanAttackTrueConditionAsset : IEntityPredicateAsset
     {
         public Func<bool> Create(IEntity entity)
         {
-            return () => entity.GetCanShoot().Value;
+            return () => entity.GetCanAttack().Value;
         }
     }
 }

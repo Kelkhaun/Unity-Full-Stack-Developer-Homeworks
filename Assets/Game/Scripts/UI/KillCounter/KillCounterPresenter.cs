@@ -6,17 +6,20 @@ using UnityEngine;
 
 public class KillCounterPresenter : Presenter
 {
-    [SerializeField] private KillCounterView _view;
+    [SerializeField]
+    private KillCounterView _view;
+
+    private ReactiveInt _killCount;
 
     protected override void OnInit()
     {
-        GameContext.Instance.GetEnemyKillCount().Observe(OnCounterChanged);
+        _killCount = GameContext.Instance.GetEnemyKillCount();
+        _killCount.Observe(OnCounterChanged);
     }
 
     protected override void OnDispose()
     {
-        if (GameContext.Instance != null)
-            GameContext.Instance.GetEnemyKillCount().Unsubscribe(OnCounterChanged);
+        _killCount.Unsubscribe(OnCounterChanged);
     }
 
     private void OnCounterChanged(int value)

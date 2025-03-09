@@ -12,7 +12,7 @@ namespace Game.Scripts.Gameplay.Entity.Common.Shooting.Behaviours
     
         public void Init(in IEntity entity)
         {
-            _shootEvent = entity.GetShootEvent();
+            _shootEvent = entity.GetAttackEvent();
             _shootEvent.Subscribe(Shoot);
             _weapon = entity.GetWeapon();
         }
@@ -24,7 +24,7 @@ namespace Game.Scripts.Gameplay.Entity.Common.Shooting.Behaviours
 
         private void Shoot()
         {
-            _weapon.GetShootingRequest().Invoke();
+            _weapon.GetAttackRequest().Invoke();
         }
     }
 }

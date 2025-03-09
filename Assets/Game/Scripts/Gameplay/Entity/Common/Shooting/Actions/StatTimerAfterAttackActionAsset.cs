@@ -1,4 +1,5 @@
 using System;
+using Atomic.Elements;
 using Atomic.Entities;
 using Atomic.Extensions;
 using Game.Scripts.Types;
@@ -6,7 +7,7 @@ using SampleGame;
 
 namespace Game.Scripts.Gameplay.Entity.Common.Shooting.Actions
 {
-    public class StatTimerAfterFireActionAsset : IEntityActionAsset
+    public class StatTimerAfterAttackActionAsset : IEntityActionAsset
     {
         public Action Create(IEntity entity)
         {
@@ -14,8 +15,9 @@ namespace Game.Scripts.Gameplay.Entity.Common.Shooting.Actions
             {
                 if (entity is IWeaponEntity weaponEntity)
                 {
-                    weaponEntity.GetShootTimer().ResetTime();
-                    weaponEntity.GetShootTimer().Start();
+                    Countdown attackCooldown = weaponEntity.GetAttackCooldown();
+                    attackCooldown.ResetTime();
+                    attackCooldown.Start();
                 }
             };
         }

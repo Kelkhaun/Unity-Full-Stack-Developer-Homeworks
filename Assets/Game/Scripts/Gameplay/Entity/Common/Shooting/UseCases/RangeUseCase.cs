@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game.Scripts.Gameplay.Entity.Common.Shooting.UseCases
 {
-    public static class FireUseCase
+    public static class RangeUseCase
     {
         public static void Fire(this IWeaponEntity entity)
         { 

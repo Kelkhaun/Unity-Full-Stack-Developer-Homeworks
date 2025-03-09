@@ -8,29 +8,34 @@ using UnityEngine;
 
 namespace Game.Scripts.Gameplay.Content.Weapon
 {
-    public class PistolInstaller : SceneEntityInstaller<IWeaponEntity>
+    public class HandInstaller : SceneEntityInstaller<IWeaponEntity>
     {
-        [SerializeField] private WeaponEntity _weapon;
-        [SerializeField] private Transform _firePoint;
-        [SerializeField] private GameObject _bulletPrefab;
-        [SerializeField] private Countdown _fireTimer;
-        [SerializeField] private ReactiveFloat _fireSpread;
-        [SerializeField] private ReactiveInt _initialBulletCount;
-        [SerializeReference] private IEntityPredicateAsset[] _fireConditions;
-        [SerializeReference] private IEntityActionAsset[] _fireActions;
-        [SerializeField] private WeaponType _weaponType;
+        [SerializeField]
+        private WeaponEntity _weapon;
+
+        [SerializeField]
+        private Transform _firePoint;
+
+        [SerializeField]
+        private Countdown _attackTimer;
+
+        [SerializeField]
+        private ReactiveInt _damage;
+
+        [SerializeField]
+        private WeaponType _weaponType;
+
+        [SerializeReference] private IEntityPredicateAsset[] _attackConditions;
+        [SerializeReference] private IEntityActionAsset[] _attackActions;
 
         protected override void Install(IWeaponEntity entity)
         {
-            //Data
-            entity.AddBulletPrefab(_bulletPrefab);
             entity.AddFirePoint(_firePoint);
-            entity.AddFireSpread(_fireSpread);
-            entity.AddBulletCount(_initialBulletCount);
-            //Shooting
+
+            entity.AddDamage(_damage);    
             entity.AddWeapon(_weapon);
             entity.AddWeaponType(_weaponType);
-            entity.AddAttackCooldown(_fireTimer);
+            entity.AddAttackCooldown(_attackTimer);
             entity.AddCanAttack(new ReactiveBool(true));
             entity.AddBehaviour<CanAttackDelayBehaviour>();
             entity.AddBehaviour<AttackBehaviour>();
@@ -40,13 +45,12 @@ namespace Game.Scripts.Gameplay.Content.Weapon
             entity.AddAttackRequest(shootRequestEvent);
 
             AndExpression condition = new AndExpression();
-            condition.AppendBy(_fireConditions, entity);
+            condition.AppendBy(_attackConditions, entity);
             entity.AddAttackCondition(condition);
 
             BaseEvent shootEvent = new BaseEvent();
-            shootEvent.SubscribeAllBy(_fireActions, entity);
+            shootEvent.SubscribeAllBy(_attackActions, entity);
             entity.AddAttackEvent(shootEvent);
-
         }
     }
 }
