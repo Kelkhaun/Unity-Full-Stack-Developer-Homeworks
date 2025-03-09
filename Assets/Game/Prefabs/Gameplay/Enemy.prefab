@@ -1716,9 +1716,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6355162821186015845}
   serializedVersion: 4
-  m_Mass: 10000
-  m_Drag: 10000
-  m_AngularDrag: 10000
+  m_Mass: 10
+  m_Drag: 10
+  m_AngularDrag: 10
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -1747,6 +1747,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25142f147c44d2fae37ff031e1b67e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rigibody: {fileID: 8179233504444308434}
+  _speed:
+    value: 100
+  _rotationSpeed:
+    value: 20
 --- !u!114 &3788695897605723979
 MonoBehaviour:
   m_ObjectHideFlags: 0

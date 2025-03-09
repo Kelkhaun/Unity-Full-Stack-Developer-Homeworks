@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a81d61d-942b-4715-844d-db1812e91250" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Rotation/DirectionSetBehavior.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Rotation/DirectionSetBehavior.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Unity-Full-Stack-Developer-Homeworks/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Unity-Full-Stack-Developer-Homeworks/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Gameplay/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Gameplay/Enemy.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Enemy/EnemyCoreInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Enemy/EnemyCoreInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Rotation/RotationBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Entity/Common/Rotation/RotationBehavior.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Triggers/EnemyTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Gameplay/Triggers/EnemyTrigger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/UI/KillCounter/KillCounterPresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/UI/KillCounter/KillCounterPresenter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Settings/Atomic/CoreEntityAPI.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Settings/Atomic/CoreEntityAPI.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Codegen/SampleEntityAPI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Codegen/SampleEntityAPI.cs" afterDir="false" />
     </list>
@@ -115,7 +118,7 @@
       <updated>1739022982708</updated>
       <workItem from="1739022984464" duration="7226000" />
       <workItem from="1740304664595" duration="12985000" />
-      <workItem from="1741515510691" duration="5392000" />
+      <workItem from="1741515510691" duration="7771000" />
     </task>
     <servers />
   </component>

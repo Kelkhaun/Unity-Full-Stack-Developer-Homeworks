@@ -20,9 +20,9 @@ namespace Game.Scripts.Gameplay.Entity.Common.Rotation
 
         public void OnFixedUpdate(in IEntity entity, in float deltaTime)
         {
-            if(_direction.Value == Vector3.zero )
+            if (_direction.Value == Vector3.zero)
                 return;
-            
+
             Quaternion targetRotation = Quaternion.LookRotation(_direction.Value);
             _rigidbody.MoveRotation(Quaternion.Slerp(_rigidbody.rotation, targetRotation, _speed.Value * deltaTime));
         }

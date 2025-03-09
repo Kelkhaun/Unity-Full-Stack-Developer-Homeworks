@@ -17,7 +17,7 @@ namespace Game.Scripts.Gameplay.Triggers
                 Debug.Log(other.name);
 
                 for (int i = 0; i < _enemies.Length; i++)
-                    _enemies[i].SetTarget(entity);
+                    _enemies[i].GetTarget().Value = entity;
             }
         }
 
@@ -25,7 +25,7 @@ namespace Game.Scripts.Gameplay.Triggers
         {
             if (other.gameObject.TryGetEntity(out var entity))
                 for (int i = 0; i < _enemies.Length; i++)
-                    _enemies[i].SetTarget(null);
+                    _enemies[i].GetTarget().Value = null;
         }
     }
 }

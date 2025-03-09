@@ -44,7 +44,7 @@ namespace SampleGame
 		public const int Damage = 375673178; // ReactiveInt
 		public const int Weapon = 1855955664; // WeaponEntity
 		public const int InteractAction = -1026843572; // BaseAction<IEntity>
-		public const int Target = 1103309514; // IEntity
+		public const int Target = 1103309514; // ReactiveVariable<IEntity>
 
 
 		///Tag Extensions
@@ -485,13 +485,13 @@ namespace SampleGame
 		public static void SetInteractAction(this IEntity obj, BaseAction<IEntity> value) => obj.SetValue(InteractAction, value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static IEntity GetTarget(this IEntity obj) => obj.GetValue<IEntity>(Target);
+		public static ReactiveVariable<IEntity> GetTarget(this IEntity obj) => obj.GetValue<ReactiveVariable<IEntity>>(Target);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool TryGetTarget(this IEntity obj, out IEntity value) => obj.TryGetValue(Target, out value);
+		public static bool TryGetTarget(this IEntity obj, out ReactiveVariable<IEntity> value) => obj.TryGetValue(Target, out value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool AddTarget(this IEntity obj, IEntity value) => obj.AddValue(Target, value);
+		public static bool AddTarget(this IEntity obj, ReactiveVariable<IEntity> value) => obj.AddValue(Target, value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static bool HasTarget(this IEntity obj) => obj.HasValue(Target);
@@ -500,6 +500,6 @@ namespace SampleGame
 		public static bool DelTarget(this IEntity obj) => obj.DelValue(Target);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static void SetTarget(this IEntity obj, IEntity value) => obj.SetValue(Target, value);
+		public static void SetTarget(this IEntity obj, ReactiveVariable<IEntity> value) => obj.SetValue(Target, value);
     }
 }
