@@ -641,37 +641,34 @@ MonoBehaviour:
     loop: 0
   _fireSpread:
     value: 0.25
-  _initialBulletCount:
+  _currentBulletCount:
     value: 8
   _fireConditions:
-  - rid: 5173014224542629901
-  - rid: 5173014224542629897
+  - rid: 1979868951095803908
+  - rid: 1979868951095803907
   _fireActions:
-  - rid: 5173014224542629899
-  - rid: 5173014224542629900
-  - rid: 5173014224542629902
-  _timeEndActions:
-  - rid: 5173014224542629904
+  - rid: 1979868951095803904
+  - rid: 1979868951095803905
+  - rid: 1979868951095803906
+  _weaponType: 1
+  _eventReceiver: {fileID: 0}
   references:
     version: 2
     RefIds:
-    - rid: 5173014224542629897
-      type: {class: HaveAmmoConditionAsset, ns: , asm: Assembly-CSharp}
+    - rid: 1979868951095803904
+      type: {class: DecreaseAmmoByOneActionAsset, ns: Game.Scripts.Gameplay.Entity.Common.Shooting.Actions, asm: Assembly-CSharp}
       data: 
-    - rid: 5173014224542629899
-      type: {class: DecreaseAmmoByOneActionAsset, ns: , asm: Assembly-CSharp}
+    - rid: 1979868951095803905
+      type: {class: StatTimerAfterAttackActionAsset, ns: Game.Scripts.Gameplay.Entity.Common.Shooting.Actions, asm: Assembly-CSharp}
       data: 
-    - rid: 5173014224542629900
-      type: {class: StatTimerAfterFireActionAsset, ns: , asm: Assembly-CSharp}
+    - rid: 1979868951095803906
+      type: {class: CanAttackFalseActionAsset, ns: Game.Scripts.Gameplay.Entity.Common.Shooting.Actions, asm: Assembly-CSharp}
       data: 
-    - rid: 5173014224542629901
-      type: {class: CanShootTrueConditionAsset, ns: , asm: Assembly-CSharp}
+    - rid: 1979868951095803907
+      type: {class: CanAttackTrueConditionAsset, ns: Game.Scripts.Gameplay.Entity.Common.Shooting.Conditions, asm: Assembly-CSharp}
       data: 
-    - rid: 5173014224542629902
-      type: {class: CanShootFalseActionAsset, ns: , asm: Assembly-CSharp}
-      data: 
-    - rid: 5173014224542629904
-      type: {class: CanShootTrueActionAsset, ns: , asm: Assembly-CSharp}
+    - rid: 1979868951095803908
+      type: {class: HaveAmmoConditionAsset, ns: Game.Scripts.Gameplay.Entity.Common.Shooting.Conditions, asm: Assembly-CSharp}
       data: 
 --- !u!1 &3618244528254723884
 GameObject:

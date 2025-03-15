@@ -1412,6 +1412,7 @@ GameObject:
   - component: {fileID: 892074460847815475}
   - component: {fileID: 4413981448538458451}
   - component: {fileID: 2454701268584343390}
+  - component: {fileID: 5280118589156880830}
   m_Layer: 9
   m_Name: Character
   m_TagString: Player
@@ -1499,6 +1500,8 @@ MonoBehaviour:
   - {fileID: 892074460847815475}
   - {fileID: 4413981448538458451}
   - {fileID: 2454701268584343390}
+  - {fileID: 5280118589156880830}
+  - {fileID: 1040517790327775771}
   _onlySelectedGizmos: 0
   _onlyEditModeGizmos: 0
 --- !u!114 &1016400137640701849
@@ -1601,13 +1604,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deathActionAsset:
-  - rid: 1979868633497600011
+  - rid: 1979868951095803911
   references:
     version: 2
     RefIds:
-    - rid: 1979868633497600011
-      type: {class: GameObjectDestroyActionAsset, ns: Game.Scripts.Gameplay.Entity.Common.Projectile, asm: Assembly-CSharp}
+    - rid: 1979868951095803911
+      type: {class: BehaviourRemoveActionAsset, ns: Game.Scripts.Gameplay.Entity.Common.Projectile, asm: Assembly-CSharp}
       data: 
+--- !u!114 &5280118589156880830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3578180279390331970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63c24b1920f54915b4b33ad8e2d5d95b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 676053041413999030}
 --- !u!1 &3818262767236408140
 GameObject:
   m_ObjectHideFlags: 0
@@ -2472,7 +2488,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: c98aa805957f549baadf79dc0675cdc5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -2921,54 +2937,27 @@ PrefabInstance:
       value: -169.003
       objectReference: {fileID: 0}
     - target: {fileID: 5814607813176723042, guid: 8c9bfd0f9949b4ed0b1b7e6c4a039d83, type: 3}
-      propertyPath: _weaponType
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: _eventReceiver
+      value: 
+      objectReference: {fileID: 2682483842004838925}
     - target: {fileID: 5814607813176723042, guid: 8c9bfd0f9949b4ed0b1b7e6c4a039d83, type: 3}
-      propertyPath: _fireActions.Array.data[0]
-      value: 1979868633497600005
-      objectReference: {fileID: 0}
+      propertyPath: _shootParticle
+      value: 
+      objectReference: {fileID: 542312931861483368}
     - target: {fileID: 5814607813176723042, guid: 8c9bfd0f9949b4ed0b1b7e6c4a039d83, type: 3}
-      propertyPath: _fireActions.Array.data[1]
-      value: 1979868815326445573
-      objectReference: {fileID: 0}
-    - target: {fileID: 5814607813176723042, guid: 8c9bfd0f9949b4ed0b1b7e6c4a039d83, type: 3}
-      propertyPath: _fireActions.Array.data[2]
-      value: 1979868815326445574
-      objectReference: {fileID: 0}
-    - target: {fileID: 5814607813176723042, guid: 8c9bfd0f9949b4ed0b1b7e6c4a039d83, type: 3}
-      propertyPath: _fireConditions.Array.data[0]
-      value: 1979868633497600003
-      objectReference: {fileID: 0}
-    - target: {fileID: 5814607813176723042, guid: 8c9bfd0f9949b4ed0b1b7e6c4a039d83, type: 3}
-      propertyPath: _fireConditions.Array.data[1]
-      value: 1979868815326445572
-      objectReference: {fileID: 0}
-    - target: {fileID: 5814607813176723042, guid: 8c9bfd0f9949b4ed0b1b7e6c4a039d83, type: 3}
-      propertyPath: managedReferences[1979868633497600003]
-      value: Assembly-CSharp Game.Scripts.Gameplay.Entity.Common.Shooting.Conditions.HaveAmmoConditionAsset
-      objectReference: {fileID: 0}
-    - target: {fileID: 5814607813176723042, guid: 8c9bfd0f9949b4ed0b1b7e6c4a039d83, type: 3}
-      propertyPath: managedReferences[1979868633497600005]
-      value: Assembly-CSharp Game.Scripts.Gameplay.Entity.Common.Shooting.Actions.DecreaseAmmoByOneActionAsset
-      objectReference: {fileID: 0}
-    - target: {fileID: 5814607813176723042, guid: 8c9bfd0f9949b4ed0b1b7e6c4a039d83, type: 3}
-      propertyPath: managedReferences[1979868815326445572]
-      value: Assembly-CSharp Game.Scripts.Gameplay.Entity.Common.Shooting.Conditions.CanAttackTrueConditionAsset
-      objectReference: {fileID: 0}
-    - target: {fileID: 5814607813176723042, guid: 8c9bfd0f9949b4ed0b1b7e6c4a039d83, type: 3}
-      propertyPath: managedReferences[1979868815326445573]
-      value: Assembly-CSharp Game.Scripts.Gameplay.Entity.Common.Shooting.Actions.StatTimerAfterAttackActionAsset
-      objectReference: {fileID: 0}
-    - target: {fileID: 5814607813176723042, guid: 8c9bfd0f9949b4ed0b1b7e6c4a039d83, type: 3}
-      propertyPath: managedReferences[1979868815326445574]
-      value: Assembly-CSharp Game.Scripts.Gameplay.Entity.Common.Shooting.Actions.CanAttackFalseActionAsset
-      objectReference: {fileID: 0}
+      propertyPath: _shootAudioSource
+      value: 
+      objectReference: {fileID: 7196453617052720464}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9bfd0f9949b4ed0b1b7e6c4a039d83, type: 3}
+--- !u!198 &542312931861483368 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5064070444613506116, guid: 8c9bfd0f9949b4ed0b1b7e6c4a039d83, type: 3}
+  m_PrefabInstance: {fileID: 4738243663061736236}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6883243919796163204 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2181904278700624296, guid: 8c9bfd0f9949b4ed0b1b7e6c4a039d83, type: 3}
@@ -2980,6 +2969,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f834567d537260b4f8d66afeb8c193b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &7196453617052720464 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2458806991490565756, guid: 8c9bfd0f9949b4ed0b1b7e6c4a039d83, type: 3}
+  m_PrefabInstance: {fileID: 4738243663061736236}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7708566380249203598 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3115307619230652578, guid: 8c9bfd0f9949b4ed0b1b7e6c4a039d83, type: 3}

@@ -7,7 +7,7 @@ using Game.Scripts.Gameplay.Entity.Common.Shooting.Behaviours;
 
 namespace Game.Scripts.Gameplay.Entity.Common.Projectile
 {
-    public class GameObjectDestroyActionAsset : IEntityActionAsset
+    public class BehaviourRemoveActionAsset : IEntityActionAsset
     {
         public Action Create(IEntity entity)
         {

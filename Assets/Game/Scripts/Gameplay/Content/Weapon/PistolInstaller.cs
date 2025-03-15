@@ -11,18 +11,41 @@ namespace Game.Scripts.Gameplay.Content.Weapon
 {
     public class PistolInstaller : SceneEntityInstaller<IWeaponEntity>
     {
-        [SerializeField] private WeaponEntity _weapon;
-        [SerializeField] private Transform _firePoint;
-        [SerializeField] private GameObject _bulletPrefab;
-        [SerializeField] private Countdown _fireTimer;
-        [SerializeField] private ReactiveFloat _fireSpread;
-        [SerializeField] private ReactiveInt _currentBulletCount;
-        [SerializeReference] private IEntityPredicateAsset[] _fireConditions;
-        [SerializeReference] private IEntityActionAsset[] _fireActions;
-        [SerializeField] private WeaponType _weaponType;
+        [SerializeField]
+        private WeaponEntity _weapon;
+
+        [SerializeField]
+        private Transform _firePoint;
+
+        [SerializeField]
+        private GameObject _bulletPrefab;
+
+        [SerializeField]
+        private Countdown _fireTimer;
+
+        [SerializeField]
+        private ReactiveFloat _fireSpread;
+
+        [SerializeField]
+        private ReactiveInt _currentBulletCount;
+
+        [SerializeReference]
+        private IEntityPredicateAsset[] _fireConditions;
+
+        [SerializeReference]
+        private IEntityActionAsset[] _fireActions;
+
+        [SerializeField]
+        private WeaponType _weaponType;
 
         [SerializeField]
         private AnimationEventReceiver _eventReceiver;
+
+        [SerializeField]
+        private ParticleSystem _shootParticle;
+
+        [SerializeField]
+        private AudioSource _shootAudioSource;
 
         protected override void Install(IWeaponEntity entity)
         {
@@ -53,6 +76,12 @@ namespace Game.Scripts.Gameplay.Content.Weapon
             shootEvent.SubscribeAllBy(_fireActions, entity);
             entity.AddAttackEvent(shootEvent);
 
+            entity.GetShootAction()
+                .Subscribe(() =>
+                {
+                    _shootAudioSource.Play();
+                    _shootParticle.Play();
+                });
         }
     }
 }

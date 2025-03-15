@@ -1652,10 +1652,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4361596233082998913}
   - component: {fileID: 501587286819408059}
-  - component: {fileID: 8179233504444308434}
+  - component: {fileID: 7278316225723986290}
   - component: {fileID: 5017383900503186824}
   - component: {fileID: 3788695897605723979}
   - component: {fileID: 1431387019263149182}
+  - component: {fileID: 8179233504444308434}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Enemy
@@ -1706,35 +1707,22 @@ MonoBehaviour:
   - {fileID: 5017383900503186824}
   - {fileID: 3788695897605723979}
   - {fileID: 1431387019263149182}
+  - {fileID: 7278316225723986290}
   _onlySelectedGizmos: 0
   _onlyEditModeGizmos: 0
---- !u!54 &8179233504444308434
-Rigidbody:
+--- !u!114 &7278316225723986290
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6355162821186015845}
-  serializedVersion: 4
-  m_Mass: 10
-  m_Drag: 10
-  m_AngularDrag: 10
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 84
-  m_CollisionDetection: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aae2decbe17243f99c651360a4260b17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 2415962780172116089}
 --- !u!114 &5017383900503186824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1782,13 +1770,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deathActionAsset:
-  - rid: 1979868633497600015
+  - rid: 1979868951095803910
   references:
     version: 2
     RefIds:
-    - rid: 1979868633497600015
-      type: {class: GameObjectDestroyActionAsset, ns: Game.Scripts.Gameplay.Entity.Common.Projectile, asm: Assembly-CSharp}
+    - rid: 1979868951095803910
+      type: {class: BehaviourRemoveActionAsset, ns: Game.Scripts.Gameplay.Entity.Common.Projectile, asm: Assembly-CSharp}
       data: 
+--- !u!54 &8179233504444308434
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6355162821186015845}
+  serializedVersion: 4
+  m_Mass: 10
+  m_Drag: 10
+  m_AngularDrag: 10
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 84
+  m_CollisionDetection: 0
 --- !u!1 &6519369982854541961
 GameObject:
   m_ObjectHideFlags: 0
@@ -2070,7 +2085,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: cb7def12ed591468ebdc46c5accc3cdb, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
