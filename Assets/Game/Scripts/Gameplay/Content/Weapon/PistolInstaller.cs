@@ -15,7 +15,7 @@ namespace Game.Scripts.Gameplay.Content.Weapon
         [SerializeField] private GameObject _bulletPrefab;
         [SerializeField] private Countdown _fireTimer;
         [SerializeField] private ReactiveFloat _fireSpread;
-        [SerializeField] private ReactiveInt _initialBulletCount;
+        [SerializeField] private ReactiveInt _currentBulletCount;
         [SerializeReference] private IEntityPredicateAsset[] _fireConditions;
         [SerializeReference] private IEntityActionAsset[] _fireActions;
         [SerializeField] private WeaponType _weaponType;
@@ -26,7 +26,7 @@ namespace Game.Scripts.Gameplay.Content.Weapon
             entity.AddBulletPrefab(_bulletPrefab);
             entity.AddFirePoint(_firePoint);
             entity.AddFireSpread(_fireSpread);
-            entity.AddBulletCount(_initialBulletCount);
+            entity.AddBulletCount(_currentBulletCount);
             //Shooting
             entity.AddWeapon(_weapon);
             entity.AddWeaponType(_weaponType);

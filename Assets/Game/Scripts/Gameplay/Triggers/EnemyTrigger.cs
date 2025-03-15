@@ -14,12 +14,21 @@ namespace Game.Scripts.Gameplay.Triggers
         {
             if (other.gameObject.TryGetEntity(out IEntity entity))
             {
-                entity.GetDeathEvent().Subscribe(Unsubscribe);
-                Subscribe(entity);
+                entity.GetDeathEvent().Subscribe(RemoveTargetFromEnemies);
+                SetTargetToEnemies(entity);
             }
         }
 
-        private void Subscribe(IEntity entity)
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.gameObject.TryGetEntity(out IEntity entity))
+            {
+                RemoveTargetFromEnemies();
+                entity.GetDeathEvent().Unsubscribe(RemoveTargetFromEnemies);
+            }
+        }
+
+        private void SetTargetToEnemies(IEntity entity)
         {
             for (int i = 0; i < _enemies.Length; i++)
             {
@@ -27,20 +36,11 @@ namespace Game.Scripts.Gameplay.Triggers
             }
         }
 
-        private void Unsubscribe()
+        private void RemoveTargetFromEnemies()
         {
             for (int i = 0; i < _enemies.Length; i++)
             {
                 _enemies[i].GetTarget().Value = null;
-            }
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            if (other.gameObject.TryGetComponent(out SceneEntity entity))
-            {
-                Unsubscribe();
-                entity.GetDeathEvent().Unsubscribe(Unsubscribe);
             }
         }
     }

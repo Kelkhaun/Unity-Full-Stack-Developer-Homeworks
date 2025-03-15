@@ -20,7 +20,8 @@ namespace Game.Scripts.Gameplay.Entity.Common.Move
 
         public void OnFixedUpdate(in IEntity entity, in float deltaTime)
         {
-            _rigidbody.velocity = _direction.Value * (_speed.Value * deltaTime);
+            if (_rigidbody != null)
+                _rigidbody.velocity = _direction.Value * (_speed.Value * deltaTime);
         }
     }
 }
