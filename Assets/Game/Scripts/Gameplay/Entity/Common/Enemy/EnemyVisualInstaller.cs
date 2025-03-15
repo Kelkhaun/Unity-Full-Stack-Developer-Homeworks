@@ -13,5 +13,6 @@ public sealed class EnemyVisualInstaller : SceneEntityInstaller
         entity.AddBehaviour<DeathAnimationBehaviour>();
         entity.AddBehaviour<MoveAnimationBehaviour>();
         entity.AddBehaviour<TakeDamageAnimationBehaviour>();
+        entity.AddBehaviour<AttackAnimationBehaviour>();
     }
 }

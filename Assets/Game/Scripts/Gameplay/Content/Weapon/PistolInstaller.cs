@@ -79,6 +79,8 @@ namespace Game.Scripts.Gameplay.Content.Weapon
             entity.GetShootAction()
                 .Subscribe(() =>
                 {
+                   float randomPitch = Random.Range(0.9f, 1.1f);
+                   _shootAudioSource.pitch = randomPitch;
                     _shootAudioSource.Play();
                     _shootParticle.Play();
                 });

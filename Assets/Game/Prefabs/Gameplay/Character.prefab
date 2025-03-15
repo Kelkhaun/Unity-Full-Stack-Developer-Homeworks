@@ -1604,11 +1604,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deathActionAsset:
-  - rid: 1979868951095803911
+  - rid: 1979868951649714176
   references:
     version: 2
     RefIds:
-    - rid: 1979868951095803911
+    - rid: 1979868951649714176
       type: {class: BehaviourRemoveActionAsset, ns: Game.Scripts.Gameplay.Entity.Common.Projectile, asm: Assembly-CSharp}
       data: 
 --- !u!114 &5280118589156880830
