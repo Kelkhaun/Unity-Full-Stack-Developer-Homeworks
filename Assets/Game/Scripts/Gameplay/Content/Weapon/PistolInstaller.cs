@@ -3,6 +3,7 @@ using Atomic.Entities;
 using Atomic.Extensions;
 using Game.Scripts.Gameplay.Entity.Common.Shooting.Behaviours;
 using Game.Scripts.Types;
+using Modules.Gameplay;
 using SampleGame;
 using UnityEngine;
 
@@ -20,6 +21,9 @@ namespace Game.Scripts.Gameplay.Content.Weapon
         [SerializeReference] private IEntityActionAsset[] _fireActions;
         [SerializeField] private WeaponType _weaponType;
 
+        [SerializeField]
+        private AnimationEventReceiver _eventReceiver;
+
         protected override void Install(IWeaponEntity entity)
         {
             //Data
@@ -35,6 +39,8 @@ namespace Game.Scripts.Gameplay.Content.Weapon
             entity.AddBehaviour<CanAttackDelayBehaviour>();
             entity.AddBehaviour<AttackBehaviour>();
             entity.AddBehaviour<WeaponAttackBehaviour>();
+            entity.AddShootAction(new BaseEvent());
+            entity.AddAnimationEventReceiver(_eventReceiver);
             //Event
             BaseEvent shootRequestEvent = new BaseEvent();
             entity.AddAttackRequest(shootRequestEvent);

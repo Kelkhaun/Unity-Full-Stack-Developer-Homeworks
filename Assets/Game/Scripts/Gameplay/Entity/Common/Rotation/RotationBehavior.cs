@@ -24,7 +24,10 @@ namespace Game.Scripts.Gameplay.Entity.Common.Rotation
                 return;
 
             Quaternion targetRotation = Quaternion.LookRotation(_direction.Value);
-            _rigidbody.MoveRotation(Quaternion.Slerp(_rigidbody.rotation, targetRotation, _speed.Value * deltaTime));
+
+            if (_rigidbody != null)
+                _rigidbody.MoveRotation(Quaternion.Slerp(_rigidbody.rotation, targetRotation,
+                    _speed.Value * deltaTime));
         }
     }
 }

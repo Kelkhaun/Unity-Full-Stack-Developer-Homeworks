@@ -13,6 +13,7 @@ namespace Game.Scripts.Controllers
         private Joystick _moveJoystick;
         private Joystick _aimJoystick;
         private ReactiveVector3 _rotateDirection;
+        private ReactiveBool _isAiming;
         private Vector3 _transformedDirection;
         private Joystick _activeJoystick;
     
@@ -22,6 +23,7 @@ namespace Game.Scripts.Controllers
             _moveJoystick = context.GetMoveJoystick();
             _aimJoystick = context.GetAimJoystick();
             _rotateDirection = _character.GetRotateDirection();
+            _isAiming = _character.GetIsAiming();
         }
 
         public void OnUpdate(IContext context, float deltaTime)
@@ -29,6 +31,8 @@ namespace Game.Scripts.Controllers
             _activeJoystick = _aimJoystick.IsPressed ? _aimJoystick : _moveJoystick;
             _transformedDirection = new Vector3(_activeJoystick.Direction.x, 0, _activeJoystick.Direction.y);
             _rotateDirection.Value = _transformedDirection;
+            
+            _isAiming.Value = _aimJoystick.IsPressed;
         }
     }
 }

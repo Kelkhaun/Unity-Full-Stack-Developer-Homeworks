@@ -32,7 +32,8 @@ namespace Game.Scripts.Gameplay.Triggers
         {
             for (int i = 0; i < _enemies.Length; i++)
             {
-                _enemies[i].GetTarget().Value = entity;
+                if (_enemies[i] != null)
+                    _enemies[i].GetTarget().Value = entity;
             }
         }
 
@@ -40,7 +41,8 @@ namespace Game.Scripts.Gameplay.Triggers
         {
             for (int i = 0; i < _enemies.Length; i++)
             {
-                _enemies[i].GetTarget().Value = null;
+                if (_enemies[i] != null)
+                    _enemies[i].GetTarget().Value = null;
             }
         }
     }

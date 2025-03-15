@@ -53,6 +53,7 @@ namespace Game.Scripts.Gameplay.Content.Character
             entity.AddRotationSpeed(_rotationSpeed);
             entity.AddMoveDirection(_moveDirection);
             entity.AddRotateDirection(_rotateDirection);
+            entity.AddIsAiming(new ReactiveBool(false));
             entity.AddBehaviour<MovementBehaviour>();
             entity.AddBehaviour<RotationBehavior>();
             //Shooting

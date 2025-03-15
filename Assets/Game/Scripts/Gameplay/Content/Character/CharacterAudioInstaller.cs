@@ -1,5 +1,6 @@
 using Atomic.Entities;
 using Game.Scripts.Gameplay.Entity.Common.TakeDamage;
+using SampleGame;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -31,7 +32,9 @@ namespace Game.Scripts.Gameplay.Content.Character
         
         public override void Install(IEntity entity)
         {
-            // TODO
+            entity.AddAudioSource(_audioSource);
+            entity.AddTakeDamageSounds(_painLevels);
+            entity.AddBehaviour<TakeDamageSoundBehaviour>();
 
         }
     }

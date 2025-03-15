@@ -9,6 +9,7 @@ using Atomic.Entities;
 using Atomic.Elements;
 using Atomic.Extensions;
 using Game.Scripts.Types;
+using Modules.Gameplay;
 
 namespace SampleGame
 {
@@ -21,6 +22,8 @@ namespace SampleGame
 		public const int BulletCount = 64432308; // ReactiveInt
 		public const int BulletPrefab = -918778767; // GameObject
 		public const int FirePoint = 397255013; // Transform
+		public const int ShootAction = 729771536; // BaseEvent
+		public const int AnimationEventReceiver = 1837262450; // AnimationEventReceiver
 
 
 		///Value Extensions
@@ -96,5 +99,41 @@ namespace SampleGame
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static void SetFirePoint(this IWeaponEntity obj, Transform value) => obj.SetValue(FirePoint, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static BaseEvent GetShootAction(this IWeaponEntity obj) => obj.GetValue<BaseEvent>(ShootAction);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool TryGetShootAction(this IWeaponEntity obj, out BaseEvent value) => obj.TryGetValue(ShootAction, out value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool AddShootAction(this IWeaponEntity obj, BaseEvent value) => obj.AddValue(ShootAction, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool HasShootAction(this IWeaponEntity obj) => obj.HasValue(ShootAction);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool DelShootAction(this IWeaponEntity obj) => obj.DelValue(ShootAction);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void SetShootAction(this IWeaponEntity obj, BaseEvent value) => obj.SetValue(ShootAction, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static AnimationEventReceiver GetAnimationEventReceiver(this IWeaponEntity obj) => obj.GetValue<AnimationEventReceiver>(AnimationEventReceiver);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool TryGetAnimationEventReceiver(this IWeaponEntity obj, out AnimationEventReceiver value) => obj.TryGetValue(AnimationEventReceiver, out value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool AddAnimationEventReceiver(this IWeaponEntity obj, AnimationEventReceiver value) => obj.AddValue(AnimationEventReceiver, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool HasAnimationEventReceiver(this IWeaponEntity obj) => obj.HasValue(AnimationEventReceiver);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool DelAnimationEventReceiver(this IWeaponEntity obj) => obj.DelValue(AnimationEventReceiver);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void SetAnimationEventReceiver(this IWeaponEntity obj, AnimationEventReceiver value) => obj.SetValue(AnimationEventReceiver, value);
     }
 }

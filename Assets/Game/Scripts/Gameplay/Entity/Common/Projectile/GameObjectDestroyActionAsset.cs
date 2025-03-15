@@ -1,8 +1,9 @@
 using System;
 using Atomic.Entities;
 using Atomic.Extensions;
-using SampleGame;
-using Object = UnityEngine.Object;
+using Game.Scripts.Gameplay.Entity.Common.Move;
+using Game.Scripts.Gameplay.Entity.Common.Rotation;
+using Game.Scripts.Gameplay.Entity.Common.Shooting.Behaviours;
 
 namespace Game.Scripts.Gameplay.Entity.Common.Projectile
 {
@@ -10,7 +11,12 @@ namespace Game.Scripts.Gameplay.Entity.Common.Projectile
     {
         public Action Create(IEntity entity)
         {
-            return () => Object.Destroy(entity.GetGameObject());
+            return () =>
+            {
+                entity.DelBehaviour<MovementBehaviour>();
+                entity.DelBehaviour<RotationBehavior>();
+                entity.DelBehaviour<AttackBehaviour>();
+            };
         }
     }
 }

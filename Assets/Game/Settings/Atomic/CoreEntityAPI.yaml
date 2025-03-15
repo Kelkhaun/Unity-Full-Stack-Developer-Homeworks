@@ -12,6 +12,7 @@ imports:
   - Atomic.Elements
   - Modules.Gameplay
   - Game.Scripts.Types
+  - Game.Scripts.Gameplay.Entity.Common.TakeDamage
 
 tags:
   - Player
@@ -29,6 +30,7 @@ values:
   - MoveDirection: ReactiveVector3
   - MoveSpeed: ReactiveFloat
   - RotateDirection: ReactiveVector3
+  - IsAiming : ReactiveBool
   - RotationSpeed: ReactiveFloat
   - AttackEvent: IEvent
   - AttackRequest: IEvent  
@@ -47,3 +49,6 @@ values:
   - DeathAction : BaseAction>  
   - Target : ReactiveVariable<IEntity>
   - WeaponType : WeaponType
+  - Animator : Animator
+  - AudioSource : AudioSource
+  - TakeDamageSounds : PainSoundBehaviour.Level[]

@@ -12,6 +12,7 @@ imports:
   - Atomic.Elements
   - Atomic.Extensions
   - Game.Scripts.Types
+  - Modules.Gameplay
 
 tags:
 
@@ -21,4 +22,6 @@ values:
 - BulletCount: ReactiveInt
 - BulletPrefab: GameObject
 - FirePoint: Transform
+- ShootAction : BaseEvent
+- AnimationEventReceiver : AnimationEventReceiver
     

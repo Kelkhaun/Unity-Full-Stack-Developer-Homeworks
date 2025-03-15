@@ -9,6 +9,7 @@ using Atomic.Entities;
 using Atomic.Elements;
 using Modules.Gameplay;
 using Game.Scripts.Types;
+using Game.Scripts.Gameplay.Entity.Common.TakeDamage;
 
 namespace SampleGame
 {
@@ -31,6 +32,7 @@ namespace SampleGame
 		public const int MoveDirection = -721923052; // ReactiveVector3
 		public const int MoveSpeed = 526065662; // ReactiveFloat
 		public const int RotateDirection = -1044844011; // ReactiveVector3
+		public const int IsAiming = 2025090383; // ReactiveBool
 		public const int RotationSpeed = 1771316350; // ReactiveFloat
 		public const int AttackEvent = -691201150; // IEvent
 		public const int AttackRequest = -1177251095; // IEvent
@@ -48,6 +50,9 @@ namespace SampleGame
 		public const int InteractAction = -1026843572; // BaseAction<IEntity>
 		public const int Target = 1103309514; // ReactiveVariable<IEntity>
 		public const int WeaponType = -1936256502; // WeaponType
+		public const int Animator = -1714818978; // Animator
+		public const int AudioSource = 907064781; // AudioSource
+		public const int TakeDamageSounds = 1392262112; // PainSoundBehaviour.Level[]
 
 
 		///Tag Extensions
@@ -252,6 +257,24 @@ namespace SampleGame
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static void SetRotateDirection(this IEntity obj, ReactiveVector3 value) => obj.SetValue(RotateDirection, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static ReactiveBool GetIsAiming(this IEntity obj) => obj.GetValue<ReactiveBool>(IsAiming);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool TryGetIsAiming(this IEntity obj, out ReactiveBool value) => obj.TryGetValue(IsAiming, out value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool AddIsAiming(this IEntity obj, ReactiveBool value) => obj.AddValue(IsAiming, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool HasIsAiming(this IEntity obj) => obj.HasValue(IsAiming);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool DelIsAiming(this IEntity obj) => obj.DelValue(IsAiming);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void SetIsAiming(this IEntity obj, ReactiveBool value) => obj.SetValue(IsAiming, value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static ReactiveFloat GetRotationSpeed(this IEntity obj) => obj.GetValue<ReactiveFloat>(RotationSpeed);
@@ -558,5 +581,59 @@ namespace SampleGame
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static void SetWeaponType(this IEntity obj, WeaponType value) => obj.SetValue(WeaponType, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static Animator GetAnimator(this IEntity obj) => obj.GetValue<Animator>(Animator);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool TryGetAnimator(this IEntity obj, out Animator value) => obj.TryGetValue(Animator, out value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool AddAnimator(this IEntity obj, Animator value) => obj.AddValue(Animator, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool HasAnimator(this IEntity obj) => obj.HasValue(Animator);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool DelAnimator(this IEntity obj) => obj.DelValue(Animator);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void SetAnimator(this IEntity obj, Animator value) => obj.SetValue(Animator, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static AudioSource GetAudioSource(this IEntity obj) => obj.GetValue<AudioSource>(AudioSource);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool TryGetAudioSource(this IEntity obj, out AudioSource value) => obj.TryGetValue(AudioSource, out value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool AddAudioSource(this IEntity obj, AudioSource value) => obj.AddValue(AudioSource, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool HasAudioSource(this IEntity obj) => obj.HasValue(AudioSource);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool DelAudioSource(this IEntity obj) => obj.DelValue(AudioSource);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void SetAudioSource(this IEntity obj, AudioSource value) => obj.SetValue(AudioSource, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static PainSoundBehaviour.Level[] GetTakeDamageSounds(this IEntity obj) => obj.GetValue<PainSoundBehaviour.Level[]>(TakeDamageSounds);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool TryGetTakeDamageSounds(this IEntity obj, out PainSoundBehaviour.Level[] value) => obj.TryGetValue(TakeDamageSounds, out value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool AddTakeDamageSounds(this IEntity obj, PainSoundBehaviour.Level[] value) => obj.AddValue(TakeDamageSounds, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool HasTakeDamageSounds(this IEntity obj) => obj.HasValue(TakeDamageSounds);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool DelTakeDamageSounds(this IEntity obj) => obj.DelValue(TakeDamageSounds);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void SetTakeDamageSounds(this IEntity obj, PainSoundBehaviour.Level[] value) => obj.SetValue(TakeDamageSounds, value);
     }
 }
