@@ -1,4 +1,5 @@
 using Atomic.Entities;
+using SampleGame;
 using UnityEngine;
 
 namespace Game.Scripts.Gameplay.Entity.Common.Items
@@ -16,7 +17,12 @@ namespace Game.Scripts.Gameplay.Entity.Common.Items
         
         public override void Install(IEntity entity)
         {
-            //TODO
+            entity.GetInteractableItemSuccess().Subscribe(() =>
+            {
+                _vfx.Play();
+                _visual.gameObject.SetActive(false);
+                _audioSource.Play();
+            });
         }
     }
 }

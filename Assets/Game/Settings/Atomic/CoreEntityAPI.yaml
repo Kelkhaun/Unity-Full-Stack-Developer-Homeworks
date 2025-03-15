@@ -45,10 +45,14 @@ values:
   - TriggerEventReceiver : TriggerEventReceiver
   - Damage : ReactiveInt
   - Weapon : WeaponEntity  
-  - InteractAction : BaseAction<IEntity>  
+  - InteractEvent : BaseEvent<IEntity>  
   - DeathAction : BaseAction>  
   - Target : ReactiveVariable<IEntity>
   - WeaponType : WeaponType
   - Animator : Animator
   - AudioSource : AudioSource
   - TakeDamageSounds : PainSoundBehaviour.Level[]
+  - Clips: ReactiveInt
+  - AddedHealth: ReactiveInt
+  - InteractableItemSuccess: BaseEvent 
+  - BoxCollider: BoxCollider 

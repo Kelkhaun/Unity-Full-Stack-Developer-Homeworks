@@ -47,12 +47,16 @@ namespace SampleGame
 		public const int TriggerEventReceiver = -484936241; // TriggerEventReceiver
 		public const int Damage = 375673178; // ReactiveInt
 		public const int Weapon = 1855955664; // WeaponEntity
-		public const int InteractAction = -1026843572; // BaseAction<IEntity>
+		public const int InteractEvent = 1502481653; // BaseEvent<IEntity>
 		public const int Target = 1103309514; // ReactiveVariable<IEntity>
 		public const int WeaponType = -1936256502; // WeaponType
 		public const int Animator = -1714818978; // Animator
 		public const int AudioSource = 907064781; // AudioSource
 		public const int TakeDamageSounds = 1392262112; // PainSoundBehaviour.Level[]
+		public const int Clips = 162804960; // ReactiveInt
+		public const int AddedHealth = 981746382; // ReactiveInt
+		public const int InteractableItemSuccess = -200226185; // BaseEvent
+		public const int BoxCollider = -664938726; // BoxCollider
 
 
 		///Tag Extensions
@@ -529,22 +533,22 @@ namespace SampleGame
 		public static void SetWeapon(this IEntity obj, WeaponEntity value) => obj.SetValue(Weapon, value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static BaseAction<IEntity> GetInteractAction(this IEntity obj) => obj.GetValue<BaseAction<IEntity>>(InteractAction);
+		public static BaseEvent<IEntity> GetInteractEvent(this IEntity obj) => obj.GetValue<BaseEvent<IEntity>>(InteractEvent);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool TryGetInteractAction(this IEntity obj, out BaseAction<IEntity> value) => obj.TryGetValue(InteractAction, out value);
+		public static bool TryGetInteractEvent(this IEntity obj, out BaseEvent<IEntity> value) => obj.TryGetValue(InteractEvent, out value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool AddInteractAction(this IEntity obj, BaseAction<IEntity> value) => obj.AddValue(InteractAction, value);
+		public static bool AddInteractEvent(this IEntity obj, BaseEvent<IEntity> value) => obj.AddValue(InteractEvent, value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool HasInteractAction(this IEntity obj) => obj.HasValue(InteractAction);
+		public static bool HasInteractEvent(this IEntity obj) => obj.HasValue(InteractEvent);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool DelInteractAction(this IEntity obj) => obj.DelValue(InteractAction);
+		public static bool DelInteractEvent(this IEntity obj) => obj.DelValue(InteractEvent);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static void SetInteractAction(this IEntity obj, BaseAction<IEntity> value) => obj.SetValue(InteractAction, value);
+		public static void SetInteractEvent(this IEntity obj, BaseEvent<IEntity> value) => obj.SetValue(InteractEvent, value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static ReactiveVariable<IEntity> GetTarget(this IEntity obj) => obj.GetValue<ReactiveVariable<IEntity>>(Target);
@@ -635,5 +639,77 @@ namespace SampleGame
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static void SetTakeDamageSounds(this IEntity obj, PainSoundBehaviour.Level[] value) => obj.SetValue(TakeDamageSounds, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static ReactiveInt GetClips(this IEntity obj) => obj.GetValue<ReactiveInt>(Clips);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool TryGetClips(this IEntity obj, out ReactiveInt value) => obj.TryGetValue(Clips, out value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool AddClips(this IEntity obj, ReactiveInt value) => obj.AddValue(Clips, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool HasClips(this IEntity obj) => obj.HasValue(Clips);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool DelClips(this IEntity obj) => obj.DelValue(Clips);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void SetClips(this IEntity obj, ReactiveInt value) => obj.SetValue(Clips, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static ReactiveInt GetAddedHealth(this IEntity obj) => obj.GetValue<ReactiveInt>(AddedHealth);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool TryGetAddedHealth(this IEntity obj, out ReactiveInt value) => obj.TryGetValue(AddedHealth, out value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool AddAddedHealth(this IEntity obj, ReactiveInt value) => obj.AddValue(AddedHealth, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool HasAddedHealth(this IEntity obj) => obj.HasValue(AddedHealth);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool DelAddedHealth(this IEntity obj) => obj.DelValue(AddedHealth);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void SetAddedHealth(this IEntity obj, ReactiveInt value) => obj.SetValue(AddedHealth, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static BaseEvent GetInteractableItemSuccess(this IEntity obj) => obj.GetValue<BaseEvent>(InteractableItemSuccess);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool TryGetInteractableItemSuccess(this IEntity obj, out BaseEvent value) => obj.TryGetValue(InteractableItemSuccess, out value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool AddInteractableItemSuccess(this IEntity obj, BaseEvent value) => obj.AddValue(InteractableItemSuccess, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool HasInteractableItemSuccess(this IEntity obj) => obj.HasValue(InteractableItemSuccess);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool DelInteractableItemSuccess(this IEntity obj) => obj.DelValue(InteractableItemSuccess);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void SetInteractableItemSuccess(this IEntity obj, BaseEvent value) => obj.SetValue(InteractableItemSuccess, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static BoxCollider GetBoxCollider(this IEntity obj) => obj.GetValue<BoxCollider>(BoxCollider);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool TryGetBoxCollider(this IEntity obj, out BoxCollider value) => obj.TryGetValue(BoxCollider, out value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool AddBoxCollider(this IEntity obj, BoxCollider value) => obj.AddValue(BoxCollider, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool HasBoxCollider(this IEntity obj) => obj.HasValue(BoxCollider);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool DelBoxCollider(this IEntity obj) => obj.DelValue(BoxCollider);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void SetBoxCollider(this IEntity obj, BoxCollider value) => obj.SetValue(BoxCollider, value);
     }
 }

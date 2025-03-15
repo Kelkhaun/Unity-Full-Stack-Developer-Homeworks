@@ -3,12 +3,12 @@ using Atomic.Entities;
 using SampleGame;
 using UnityEngine;
 
-namespace Game.Scripts.Gameplay.Entity.Common.Ammo
+namespace Game.Scripts.Gameplay.Entity.Common.FirstAid
 {
-    public sealed class AmmoPickUpInstaller : SceneEntityInstaller
+    public sealed class FirstAidInstaller : SceneEntityInstaller
     {
         [SerializeField]
-        private int _clips = 10;
+        private int _health = 3;
 
         [SerializeField]
         private BoxCollider _boxCollider;
@@ -16,13 +16,15 @@ namespace Game.Scripts.Gameplay.Entity.Common.Ammo
         override public void Install(IEntity entity)
         {
             entity.AddInteractableTag();
-            entity.AddClips(_clips);
+            entity.AddAddedHealth(_health);
             entity.AddInteractableItemSuccess(new BaseEvent());
             entity.AddInteractEvent(new BaseEvent<IEntity>());
-            entity.AddBehaviour<AmmoPickUpBehaviour>();
+            entity.AddBehaviour<FirstAddBehaviour>();
+            entity.AddBoxCollider(_boxCollider);
 
             entity.GetInteractableItemSuccess()
                 .Subscribe(() => { _boxCollider.enabled = false; });
         }
     }
+
 }

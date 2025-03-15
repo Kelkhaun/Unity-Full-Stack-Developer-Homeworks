@@ -19,7 +19,7 @@ namespace Game.Scripts.Gameplay.Entity.Common.Interact
             if (target == null && !target.HasInteractableTag())
                 return false;
 
-            target.GetInteractAction().Invoke(source);
+            target.GetInteractEvent().Invoke(source);
             return true;
         }
     }
